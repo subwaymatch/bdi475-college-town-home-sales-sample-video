@@ -1,0 +1,53 @@
+<template>
+  <style>
+    
+  @font-face { font-family: 'Inter Site'; src: url('assets/fonts/Inter-latin.woff2') format('woff2'); font-weight: 100 900; font-style: normal; }
+  @font-face { font-family: 'Source Serif 4'; src: url('assets/fonts/SourceSerif4-latin.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; background: transparent; font-family: 'Inter Site', sans-serif; color: #111111; letter-spacing: -0.012em; }
+    #root .content { position: absolute; inset: 0; }
+    #root .column { position: absolute; display: flex; flex-direction: column; gap: 22px; }
+    #root .kicker { margin: 0 0 -10px; font-size: 28px; font-weight: 500; color: #111111; }
+    #root .title { margin: 0 0 14px; font-family: 'Source Serif 4', serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.01em; color: #111111; }
+    #root .note { margin: 10px 0 0; font-size: 30px; line-height: 1.38; color: #111111; }
+    #root .example { margin: 0; font-size: 28px; line-height: 1.35; font-weight: 400; color: #111111; border-left: 4px solid #111111; padding-left: 16px; }
+    #root .note.answer { color: #111111; font-weight: 600; padding: 14px 18px; background: #fff; border-left: 6px solid #111111; border-radius: 6px; }
+    #root .chip { margin: 0; align-self: flex-start; font-size: 28px; font-weight: 600; color: #111111; background: #fff; border: 2px solid #111111; border-radius: 999px; padding: 8px 20px; }
+    #root .win { position: absolute; overflow: hidden; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 18px 50px rgba(0,0,0,0.08); }
+    #root .stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    #root .shot, #root .shot img { position: absolute; left: 0; top: 0; display: block; }
+    #root .box { position: absolute; box-sizing: border-box; border-style: solid; border-color: #111111; }
+    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: #111111; line-height: 1.2; }
+    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: #111111; line-height: 1.2; }
+    #root .cursor { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    #root .menu { position: absolute; background: #fff; border-style: solid; border-color: rgba(0,0,0,0.2); box-shadow: 0 8px 28px rgba(0,0,0,0.16); overflow: hidden; }
+    #root .menu p { margin: 0; color: #111111; white-space: nowrap; }
+    #root .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="note-design" data-width="1920" data-height="1080">
+    <div id="note-design-content" class="content">
+      <p id="note-design-p" class="example" style="position:absolute;left:110px;bottom:216px;width:470px">One example of how a site could handle design and polish.</p>
+    </div>
+  </div>
+  <script>
+    // Answer switch: SHOW_ALL_ANSWERS comes from the render (--variables), else the declared default.
+    (function () {
+      var o = window.__hfVariables || {};
+      var show;
+      if (Object.prototype.hasOwnProperty.call(o, 'SHOW_ALL_ANSWERS')) show = !!o.SHOW_ALL_ANSWERS;
+      else {
+        try {
+          var d = JSON.parse(document.documentElement.getAttribute('data-composition-variables') || '[]');
+          show = !!(d.find(function (x) { return x.id === 'SHOW_ALL_ANSWERS'; }) || {}).default;
+        } catch (e) { show = false; }
+      }
+      document.documentElement.setAttribute('data-answers', show ? 'all' : 'hidden');
+    })();
+    const tl = gsap.timeline({ paused: true });
+    
+    tl.to('#note-design-content', { opacity: 0, duration: 0.35, ease: 'power2.in' }, 20.63);
+    tl.fromTo('#note-design-p', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.6);
+    window.__timelines["note-design"] = tl;
+  </script>
+</template>

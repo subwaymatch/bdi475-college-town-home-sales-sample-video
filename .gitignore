@@ -1,0 +1,11 @@
+# Rendered videos
+renders/
+*.mp4
+
+# Local secrets and dependencies
+.env
+node_modules/
+
+# HyperFrames local state and caches
+.hyperframes/
+.hf-tmp/

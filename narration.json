@@ -1,0 +1,33 @@
+{
+  "_note": "Voiceover text by scene id. Both versions share one audio track, so the narration never states a Q3 to Q10 answer. Edit a line, then run `npm run voiceover` (only changed lines are regenerated) and `npm run build`.",
+  "voice": { "id": "q0IMILNRPxOgtBTS4taI", "name": "Drew", "model": "eleven_multilingual_v2" },
+  "lines": {
+    "title": "Here's one sample site for the College-Town Home Sales case. It isn't the answer key, and it isn't the only way to build it.",
+    "first-look": "The whole site is one long page. Ten questions come first, then a section to explore the data, two short insights, and the data and methods.",
+    "questions-intro": "Questions one to six always use the full dataset. Seven to ten change with the visitor's own settings.",
+    "q1": "Question one asks which city has the highest median sale price. The site writes the answer out, Davis, California, at eight hundred eighty-nine thousand dollars, and then shows it in a bar chart.",
+    "q2": "Question two compares each city's mean and median price. Athens, Georgia has the widest gap, thirty-two point eight percent, and the site explains what causes it.",
+    "q3": "For question three, a slope chart shows which cities change rank once the price rule is applied.",
+    "q4": "Question four uses a bar chart for the change in median price from 2024 to 2025.",
+    "q5": "Question five uses a box plot, so you see the spread of days on market, not only the median.",
+    "q6": "And question six compares the property tax burden with a dot chart.",
+    "q7": "From question seven on, the visitor picks the settings. Change the number of bedrooms, and the answer and the chart update.",
+    "q8": "Question eight takes any price range you type in.",
+    "q9": "Question nine counts the sales in each month, for a city and year you choose.",
+    "q10": "And question ten finds how far from campus the homes are, for a campus area, a budget and a number of bedrooms.",
+    "insights": "The insights section has two short notes. One on data quality, and one on what it was like to work with a coding agent.",
+    "features-intro": "Next, the ten required features.",
+    "feature-01": "Filters for place, year, bedrooms and price, with key numbers that update as you change them.",
+    "feature-02": "A map of the campus areas. Click one, and the whole section filters to it.",
+    "feature-03": "A range filter you can drag, or type into. The slider and the number boxes stay in sync.",
+    "feature-04": "Filters for garage, basement and fireplace, where a blank counts as unknown, not as no.",
+    "feature-05": "Shareable filters. The settings live in the page address, so opening a copied link brings back the same view.",
+    "feature-06": "A side-by-side comparison of any two places.",
+    "feature-07": "A table that sorts when you click a column heading, with icons that show the column and the direction.",
+    "feature-08": "A layout that works on a desktop and on a phone, with no sideways scrolling.",
+    "feature-09": "A light and a dark mode, where the charts, the map and the controls follow the theme.",
+    "feature-10": "And a data and methods section with the rules behind every number. Across the ten questions, the site uses seven chart types.",
+    "design": "Finally, the design. A serif for headings and a sans serif for text. A small color palette, with the answer in the accent color. Even spacing, styled controls, finished charts, and small touches like a loading message and a real page title.",
+    "closing": "Your site will look different, and that's expected. Check your numbers against the rules in the case, not against this video."
+  }
+}

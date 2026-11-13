@@ -1,0 +1,142 @@
+# Renders the three versions of the video on GitHub and attaches them to a release.
+# Start it by hand: Actions tab > Render video > Run workflow.
+#
+#   sample-site-demo.mp4              learner version, 4K
+#   sample-site-demo-instructor.mp4   instructor version (SHOW_ALL_ANSWERS = true), 4K
+#   sample-site-demo-1080p.mp4        learner version, 1920x1080
+#
+# Each render is checked with OCR (scripts/check-render.py) before anything is released: a
+# render that shows the site's domain, a URL, the username, the repository name or, in a
+# learner version, a Q3 to Q10 answer value fails the run.
+
+name: Render video
+
+on:
+  workflow_dispatch:
+    inputs:
+      recapture:
+        description: Recapture the live site first (otherwise the committed captures are used)
+        type: boolean
+        default: false
+      release:
+        description: Attach the videos to a new GitHub release
+        type: boolean
+        default: true
+      tag:
+        description: Release tag (blank for video-<run number>)
+        type: string
+        required: false
+
+permissions:
+  contents: write
+
+env:
+  HYPERFRAMES_NO_TELEMETRY: '1'
+  DO_NOT_TRACK: '1'
+
+jobs:
+  capture:
+    if: ${{ inputs.recapture }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Capture the site
+        run: npm run capture
+      - name: Check the numbers against the check list
+        run: npm run verify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: captures
+          path: captures/
+          retention-days: 14
+
+  render:
+    needs: capture
+    # Runs after a recapture, or straight away when the recapture was skipped.
+    if: ${{ always() && (needs.capture.result == 'success' || needs.capture.result == 'skipped') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - file: sample-site-demo
+            answers: hidden
+            resolution: 4k
+            check: learner
+          - file: sample-site-demo-instructor
+            answers: all
+            resolution: 4k
+            check: instructor
+          - file: sample-site-demo-1080p
+            answers: hidden
+            resolution: 1080p
+            check: learner
+    name: render (${{ matrix.file }})
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use the new captures
+        if: ${{ inputs.recapture }}
+        uses: actions/download-artifact@v4
+        with:
+          name: captures
+          path: captures/
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install FFmpeg and Tesseract
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg tesseract-ocr
+      - name: Install the HyperFrames browser
+        run: npx --yes hyperframes@0.9.41 browser ensure
+      - name: Render
+        run: node scripts/render.mjs --answers ${{ matrix.answers }} --resolution ${{ matrix.resolution }} -o renders/${{ matrix.file }}.mp4
+      - name: Check the render with OCR
+        run: python3 scripts/check-render.py renders/${{ matrix.file }}.mp4 ${{ matrix.check }}
+      - name: Size and duration
+        run: |
+          ls -lh renders/${{ matrix.file }}.mp4
+          ffprobe -v error -show_entries format=duration:stream=width,height,codec_name -of compact renders/${{ matrix.file }}.mp4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.file }}
+          path: |
+            renders/${{ matrix.file }}.mp4
+            renders/${{ matrix.file }}.check.json
+          retention-days: 14
+
+  release:
+    needs: render
+    if: ${{ inputs.release }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: renders/
+          merge-multiple: true
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag || format('video-{0}', github.run_number) }}
+        run: |
+          ls -lh renders/
+          gh release create "$TAG" renders/*.mp4 \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "Sample site demo video ($TAG)" \
+            --notes "Rendered from commit $GITHUB_SHA.
+
+          - sample-site-demo.mp4: learner version, 4K
+          - sample-site-demo-instructor.mp4: instructor version, all answers visible, 4K
+          - sample-site-demo-1080p.mp4: learner version, 1920x1080
+
+          Each file passed the OCR check in scripts/check-render.py."
