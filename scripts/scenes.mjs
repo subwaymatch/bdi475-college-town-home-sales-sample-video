@@ -34,7 +34,7 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, subWidth = 
     S.copy.push(text);
   };
   if (kicker) add('kicker', kicker, 32);
-  add('title', title, titleSize, 'max-width:1500px');
+  add('title', title, titleSize, 'max-width:1500px;margin-bottom:6px');
   if (sub) add('note', sub, subSize, `max-width:${subWidth}px`);
   // Centred in the area above the caption band; the opening card (with its image) is centred in
   // the whole frame, sized so that it still ends above the caption band.
@@ -67,7 +67,7 @@ export const scenes = {
       S.fadeIn = 0;
       card(S, {
         immediate: true,
-        image: { src: 'assets/images/college-town-riso.webp', w: 720, space: 36 },
+        image: { src: 'assets/images/college-town-riso.webp', w: 670, space: 36 },
         kicker: 'A data analytics case study',
         title: 'College-Town Home Sales: one sample site',
         sub: 'A sample of what your site could look like. Not the answer key, and not the only way.',
@@ -551,7 +551,7 @@ function designScene(S) {
     const t0 = i * L;
     const last = i === beats.length - 1;
     S.text(b.title, { x: COL.x, y: COL.y + 44, w: COL.w, size: 52, cls: 'title', at: t0 + 0.15, until: last ? null : t0 + L - 0.3 });
-    S.text(b.note, { x: COL.x, y: COL.y + 130, w: COL.w, size: 30, cls: 'note', at: t0 + 0.45, until: last ? null : t0 + L - 0.3 });
+    S.text(b.note, { x: COL.x, y: COL.y + 144, w: COL.w, size: 30, cls: 'note', at: t0 + 0.45, until: last ? null : t0 + L - 0.3 });
   });
   const win = (i) => {
     const w = S.window({ ...WIN, at: i === 0 ? 0 : i * L });

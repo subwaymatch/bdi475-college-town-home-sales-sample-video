@@ -142,7 +142,7 @@ export class Scene {
     #root .content { position: absolute; inset: 0; }
     #root .column { position: absolute; display: flex; flex-direction: column; gap: 22px; }
     #root .kicker { margin: 0 0 -10px; font-size: 28px; font-weight: 500; color: ${C.black}; }
-    #root .title { margin: 0; font-family: 'Source Serif 4', serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.01em; color: ${C.black}; }
+    #root .title { margin: 0 0 14px; font-family: 'Source Serif 4', serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.01em; color: ${C.black}; }
     #root .note { margin: 10px 0 0; font-size: 30px; line-height: 1.38; color: ${C.black}; }
     #root .example { margin: 0; font-size: 28px; line-height: 1.35; font-weight: 400; color: ${C.black}; border-left: 4px solid ${C.black}; padding-left: 16px; }
     #root .note.answer { color: ${C.black}; font-weight: 600; padding: 14px 18px; background: #fff; border-left: 6px solid ${C.black}; border-radius: 6px; }
