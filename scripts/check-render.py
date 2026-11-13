@@ -8,7 +8,7 @@ Needs FFmpeg and Tesseract (apt-get install tesseract-ocr).
 
 Checks, in every version:
   - nothing that leads to the site or its repository: domain, username, repository name, a URL,
-    GitHub, the dataset's source institution
+    GitHub
 In the learner version also:
   - none of the Q3 to Q10 answer values from the check list
 In the instructor version, the same answer values are expected to be found (a check that OCR works).
@@ -33,7 +33,6 @@ ALWAYS = {
     "username": r"subwaymatch",
     "repository name": r"bdi\s?475|home-sales-sample",
     "course or school system": r"canvas|illinois\.edu",
-    "dataset source": r"deloitte|foundation center|emerging technologies",
 }
 ANSWERS = {
     "Q3": r"9th to 11th|10th to 9th|11th to 10th|\$455,639|\$474,550",
@@ -85,7 +84,7 @@ if hits:
     for h in hits:
         print(f"  IDENTIFYING  {h['time']:7.1f}s  {h['what']}: {h['text']}")
 else:
-    print("  no domain, URL, username, repository name or dataset source found")
+    print("  no domain, URL, username or repository name found")
 if mode == "learner":
     if answer_hits:
         bad = True

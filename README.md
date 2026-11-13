@@ -91,7 +91,7 @@ python3 scripts/check-render.py renders/sample-site-demo.mp4 learner
 python3 scripts/check-render.py renders/sample-site-demo-instructor.mp4 instructor
 ```
 
-The script samples one frame a second, reads it with OCR (Tesseract: `apt-get install tesseract-ocr`), and fails if it finds the site's domain, a URL, the username, the repository name, GitHub or the dataset's source institution. For the learner version it also fails on any Q3 to Q10 answer value from the check list. For the instructor version it lists the answer values it found, which shows that the OCR works. OCR cannot prove that nothing is there, so also step through the video by eye.
+The script samples one frame a second, reads it with OCR (Tesseract: `apt-get install tesseract-ocr`), and fails if it finds the site's domain, a URL, the username, the repository name or GitHub. The dataset citation is allowed. For the learner version it also fails on any Q3 to Q10 answer value from the check list. For the instructor version it lists the answer values it found, which shows that the OCR works. OCR cannot prove that nothing is there, so also step through the video by eye.
 
 ## Recapture the site
 
@@ -122,7 +122,7 @@ npm run check
 
 The capture script blurs parts of the page inside the browser before each screenshot, so the layout stays real:
 
-- In every capture: the footer and the dataset citation card. They name the data source and link to the site's code, and nothing in the video may lead back to the site or its repository.
+- In every capture: the footer line that links to the site's code on GitHub, since nothing in the video may lead back to the site or its repository. The dataset citation, in the footer and in the Data and methods section, stays readable.
 - In the learner copies (`*.learner.png`): the Q3 to Q10 written answers, the data labels on their charts, the rank labels on the Q3 slope chart, and the insights text.
 
 The video never shows the browser's address bar, tabs, the site's domain, the repository name or a username. Feature 5 (shareable filters) shows only the query string, in a box drawn by the video.
