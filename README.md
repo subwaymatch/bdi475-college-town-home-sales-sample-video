@@ -22,7 +22,8 @@ The video is made with [HyperFrames](https://github.com/heygen-com/hyperframes),
 | `compositions/`, `index.html` | The HyperFrames project. Generated: edit `scenes.json` and `scripts/scenes.mjs` instead. |
 | `docs/scene-plan.md` | The approved scene plan. |
 | `docs/on-screen-text.md` | Every line of on-screen text, by scene. Generated. |
-| `renders/` | Rendered videos. Not committed. |
+| `renders/` | Rendered videos. Not committed: they go to GitHub releases. |
+| `.github/workflows/render.yml` | Renders the three versions on GitHub and attaches them to a release. |
 
 ## Requirements
 
@@ -67,6 +68,16 @@ npm run render
 ```
 
 A 4K render takes a while (tens of minutes on a 4-core machine). To look at the video before rendering, run `npm run preview` and open the Studio link it prints.
+
+## Render on GitHub
+
+The workflow in `.github/workflows/render.yml` renders all three versions on GitHub, so nothing has to run on your own computer. Start it from the Actions tab: **Render video**, then **Run workflow**. It has three options:
+
+- **Recapture the live site first.** Off by default, which renders from the committed captures. When on, it captures the site again and checks the numbers against the check list. If any number differs, the run stops before rendering. The new captures are kept as a workflow artifact, not committed.
+- **Attach the videos to a new GitHub release.** On by default.
+- **Release tag.** Leave it blank for `video-<run number>`.
+
+The three versions render in parallel, one per runner. Each 4K render takes about an hour and a half. Each video is checked with OCR (see below) before it is uploaded, and the release is created only if all three pass. The videos are attached to the release rather than committed: GitHub does not accept files over 100 MB in the repository, and a release accepts files up to 2 GB. Each run's videos also stay as workflow artifacts for 14 days.
 
 ## Check a render
 
