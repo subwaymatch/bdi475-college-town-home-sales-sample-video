@@ -68,6 +68,18 @@ npm run render
 
 A 4K render takes a while (tens of minutes on a 4-core machine). To look at the video before rendering, run `npm run preview` and open the Studio link it prints.
 
+## Check a render
+
+```bash
+python3 scripts/check-render.py renders/sample-site-demo.mp4 learner
+```
+
+```bash
+python3 scripts/check-render.py renders/sample-site-demo-instructor.mp4 instructor
+```
+
+The script samples one frame a second, reads it with OCR (Tesseract: `apt-get install tesseract-ocr`), and fails if it finds the site's domain, a URL, the username, the repository name, GitHub or the dataset's source institution. For the learner version it also fails on any Q3 to Q10 answer value from the check list. For the instructor version it lists the answer values it found, which shows that the OCR works. OCR cannot prove that nothing is there, so also step through the video by eye.
+
 ## Recapture the site
 
 Recapture when the site changes:
