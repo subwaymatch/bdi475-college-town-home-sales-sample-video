@@ -1,0 +1,40 @@
+{
+ "sounds": {
+  "click-1": {
+   "file": "assets/sfx/click-1.mp3",
+   "duration": 0.303,
+   "hash": "f70bee08d47e0927",
+   "kind": "click",
+   "volume": 0.3
+  },
+  "click-2": {
+   "file": "assets/sfx/click-2.mp3",
+   "duration": 0.101,
+   "hash": "3718bdfd2750caf9",
+   "kind": "click",
+   "volume": 0.3
+  },
+  "typing": {
+   "file": "assets/sfx/typing.mp3",
+   "duration": 0.286,
+   "hash": "57b130cb3f2f67f8",
+   "kind": "typing",
+   "volume": 0.25
+  },
+  "whoosh": {
+   "file": "assets/sfx/whoosh.mp3",
+   "duration": 0.787,
+   "hash": "8c9d3c09031faaa5",
+   "kind": "whoosh",
+   "volume": 0.2
+  },
+  "underline": {
+   "file": "assets/sfx/underline.mp3",
+   "hash": "8722924e279fd293",
+   "kind": "underline",
+   "volume": 0.22,
+   "duration": 0.795
+  }
+ },
+ "model": "eleven_text_to_sound_v3"
+}

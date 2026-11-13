@@ -87,7 +87,60 @@ function tts(id) {
   return out;
 }
 
-const duration = (file) => +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', file], { encoding: 'utf8' }).trim();
+// The length of the decoded audio, without the MP3 encoder's padding (what the renderer plays).
+const duration = (file) => execFileSync('ffmpeg', ['-loglevel', 'error', '-i', file, '-f', 's16le', '-ac', '1', '-ar', '44100', '-'], { maxBuffer: 1 << 28 }).length / 2 / 44100 - 0.005;
+
+// The voice sometimes starts on the next line (it is given as context), or takes a breath, in the
+// last few milliseconds, which plays as a sudden cut-off sound. Two checks, in order:
+//   1. a short burst after a pause at the very end: end the clip in the pause;
+//   2. a clip that still has sound in its last 30 ms: end it at the quietest point of its last
+//      half second if that is near silence, or else fade out its last 50 ms.
+// Returns a description of what it did, or null. A tidied clip passes both checks, so running
+// this again changes nothing.
+function tidyTail(file) {
+  const pcm = execFileSync('ffmpeg', ['-loglevel', 'error', '-i', file, '-f', 'f32le', '-ac', '1', '-ar', '44100', '-'], { maxBuffer: 1 << 28 });
+  const x = new Float32Array(pcm.buffer, pcm.byteOffset, pcm.length / 4);
+  const win = 441; // 10 ms
+  const db = [];
+  for (let i = 0; i + win <= x.length; i += win) {
+    let e = 0;
+    for (let j = i; j < i + win; j++) e += x[j] * x[j];
+    db.push(10 * Math.log10(e / win + 1e-12));
+  }
+  const QUIET = -55, LOUD = -45;
+  let k = db.length - 1;
+  while (k >= 0 && db[k] < QUIET) k--; // skip true silence at the end
+  if (k < 0) return false;
+  let burst = 0;
+  while (k >= 0 && db[k] >= QUIET) { k--; burst++; } // the final sound
+  let gap = 0, gapMin = 0;
+  while (k >= 0 && db[k] < QUIET) { gapMin = Math.min(gapMin, db[k]); k--; gap++; } // the pause before it
+  const peak = Math.max(...db.slice(k + gap + 1));
+  const write = (af) => {
+    const tmpOut = file.replace(/\.mp3$/, '.trim.mp3');
+    execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-i', file, '-af', af, '-ar', '44100', '-ac', '1', '-b:a', '160k', tmpOut]);
+    fs.renameSync(tmpOut, file);
+  };
+  const cutAt = (cut) => write(`atrim=0:${cut.toFixed(3)},afade=t=out:st=${(cut - 0.02).toFixed(3)}:d=0.02`);
+  // 1. A burst of at most 120 ms after a pause of at least 30 ms that reaches true silence (a
+  // consonant such as the p in "types" leaves a short gap, but not a silent one), loud enough to hear.
+  if (burst <= 12 && gap >= 3 && gapMin <= -70 && peak > LOUD && k > 0) {
+    cutAt((k + 1 + Math.min(gap, 6)) * 0.01); // keep up to 60 ms of the pause
+    return 'removed a cut-off sound at the end';
+  }
+  // 2. Still sounding at the very end (a breath, or a hiss after the last word).
+  const N = db.length;
+  if (db[N - 1] <= -62) return null; // the final 10 ms are already quiet
+  let m = N - 1;
+  for (let i = N - 50; i < N; i++) if (i >= 0 && db[i] < db[m]) m = i;
+  if (db[m] <= -70 && m <= N - 4) {
+    cutAt((m + 1) * 0.01);
+    return 'removed a breath at the end';
+  }
+  const len = x.length / 44100;
+  write(`afade=t=out:st=${(len - 0.05).toFixed(3)}:d=0.05`);
+  return 'faded out the end';
+}
 
 for (const id of todo) {
   process.stdout.write(`  ${id} ... `);
@@ -96,6 +149,17 @@ for (const id of todo) {
   console.log(`${manifest.clips[id].duration} s`);
 }
 for (const id of Object.keys(manifest.clips)) if (!narration.lines[id]) delete manifest.clips[id];
+// Durations are measured from the decoded audio, for every clip.
+for (const id of ids) if (manifest.clips[id]) manifest.clips[id].duration = +duration(path.join(OUT, `${id}.mp3`)).toFixed(3);
+// Check every clip (new or not) for a cut-off sound at the end.
+for (const id of ids) {
+  const file = path.join(OUT, `${id}.mp3`);
+  const done = fs.existsSync(file) && tidyTail(file);
+  if (done) {
+    manifest.clips[id].duration = +duration(file).toFixed(3);
+    console.log(`  ${id}: ${done} (now ${manifest.clips[id].duration} s)`);
+  }
+}
 manifest.voice = voice;
 manifest.lead = LEAD;
 manifest.tail = TAIL;

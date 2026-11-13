@@ -1,0 +1,146 @@
+{
+ "clips": {
+  "title": {
+   "file": "assets/voice/title.mp3",
+   "duration": 7.611,
+   "hash": "c135a87867d48d2a"
+  },
+  "first-look": {
+   "file": "assets/voice/first-look.mp3",
+   "duration": 9.144,
+   "hash": "3285fbca8a975e37"
+  },
+  "questions-intro": {
+   "file": "assets/voice/questions-intro.mp3",
+   "duration": 14.391,
+   "hash": "00a0b2653bf93c53"
+  },
+  "q1": {
+   "file": "assets/voice/q1.mp3",
+   "duration": 17.365,
+   "hash": "b9e69bfff6f7fbcd"
+  },
+  "q2": {
+   "file": "assets/voice/q2.mp3",
+   "duration": 11.945,
+   "hash": "b5ec20b7895215cf"
+  },
+  "q3": {
+   "file": "assets/voice/q3.mp3",
+   "duration": 7.007,
+   "hash": "9aa6c870814f41f3"
+  },
+  "q4": {
+   "file": "assets/voice/q4.mp3",
+   "duration": 10.685,
+   "hash": "39e46bb32726e76d"
+  },
+  "q5": {
+   "file": "assets/voice/q5.mp3",
+   "duration": 5.893,
+   "hash": "2715f71bda4aef8d"
+  },
+  "q6": {
+   "file": "assets/voice/q6.mp3",
+   "duration": 10.769,
+   "hash": "83f85d3da6d745e9"
+  },
+  "q7": {
+   "file": "assets/voice/q7.mp3",
+   "duration": 7.333,
+   "hash": "b3b7cf20fa7c2967"
+  },
+  "q8": {
+   "file": "assets/voice/q8.mp3",
+   "duration": 3.285,
+   "hash": "1eac451999630f20"
+  },
+  "q9": {
+   "file": "assets/voice/q9.mp3",
+   "duration": 9.376,
+   "hash": "93624d89e98ac63d"
+  },
+  "q10": {
+   "file": "assets/voice/q10.mp3",
+   "duration": 6.357,
+   "hash": "b5925fbfe924e407"
+  },
+  "insights": {
+   "file": "assets/voice/insights.mp3",
+   "duration": 7.625,
+   "hash": "18f5bf7b9f68b9cc"
+  },
+  "features-intro": {
+   "file": "assets/voice/features-intro.mp3",
+   "duration": 2.165,
+   "hash": "b63e5a7c194bdfa8"
+  },
+  "feature-01": {
+   "file": "assets/voice/feature-01.mp3",
+   "duration": 5.754,
+   "hash": "5979271f1665f58d"
+  },
+  "feature-02": {
+   "file": "assets/voice/feature-02.mp3",
+   "duration": 4.407,
+   "hash": "fbe8e3cf7ca9f632"
+  },
+  "feature-03": {
+   "file": "assets/voice/feature-03.mp3",
+   "duration": 5.795,
+   "hash": "0123d05411873d3d"
+  },
+  "feature-04": {
+   "file": "assets/voice/feature-04.mp3",
+   "duration": 5.855,
+   "hash": "27cdef50ac9d89a0"
+  },
+  "feature-05": {
+   "file": "assets/voice/feature-05.mp3",
+   "duration": 7.333,
+   "hash": "7ffba02c51e42b8d"
+  },
+  "feature-06": {
+   "file": "assets/voice/feature-06.mp3",
+   "duration": 3.06,
+   "hash": "2a6d0864f16895c6"
+  },
+  "feature-07": {
+   "file": "assets/voice/feature-07.mp3",
+   "duration": 6.357,
+   "hash": "1b0481905f96ec47"
+  },
+  "feature-08": {
+   "file": "assets/voice/feature-08.mp3",
+   "duration": 4.778,
+   "hash": "31dcd8ca11136f2f"
+  },
+  "feature-09": {
+   "file": "assets/voice/feature-09.mp3",
+   "duration": 5.243,
+   "hash": "0c5af300be1dfa45"
+  },
+  "feature-10": {
+   "file": "assets/voice/feature-10.mp3",
+   "duration": 8.285,
+   "hash": "c02faad9d896439c"
+  },
+  "design": {
+   "file": "assets/voice/design.mp3",
+   "duration": 22.518,
+   "hash": "4b5f2220a24cbea9"
+  },
+  "closing": {
+   "file": "assets/voice/closing.mp3",
+   "duration": 14.298,
+   "hash": "a49b13b0031210c7"
+  }
+ },
+ "voice": {
+  "id": "q0IMILNRPxOgtBTS4taI",
+  "name": "Drew",
+  "model": "eleven_multilingual_v2"
+ },
+ "lead": 0.45,
+ "tail": 0.75
+}

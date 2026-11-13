@@ -4,7 +4,7 @@
   @font-face { font-family: 'Inter Site'; src: url('assets/fonts/Inter-latin.woff2') format('woff2'); font-weight: 100 900; font-style: normal; }
   @font-face { font-family: 'Source Serif 4'; src: url('assets/fonts/SourceSerif4-latin.woff2') format('woff2'); font-weight: 600; font-style: normal; }
 
-    #root { position: absolute; inset: 0; overflow: hidden; background: #f4f4f5; font-family: 'Inter Site', sans-serif; color: #111111; letter-spacing: -0.012em; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #f4f4f5; font-family: 'Inter Site', sans-serif; color: #111111; letter-spacing: -0.022em; }
     #root .content { position: absolute; inset: 0; }
     #root .column { position: absolute; display: flex; flex-direction: column; gap: 22px; }
     #root .kicker { margin: 0 0 -10px; font-size: 28px; font-weight: 500; color: #111111; }
@@ -17,11 +17,11 @@
     #root .stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
     #root .shot, #root .shot img { position: absolute; left: 0; top: 0; display: block; }
     #root .box { position: absolute; box-sizing: border-box; border-style: solid; border-color: #111111; }
-    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: #111111; line-height: 1.2; }
-    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: #111111; line-height: 1.2; }
+    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: #111111; line-height: 1.2; letter-spacing: -0.012em; }
+    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: #111111; line-height: 1.2; letter-spacing: -0.012em; }
     #root .cursor { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
     #root .menu { position: absolute; background: #fff; border-style: solid; border-color: rgba(0,0,0,0.2); box-shadow: 0 8px 28px rgba(0,0,0,0.16); overflow: hidden; }
-    #root .menu p { margin: 0; color: #111111; white-space: nowrap; }
+    #root .menu p { margin: 0; color: #111111; white-space: nowrap; letter-spacing: -0.012em; }
     #root .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 0; }
     
   </style>
@@ -49,20 +49,21 @@
     })();
     const tl = gsap.timeline({ paused: true });
     tl.fromTo('#q2-content', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
-    tl.to('#q2-content', { opacity: 0, duration: 0.35, ease: 'power2.in' }, 7.63);
+    tl.to('#q2-content', { opacity: 0, duration: 0.35, ease: 'power2.in' }, 13.13);
     tl.set('#q2-win1-stage', { x: 20.04, y: 296.37, scale: 0.9946 }, 0);
-    tl.fromTo(['#q2-box3','#q2-box3-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.5);
-    tl.to(['#q2-box3','#q2-box3-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 1.9);
-    tl.to('#q2-win1-stage', { x: 109.28, y: 18, scale: 0.8375, duration: 1.3, ease: 'power2.inOut' }, 1.5);
-    tl.fromTo(['#q2-box4','#q2-box4-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 2.6);
-    tl.to(['#q2-box4','#q2-box4-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 4.5);
-    tl.fromTo(['#q2-box5','#q2-box5-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 3.3);
-    tl.to(['#q2-box5','#q2-box5-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 4.5);
-    tl.to('#q2-win1-stage', { x: 255.27, y: 16.57, scale: 1.45, duration: 1.4, ease: 'power2.inOut' }, 4.6);
-    tl.fromTo(['#q2-box6','#q2-box6-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 5.6);
-    tl.fromTo('#q2-col7-k', { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.25);
-    tl.fromTo('#q2-col7-t', { opacity: 0, filter: 'blur(8px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' }, 0.4);
-    tl.fromTo('#q2-col7-n0', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 5);
+    tl.fromTo(['#q2-box3','#q2-box3-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.84);
+    tl.to(['#q2-box3','#q2-box3-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 2.28);
+    tl.to('#q2-win1-stage', { x: 109.28, y: 18, scale: 0.8375, duration: 1.3, ease: 'power2.inOut' }, 2.53);
+    tl.fromTo(['#q2-box4','#q2-box4-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 4.39);
+    tl.to(['#q2-box4','#q2-box4-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 7.59);
+    tl.fromTo(['#q2-box5','#q2-box5-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 5.57);
+    tl.to(['#q2-box5','#q2-box5-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 7.59);
+    tl.to('#q2-win1-stage', { x: 255.27, y: 16.57, scale: 1.45, duration: 1.4, ease: 'power2.inOut' }, 7.76);
+    tl.fromTo(['#q2-box6','#q2-box6-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 9.45);
+    tl.to('#q2-win1-stage', { x: 242.08, y: -2.49, scale: 1.508, duration: 2.86, ease: 'sine.inOut' }, 10.29);
+    tl.fromTo('#q2-col7-k', { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.42);
+    tl.fromTo('#q2-col7-t', { opacity: 0, filter: 'blur(8px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' }, 0.68);
+    tl.fromTo('#q2-col7-n0', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 8.44);
     window.__timelines["q2"] = tl;
   </script>
 </template>

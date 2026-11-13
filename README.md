@@ -1,8 +1,8 @@
 # College-Town Home Sales: one sample site (demo video)
 
-This repository holds the source of a short silent video (3 minutes 29 seconds) that walks through one sample website for the College-Town Home Sales data analytics case. The case asks learners to build, with a coding agent, a website that analyzes home sales in U.S. college towns.
+This repository holds the source of a short narrated video (4 minutes 36 seconds) that walks through one sample website for the College-Town Home Sales data analytics case. The case asks learners to build, with a coding agent, a website that analyzes home sales in U.S. college towns.
 
-The video shows one possible finished site: how it answers the case's questions, and how it meets the required features and the design items. It is not the answer key and not the only right design. The video says this at the start and at the end.
+The video shows one possible finished site: how it answers the case's questions, and how it meets the required features and the design items. It is not the answer key and not the only right design. The video says this at the start and at the end, and the narration repeats through the questions and the design section that other charts, colors and layouts work just as well.
 
 The video is made with [HyperFrames](https://github.com/heygen-com/hyperframes), which renders HTML to video. Every scene is built from screenshots of the real site, taken with headless Chrome.
 
@@ -31,7 +31,7 @@ The video is made with [HyperFrames](https://github.com/heygen-com/hyperframes),
 - Chrome for rendering: `npx hyperframes browser ensure` installs the one HyperFrames uses.
 - Playwright with Chromium, for capturing: `npm install`, then `npx playwright install chromium`.
 
-Run `npx hyperframes doctor` to check the setup. Whisper, text-to-speech, music and Docker are optional and not needed.
+Run `npx hyperframes doctor` to check the setup. Whisper, music and Docker are optional and not needed. Text to speech is needed only to regenerate the narration (see Voiceover).
 
 ## The switches
 
@@ -41,6 +41,7 @@ All in `video.config.json`:
 |---|---|---|
 | `RESOLUTION` | `"4k"` (default) or `"1080p"` | The video is laid out once at 1920x1080. For 4K, HyperFrames renders the same layout at twice the pixel density (`--resolution 4k`), so text, boxes and the cursor scale with it and the layout does not change. |
 | `VOICEOVER` | `true` (default) or `false` | Include the narration from `assets/voice/`. |
+| `SFX` | `true` (default) or `false` | Include the sound effects from `assets/sfx/`. |
 | `SHOW_ALL_ANSWERS` | `false` (default) or `true` | `false` is the learner version: Q1 and Q2 are shown in full as worked examples, while the answer text and chart data labels of Q3 to Q10 and the insights text are blurred. `true` is the instructor version, with every answer visible. |
 | `FPS` | `30` | Frame rate. |
 | `QUALITY` | `"high"` | HyperFrames render quality (`draft`, `looks`, `high`). |
@@ -135,6 +136,18 @@ npm run voiceover
 ```
 
 This generates a clip for each new or changed line in `assets/voice/`, evens out the loudness, and lengthens any scene in `scenes.json` that is shorter than its line (it never shortens one). Then run `npm run build`. It needs an ElevenLabs API key in `ELEVENLABS_API_KEY`, sent in the `xi-api-key` header. `node scripts/voiceover.mjs --dry-run` shows what would be generated and how many characters it costs. Set `VOICEOVER` to `false` in `video.config.json` to render without narration. The clips are committed, so rendering (locally or in the GitHub workflow) never calls ElevenLabs.
+
+Where narration lengthens a scene, the scene's beats stretch in proportion, and the question scenes end on a slow push-in so the camera never sits still for long. After generating, it is worth transcribing the clips back (for example with ElevenLabs speech to text) and comparing them with `narration.json`, to catch a skipped or misread word.
+
+## Sound effects
+
+Quiet sounds on visible actions: a click wherever the cursor clicks, light typing wherever a value is typed, a soft mallet note as each of the two hand-drawn underlines draws, and a soft whoosh on the section cards. The sounds are in `sfx.json` (a prompt, a length and a playback volume for each), made with ElevenLabs text to sound v3 (`eleven_text_to_sound_v3`).
+
+```bash
+npm run sfx
+```
+
+This generates each new or changed sound in `assets/sfx/`, trims its leading silence and sets its peak to -3 dBFS. Then run `npm run build`. The scenes decide where sounds go: the kit records a cue whenever it animates one of those actions (`Scene.cue` in `scripts/lib/kit.mjs`), so cues follow the timing when scenes change. The volumes in `sfx.json` keep them well under the narration. Set `SFX` to `false` in `video.config.json` to render without them. Like the voice clips, the sounds are committed.
 
 ## Change the timing
 

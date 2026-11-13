@@ -58,6 +58,12 @@ export class Scene {
     this.fadeOut = 0.35;
     this.copy = []; // every line of on-screen text, for the review list
     this.transparent = false; // overlays: no ground of their own
+    this.sfx = []; // sound effect cues: { t (seconds into the scene), kind }, placed by build.mjs
+  }
+
+  // A sound effect at a time in seconds (already stretched), for a visible action.
+  cue(t, kind) {
+    this.sfx.push({ t: +Math.max(0, Math.min(t, this.duration - 0.1)).toFixed(3), kind });
   }
 
   // Beat time: a moment in the scene's design, stretched with the scene.
@@ -138,7 +144,7 @@ export class Scene {
     return `<template>
   <style>
     ${FONTS_CSS}
-    #root { position: absolute; inset: 0; overflow: hidden; background: ${this.transparent ? 'transparent' : C.ground}; font-family: 'Inter Site', sans-serif; color: ${C.black}; letter-spacing: -0.012em; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: ${this.transparent ? 'transparent' : C.ground}; font-family: 'Inter Site', sans-serif; color: ${C.black}; letter-spacing: -0.022em; }
     #root .content { position: absolute; inset: 0; }
     #root .column { position: absolute; display: flex; flex-direction: column; gap: 22px; }
     #root .kicker { margin: 0 0 -10px; font-size: 28px; font-weight: 500; color: ${C.black}; }
@@ -151,11 +157,11 @@ export class Scene {
     #root .stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
     #root .shot, #root .shot img { position: absolute; left: 0; top: 0; display: block; }
     #root .box { position: absolute; box-sizing: border-box; border-style: solid; border-color: ${C.black}; }
-    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: ${C.black}; line-height: 1.2; }
-    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: ${C.black}; line-height: 1.2; }
+    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: ${C.black}; line-height: 1.2; letter-spacing: -0.012em; }
+    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: ${C.black}; line-height: 1.2; letter-spacing: -0.012em; }
     #root .cursor { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
     #root .menu { position: absolute; background: #fff; border-style: solid; border-color: rgba(0,0,0,0.2); box-shadow: 0 8px 28px rgba(0,0,0,0.16); overflow: hidden; }
-    #root .menu p { margin: 0; color: ${C.black}; white-space: nowrap; }
+    #root .menu p { margin: 0; color: ${C.black}; white-space: nowrap; letter-spacing: -0.012em; }
     #root .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 0; }
     ${this.css.join('\n    ')}
   </style>
@@ -261,6 +267,24 @@ export class Win {
     return s;
   }
 
+  // A slow push-in from beat t to the end of the scene, so a hold that narration has lengthened
+  // never sits still. Zooms in by `factor` about the centre of a stage rectangle (default: the
+  // window centre). Call it after the scene's last box: labels are sized for the scale at the
+  // moment they appear, and a push-in only makes them larger.
+  drift(t, { factor = 1.05, toward = null } = {}) {
+    const T = this.s.T(t);
+    const dur = +(this.s.duration - this.s.fadeOut - T).toFixed(2);
+    if (dur < 1) return;
+    const k = this.keys.filter((key) => key.t <= T + 1e-6).pop() || this.keys[0];
+    const cx = toward ? (toward.x + toward.w / 2) * k.s + k.tx : this.w / 2;
+    const cy = toward ? (toward.y + toward.h / 2) * k.s + k.ty : this.h / 2;
+    const s = k.s * factor, tx = cx - (cx - k.tx) * factor, ty = cy - (cy - k.ty) * factor;
+    this.keys.push({ t: T, s, tx, ty });
+    this.keys.sort((a, b) => a.t - b.t);
+    this.s.js.push(`tl.to('#${this.stageId}', { x: ${n(tx)}, y: ${n(ty)}, scale: ${+s.toFixed(4)}, duration: ${dur}, ease: 'sine.inOut' }, ${T});`);
+    this.camMax = Math.max(this.camMax || 0, s);
+  }
+
   // A pan at constant speed between two camera settings (used for scrolling).
   pan(t, dur, focus, opts = {}) {
     return this.cam(t, focus, { dur, ease: opts.ease || 'none', ...opts });
@@ -324,12 +348,16 @@ export class Win {
       const kk = 1 / this.scaleAt(T);
       const d = st.dur || 0.8;
       this.s.js.push(`tl.to('#${id}', { x: ${n(st.x)}, y: ${n(st.y)}, scale: ${n(kk)}, duration: ${d}, ease: 'power2.inOut' }, ${T});`);
-      if (st.press) this.s.js.push(`tl.to('#${id}-i', { scale: 0.82, duration: 0.09, ease: 'power2.out' }, ${n(T + d + 0.05)});`);
+      if (st.press) {
+        this.s.js.push(`tl.to('#${id}-i', { scale: 0.82, duration: 0.09, ease: 'power2.out' }, ${n(T + d + 0.05)});`);
+        this.s.cue(T + d + 0.05, 'click');
+      }
       if (st.release) this.s.js.push(`tl.to('#${id}-i', { scale: 1, duration: 0.16, ease: 'power2.out' }, ${T});`);
       if (st.click) {
         const tc = n(T + d + 0.05);
         this.s.js.push(`tl.to('#${id}-i', { scale: 0.82, duration: 0.09, ease: 'power2.out' }, ${tc});`);
         this.s.js.push(`tl.to('#${id}-i', { scale: 1, duration: 0.16, ease: 'power2.out' }, ${n(tc + 0.1)});`);
+        this.s.cue(tc, 'click');
       }
     }
     if (hide != null) this.s.js.push(`tl.to('#${id}', { opacity: 0, duration: 0.3 }, ${this.s.T(hide)});`);
