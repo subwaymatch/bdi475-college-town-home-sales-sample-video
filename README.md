@@ -12,7 +12,7 @@ The video is made with [HyperFrames](https://github.com/heygen-com/hyperframes),
 |---|---|
 | `video.config.json` | The switches: resolution, answer visibility, frame rate, quality, and the address of the site to capture. |
 | `scenes.json` | Every scene's id, start and duration. The one place for timing. |
-| `scripts/scenes.mjs` | What each scene shows: text, camera moves, highlight boxes, cursor and dropdowns. |
+| `scripts/scenes.mjs` | What each scene shows: text, camera moves, highlight boxes, cursor and dropdowns. Also the "one example" notes that span each section. |
 | `scripts/lib/kit.mjs` | The building blocks the scenes use, and the layout rules (text sizes, caption band). |
 | `scripts/capture.mjs` | Captures every state of the site the video needs. |
 | `scripts/verify-numbers.mjs` | Checks the captured answers against the check list. |

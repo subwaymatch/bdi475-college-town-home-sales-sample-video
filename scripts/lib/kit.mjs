@@ -57,6 +57,7 @@ export class Scene {
     this.fadeIn = 0.45;
     this.fadeOut = 0.35;
     this.copy = []; // every line of on-screen text, for the review list
+    this.transparent = false; // overlays: no ground of their own
   }
 
   // Beat time: a moment in the scene's design, stretched with the scene.
@@ -137,12 +138,13 @@ export class Scene {
     return `<template>
   <style>
     ${FONTS_CSS}
-    #root { position: absolute; inset: 0; overflow: hidden; background: ${C.ground}; font-family: 'Inter Site', sans-serif; color: ${C.black}; letter-spacing: -0.012em; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: ${this.transparent ? 'transparent' : C.ground}; font-family: 'Inter Site', sans-serif; color: ${C.black}; letter-spacing: -0.012em; }
     #root .content { position: absolute; inset: 0; }
     #root .column { position: absolute; display: flex; flex-direction: column; gap: 22px; }
-    #root .kicker { margin: 0; font-size: 28px; font-weight: 600; color: ${C.black}; }
+    #root .kicker { margin: 0 0 -10px; font-size: 28px; font-weight: 500; color: ${C.black}; }
     #root .title { margin: 0; font-family: 'Source Serif 4', serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.01em; color: ${C.black}; }
-    #root .note { margin: 0; font-size: 30px; line-height: 1.38; color: ${C.black}; }
+    #root .note { margin: 10px 0 0; font-size: 30px; line-height: 1.38; color: ${C.black}; }
+    #root .example { margin: 0; font-size: 28px; line-height: 1.35; font-weight: 400; color: ${C.black}; border-left: 4px solid ${C.black}; padding-left: 16px; }
     #root .note.answer { color: ${C.black}; font-weight: 600; padding: 14px 18px; background: #fff; border-left: 6px solid ${C.black}; border-radius: 6px; }
     #root .chip { margin: 0; align-self: flex-start; font-size: 28px; font-weight: 600; color: ${C.black}; background: #fff; border: 2px solid ${C.black}; border-radius: 999px; padding: 8px 20px; }
     #root .win { position: absolute; overflow: hidden; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 18px 50px rgba(0,0,0,0.08); }

@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Scene, finish, FONTS_CSS, C } from './lib/kit.mjs';
-import { scenes as defs } from './scenes.mjs';
+import { scenes as defs, exampleNotes } from './scenes.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (f) => JSON.parse(fs.readFileSync(path.join(ROOT, f), 'utf8'));
@@ -50,10 +50,33 @@ for (const s of list.scenes) {
   copy.push({ id: s.id, title: s.title, start: s.start, duration: s.duration, lines: [...new Set(scene.copy)] });
 }
 
+// Example notes: overlays that span whole sections, above the scenes.
+const overlays = [];
+for (const note of exampleNotes) {
+  const i0 = list.scenes.findIndex((s) => s.id === note.from);
+  const i1 = list.scenes.findIndex((s) => s.id === note.to);
+  if (i0 < 0 || i1 < i0) throw new Error(`Example note ${note.id}: bad scene range`);
+  const start = list.scenes[i0].start;
+  const duration = +(list.scenes[i1].start + list.scenes[i1].duration - start).toFixed(3);
+  const scene = new Scene({ id: note.id, duration, manifest });
+  scene.transparent = true;
+  scene.fadeIn = 0;
+  const pid = `${note.id}-p`;
+  scene.raw(`<p id="${pid}" class="example" style="position:absolute;left:110px;bottom:216px;width:470px">${note.text}</p>`);
+  scene.copy.push(note.text);
+  scene.js.push(`tl.fromTo('#${pid}', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.6);`);
+  fs.writeFileSync(path.join(ROOT, 'compositions', `${note.id}.html`), finish(scene));
+  overlays.push({ id: note.id, start, duration });
+  copy.push({ id: note.id, title: 'Example note', start, duration, lines: [note.text] });
+}
+
 const hosts = list.scenes
   .map(
     (s) => `      <div id="${s.id}" data-composition-id="${s.id}" data-composition-src="compositions/${s.id}.html" data-start="${s.start}" data-duration="${s.duration}" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>`,
   )
+  .join('\n');
+const overlayHosts = overlays
+  .map((o) => `      <div id="${o.id}" data-composition-id="${o.id}" data-composition-src="compositions/${o.id}.html" data-start="${o.start}" data-duration="${o.duration}" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080"></div>`)
   .join('\n');
 
 const variables = [{ id: 'SHOW_ALL_ANSWERS', type: 'boolean', label: 'Show all answers (instructor version)', default: !!config.SHOW_ALL_ANSWERS }];
@@ -89,6 +112,7 @@ const index = `<!doctype html>
     >
       <div id="bg"></div>
 ${hosts}
+${overlayHosts}
     </div>
     <script>
       window.__timelines["main"] = gsap.timeline({ paused: true });

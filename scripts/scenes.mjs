@@ -27,6 +27,7 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, immediate =
   const items = [];
   if (image) parts.push(`<img id="${id}-img" src="${image.src}" alt="" style="width:${image.w}px;height:auto;display:block;margin-bottom:10px">`);
   const add = (cls, text, size, extra = '') => {
+    if (cls === 'kicker') extra += 'margin-bottom:-20px;';
     const pid = `${id}-${items.length}`;
     parts.push(`<p id="${pid}" class="${cls}" style="margin:0;font-size:${size}px;text-align:center;${extra}">${text}</p>`);
     items.push(pid);
@@ -46,6 +47,16 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, immediate =
       : `tl.fromTo('#${pid}', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, ${S.T(times[i])});`);
   });
 }
+
+// A note held under the text column through each section that shows the site, so viewers know
+// the screenshots are one example, not the only way. Each spans its scenes as one overlay.
+export const exampleNotes = [
+  { id: 'note-site', from: 'first-look', to: 'questions-intro', text: 'One example of what a finished site could look like.' },
+  { id: 'note-questions', from: 'q1', to: 'q10', text: 'One example of how a site could answer this question.' },
+  { id: 'note-insights', from: 'insights', to: 'insights', text: 'One example of how a site could present the insights.' },
+  { id: 'note-features', from: 'feature-01', to: 'feature-10', text: 'One example of how a site could meet this requirement.' },
+  { id: 'note-design', from: 'design', to: 'design', text: 'One example of how a site could handle design and polish.' },
+];
 
 export const scenes = {
   title: {
@@ -536,8 +547,8 @@ function designScene(S) {
   beats.forEach((b, i) => {
     const t0 = i * L;
     const last = i === beats.length - 1;
-    S.text(b.title, { x: COL.x, y: COL.y + 56, w: COL.w, size: 52, cls: 'title', at: t0 + 0.15, until: last ? null : t0 + L - 0.3 });
-    S.text(b.note, { x: COL.x, y: COL.y + 140, w: COL.w, size: 30, cls: 'note', at: t0 + 0.45, until: last ? null : t0 + L - 0.3 });
+    S.text(b.title, { x: COL.x, y: COL.y + 44, w: COL.w, size: 52, cls: 'title', at: t0 + 0.15, until: last ? null : t0 + L - 0.3 });
+    S.text(b.note, { x: COL.x, y: COL.y + 130, w: COL.w, size: 30, cls: 'note', at: t0 + 0.45, until: last ? null : t0 + L - 0.3 });
   });
   const win = (i) => {
     const w = S.window({ ...WIN, at: i === 0 ? 0 : i * L });

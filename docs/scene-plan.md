@@ -62,3 +62,5 @@ Authored at 1920x1080 and rendered at 4K with HyperFrames' supersampling (`--res
 - First look: no "Ten questions" chip.
 - Responsive layout: the phone sits on top of the desktop's box. Light and dark mode: the dark background fills the window.
 - Sortable table: the camera zooms in on the sort icons; state changes swap in 0.1 s.
+- Kickers sit closer to their titles at weight 500; paragraphs have more space above them.
+- Every section that shows the site carries a note under the text column: "One example of how a site could answer this question." (Q1 to Q10), "...meet this requirement." (features), and similar for the first look, insights and design. Each note spans its whole section (`note-*` in index.html).
