@@ -27,7 +27,17 @@
   </style>
   <div id="root" data-composition-id="title" data-width="1920" data-height="1080">
     <div id="title-content" class="content">
-      <div id="title-card" data-hold style="position:absolute;left:0;top:0;width:1920px;height:1080px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px"><img id="title-card-img" src="assets/images/college-town-riso.webp" alt="" style="width:670px;height:auto;display:block;margin-bottom:36px"><p id="title-card-0" class="kicker" style="margin:0;font-size:32px;text-align:center;margin-bottom:-20px;">A data analytics case study</p><p id="title-card-1" class="title" style="margin:0;font-size:72px;text-align:center;max-width:1500px;margin-bottom:6px">College-Town Home Sales: one sample site</p><p id="title-card-2" class="note" style="margin:0;font-size:36px;text-align:center;max-width:1100px">A sample of what your site could look like. Not the answer key, and not the only way.</p></div>
+      <div id="title-card" data-hold style="position:absolute;left:0;top:0;width:1920px;height:1080px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px"><img id="title-card-img" src="assets/images/college-town-riso.webp" alt="" style="width:670px;height:auto;display:block;margin-bottom:36px"><p id="title-card-0" class="kicker" style="margin:0;font-size:32px;text-align:center;margin-bottom:-20px;">A data analytics case study</p><p id="title-card-1" class="title" style="margin:0;font-size:72px;text-align:center;max-width:1500px;margin-bottom:6px">College-Town Home Sales: one sample site</p><p id="title-card-2" class="note" style="margin:0;font-size:36px;text-align:center;max-width:1100px">A sample of what your site <span style="position:relative;display:inline-block">could<svg aria-hidden="true" viewBox="0 0 120 22" preserveAspectRatio="none" style="position:absolute;left:-0.18em;top:calc(100% - 0.31em);width:calc(100% + 0.36em);height:0.5em;overflow:visible">
+    <defs>
+      <filter id="title-ul-rough" x="-5%" y="-40%" width="110%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/></filter>
+      <clipPath id="title-ul-c1"><rect id="title-ul-r1" x="0" y="0" width="0" height="22"/></clipPath>
+      <clipPath id="title-ul-c2"><rect id="title-ul-r2" x="0" y="0" width="0" height="22"/></clipPath>
+    </defs>
+    <g filter="url(#title-ul-rough)" fill="#111111">
+      <path clip-path="url(#title-ul-c1)" d="M2,10.8 C25,6.6 60,4.8 88,5.4 C102,5.7 111,6.3 118,7.0 C111,8.8 102,10.4 88,11.6 C60,12.8 25,14.0 2,12.4 Z"/>
+      <path clip-path="url(#title-ul-c2)" opacity="0.9" d="M12,16.6 C38,13.8 70,12.6 106,12.9 C70,15.4 38,17.6 12,18.4 Z"/>
+    </g>
+  </svg></span> look like. Not the answer key, and not the only way.</p></div>
     </div>
   </div>
   <script>
@@ -47,6 +57,8 @@
     const tl = gsap.timeline({ paused: true });
     
     tl.to('#title-content', { opacity: 0, duration: 0.35, ease: 'power2.in' }, 5.63);
+    tl.fromTo('#title-ul-r1', { attr: { width: 0 } }, { attr: { width: 120 }, duration: 0.5, ease: 'power2.inOut' }, 1.7);
+    tl.fromTo('#title-ul-r2', { attr: { width: 0 } }, { attr: { width: 120 }, duration: 0.35, ease: 'power2.out' }, 2.12);
     tl.fromTo('#title-card-2', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 0.9);
     window.__timelines["title"] = tl;
   </script>

@@ -21,21 +21,21 @@ const full = (p) => ({ x: p.x, y: p.y, w: p.shot.w * p.k, h: p.shot.h * p.k });
 
 // ---------- Cards ----------
 
-function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, subWidth = 1100, immediate = false, image = null }) {
+function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, subWidth = 1100, immediate = false, image = null, underline = null }) {
   const id = `${S.id}-card`;
   const parts = [];
   const items = [];
   if (image) parts.push(`<img id="${id}-img" src="${image.src}" alt="" style="width:${image.w}px;height:auto;display:block;margin-bottom:${image.space || 10}px">`);
-  const add = (cls, text, size, extra = '') => {
+  const add = (cls, text, size, extra = '', html = text) => {
     if (cls === 'kicker') extra += 'margin-bottom:-20px;';
     const pid = `${id}-${items.length}`;
-    parts.push(`<p id="${pid}" class="${cls}" style="margin:0;font-size:${size}px;text-align:center;${extra}">${text}</p>`);
+    parts.push(`<p id="${pid}" class="${cls}" style="margin:0;font-size:${size}px;text-align:center;${extra}">${html}</p>`);
     items.push(pid);
     S.copy.push(text);
   };
   if (kicker) add('kicker', kicker, 32);
   add('title', title, titleSize, 'max-width:1500px;margin-bottom:6px');
-  if (sub) add('note', sub, subSize, `max-width:${subWidth}px`);
+  if (sub) add('note', sub, subSize, `max-width:${subWidth}px`, underline ? underlined(S, sub, underline) : sub);
   // Centred in the area above the caption band; the opening card (with its image) is centred in
   // the whole frame, sized so that it still ends above the caption band.
   S.raw(`<div id="${id}" data-hold style="position:absolute;left:0;top:0;width:1920px;height:${image ? 1080 : 880}px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">${parts.join('')}</div>`);
@@ -47,6 +47,27 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, subWidth = 
       ? `tl.fromTo('#${pid}', { opacity: 0, filter: 'blur(8px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.6, ease: 'power3.out' }, ${S.T(times[i])});`
       : `tl.fromTo('#${pid}', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, ${S.T(times[i])});`);
   });
+}
+
+// A hand-drawn underline under one word: a tapered ink stroke with slightly rough edges and a
+// shorter second pass, each drawn from left to right by widening a clip rectangle.
+function underlined(S, text, { word, at = 1.7 }) {
+  const u = `${S.id}-ul`;
+  const ink = C.black;
+  const svg = `<svg aria-hidden="true" viewBox="0 0 120 22" preserveAspectRatio="none" style="position:absolute;left:-0.18em;top:calc(100% - 0.31em);width:calc(100% + 0.36em);height:0.5em;overflow:visible">
+    <defs>
+      <filter id="${u}-rough" x="-5%" y="-40%" width="110%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/></filter>
+      <clipPath id="${u}-c1"><rect id="${u}-r1" x="0" y="0" width="0" height="22"/></clipPath>
+      <clipPath id="${u}-c2"><rect id="${u}-r2" x="0" y="0" width="0" height="22"/></clipPath>
+    </defs>
+    <g filter="url(#${u}-rough)" fill="${ink}">
+      <path clip-path="url(#${u}-c1)" d="M2,10.8 C25,6.6 60,4.8 88,5.4 C102,5.7 111,6.3 118,7.0 C111,8.8 102,10.4 88,11.6 C60,12.8 25,14.0 2,12.4 Z"/>
+      <path clip-path="url(#${u}-c2)" opacity="0.9" d="M12,16.6 C38,13.8 70,12.6 106,12.9 C70,15.4 38,17.6 12,18.4 Z"/>
+    </g>
+  </svg>`;
+  S.js.push(`tl.fromTo('#${u}-r1', { attr: { width: 0 } }, { attr: { width: 120 }, duration: 0.5, ease: 'power2.inOut' }, ${S.T(at)});`);
+  S.js.push(`tl.fromTo('#${u}-r2', { attr: { width: 0 } }, { attr: { width: 120 }, duration: 0.35, ease: 'power2.out' }, ${S.T(at + 0.42)});`);
+  return text.replace(word, `<span style="position:relative;display:inline-block">${word}${svg}</span>`);
 }
 
 // A note held under the text column through each section that shows the site, so viewers know
@@ -71,6 +92,7 @@ export const scenes = {
         kicker: 'A data analytics case study',
         title: 'College-Town Home Sales: one sample site',
         sub: 'A sample of what your site could look like. Not the answer key, and not the only way.',
+        underline: { word: 'could', at: 1.7 },
       });
     },
   },
