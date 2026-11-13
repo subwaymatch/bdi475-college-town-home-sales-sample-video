@@ -49,8 +49,8 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, subWidth = 
   });
 }
 
-// A hand-drawn underline under one word: a tapered ink stroke with slightly rough edges and a
-// shorter second pass, each drawn from left to right by widening a clip rectangle.
+// A hand-drawn underline under one word: a single tapered ink stroke with slightly rough edges,
+// drawn from left to right by widening a clip rectangle.
 function underlined(S, text, { word, at = 1.7 }) {
   const u = `${S.id}-ul`;
   const ink = C.black;
@@ -58,15 +58,12 @@ function underlined(S, text, { word, at = 1.7 }) {
     <defs>
       <filter id="${u}-rough" x="-5%" y="-40%" width="110%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.6"/></filter>
       <clipPath id="${u}-c1"><rect id="${u}-r1" x="0" y="0" width="0" height="22"/></clipPath>
-      <clipPath id="${u}-c2"><rect id="${u}-r2" x="0" y="0" width="0" height="22"/></clipPath>
     </defs>
     <g filter="url(#${u}-rough)" fill="${ink}">
       <path clip-path="url(#${u}-c1)" d="M2,10.8 C25,6.6 60,4.8 88,5.4 C102,5.7 111,6.3 118,7.0 C111,8.8 102,10.4 88,11.6 C60,12.8 25,14.0 2,12.4 Z"/>
-      <path clip-path="url(#${u}-c2)" opacity="0.9" d="M12,16.6 C38,13.8 70,12.6 106,12.9 C70,15.4 38,17.6 12,18.4 Z"/>
     </g>
   </svg>`;
   S.js.push(`tl.fromTo('#${u}-r1', { attr: { width: 0 } }, { attr: { width: 120 }, duration: 0.5, ease: 'power2.inOut' }, ${S.T(at)});`);
-  S.js.push(`tl.fromTo('#${u}-r2', { attr: { width: 0 } }, { attr: { width: 120 }, duration: 0.35, ease: 'power2.out' }, ${S.T(at + 0.42)});`);
   return text.replace(word, `<span style="position:relative;display:inline-block">${word}${svg}</span>`);
 }
 
