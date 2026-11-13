@@ -22,7 +22,7 @@
   },
   "q2": {
    "file": "assets/voice/q2.mp3",
-   "duration": 12.016,
+   "duration": 11.99,
    "hash": "b5ec20b7895215cf"
   },
   "q3": {
@@ -72,7 +72,7 @@
   },
   "features-intro": {
    "file": "assets/voice/features-intro.mp3",
-   "duration": 2.273,
+   "duration": 2.22,
    "hash": "b63e5a7c194bdfa8"
   },
   "feature-01": {
@@ -87,7 +87,7 @@
   },
   "feature-03": {
    "file": "assets/voice/feature-03.mp3",
-   "duration": 5.878,
+   "duration": 5.851,
    "hash": "0123d05411873d3d"
   },
   "feature-04": {
@@ -122,7 +122,7 @@
   },
   "feature-10": {
    "file": "assets/voice/feature-10.mp3",
-   "duration": 8.385,
+   "duration": 8.333,
    "hash": "c02faad9d896439c"
   },
   "design": {
