@@ -1,0 +1,3265 @@
+{
+ "shots": {
+  "top": {
+   "w": 1920,
+   "h": 1080,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "toggle": {
+     "x": 1373.1,
+     "y": 11.1,
+     "w": 122.9,
+     "h": 37.8
+    },
+    "h1": {
+     "x": 424,
+     "y": 187.6,
+     "w": 695.8,
+     "h": 187.7
+    },
+    "lead": {
+     "x": 424,
+     "y": 395.3,
+     "w": 704,
+     "h": 86.4
+    },
+    "stats": {
+     "x": 424,
+     "y": 537.7,
+     "w": 1072,
+     "h": 67.6
+    },
+    "nav": {
+     "x": 1009.3,
+     "y": 11.5,
+     "w": 343.8,
+     "h": 37
+    },
+    "header": {
+     "x": 0,
+     "y": 0,
+     "w": 1920,
+     "h": 60
+    }
+   },
+   "text": {
+    "stats": "Home sales\n35,442\nCities\n18\nCampus areas\n11\nMedian sale price\n$410,000"
+   }
+  },
+  "page-00": {
+   "w": 1920,
+   "h": 2048,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  },
+  "page-01": {
+   "w": 1920,
+   "h": 2048,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  },
+  "page-02": {
+   "w": 1920,
+   "h": 2048,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  },
+  "page-03": {
+   "w": 1920,
+   "h": 2048,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  },
+  "page-04": {
+   "w": 1920,
+   "h": 2048,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  },
+  "page-05": {
+   "w": 1920,
+   "h": 2048,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  },
+  "page-06": {
+   "w": 1920,
+   "h": 2048,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  },
+  "page-07": {
+   "w": 1920,
+   "h": 1754,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  },
+  "questions-intro": {
+   "w": 1136,
+   "h": 304,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "intro": {
+     "x": 32,
+     "y": 117.5,
+     "w": 706.6,
+     "h": 102.4
+    },
+    "jump": {
+     "x": 32,
+     "y": 241.9,
+     "w": 1072,
+     "h": 33.8
+    },
+    "h2": {
+     "x": 32,
+     "y": 61.2,
+     "w": 1072,
+     "h": 42.3
+    }
+   },
+   "text": {}
+  },
+  "q1": {
+   "w": 1136,
+   "h": 823,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.7,
+     "w": 1072,
+     "h": 28.5
+    },
+    "answer": {
+     "x": 32,
+     "y": 88.1,
+     "w": 390.8,
+     "h": 146.7
+    },
+    "answer2": {
+     "x": 32,
+     "y": 183.6,
+     "w": 390.8,
+     "h": 51.2
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 88.1,
+     "w": 625.2,
+     "h": 706.9
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 145.3,
+     "w": 625.2,
+     "h": 600
+    },
+    "chartTitle": {
+     "x": 478.8,
+     "y": 88.1,
+     "w": 625.2,
+     "h": 43.2
+    },
+    "keyMarks": {
+     "x": 606.3,
+     "y": 158.3,
+     "w": 442.9,
+     "h": 16
+    },
+    "keyLabel": {
+     "x": 531.1,
+     "y": 158.3,
+     "w": 61.2,
+     "h": 16
+    }
+   },
+   "text": {
+    "answer": "Davis, CA has the highest median sale price: $889,000, across 941 sales.\n\nPittsboro, NC is next at $876,986. The lowest median is Urbana, IL at $229,900.",
+    "chartTitle": "Median sale price by city"
+   }
+  },
+  "q2": {
+   "w": 1136,
+   "h": 874,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 28.1,
+     "w": 1072,
+     "h": 28.5
+    },
+    "answer": {
+     "x": 32,
+     "y": 88.5,
+     "w": 390.8,
+     "h": 329.7
+    },
+    "answer2": {
+     "x": 32,
+     "y": 239.1,
+     "w": 390.8,
+     "h": 179.2
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 88.5,
+     "w": 625.2,
+     "h": 757.4
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 178.2,
+     "w": 625.2,
+     "h": 618
+    },
+    "chartTitle": {
+     "x": 478.8,
+     "y": 88.5,
+     "w": 625.2,
+     "h": 43.2
+    },
+    "keyMarks": {
+     "x": 697.8,
+     "y": 209.7,
+     "w": 406,
+     "h": 15
+    },
+    "keyLabel": {
+     "x": 521.3,
+     "y": 209.2,
+     "w": 71,
+     "h": 16
+    }
+   },
+   "text": {
+    "answer": "Athens, GA has the mean furthest above its median. Using all rows, its mean sale price is $491,377 and its median is $370,000, a gap of 32.8% of the median.\n\nWhat causes it: Athens, GA has 4 sales above $5,000,000, the largest recorded at $81,510,000. A mean adds every price together, so one extreme row pulls it up, while the median only looks at the middle sale and barely moves. Without that single largest sale, the mean would be $462,575 and the gap would shrink to 25.0%.",
+    "chartTitle": "Mean and median sale price by city, all rows"
+   }
+  },
+  "q3": {
+   "w": 1136,
+   "h": 802,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 28,
+     "w": 1072,
+     "h": 28.5
+    },
+    "answer": {
+     "x": 32,
+     "y": 88.4,
+     "w": 390.8,
+     "h": 379.4
+    },
+    "answer2": {
+     "x": 32,
+     "y": 442.3,
+     "w": 390.8,
+     "h": 25.6
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 88.4,
+     "w": 625.2,
+     "h": 685.4
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 178.1,
+     "w": 625.2,
+     "h": 546
+    },
+    "chartTitle": {
+     "x": 478.8,
+     "y": 88.4,
+     "w": 625.2,
+     "h": 43.2
+    },
+    "keyMarks": {
+     "x": 489.8,
+     "y": 442.1,
+     "w": 606.1,
+     "h": 72
+    },
+    "keyLabel": {
+     "x": 530.2,
+     "y": 442.1,
+     "w": 86.1,
+     "h": 16
+    }
+   },
+   "text": {
+    "answer": "3 cities change rank when the price rule is applied:\n\nAthens, GA moves down 2 positions, from 9th to 11th (mean $491,377 with all rows, $455,639 with the price rule)\nMadison, WI moves up 1 position, from 10th to 9th (mean $477,144 with all rows, $477,144 with the price rule)\nState College, PA moves up 1 position, from 11th to 10th (mean $473,504 with all rows, $474,550 with the price rule)\n\nThe other 15 cities keep the same rank.",
+    "chartTitle": "City rank by mean sale price, before and after the price rule"
+   }
+  },
+  "q4": {
+   "w": 1136,
+   "h": 646,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.8,
+     "w": 1072,
+     "h": 28.5
+    },
+    "answer": {
+     "x": 32,
+     "y": 88.3,
+     "w": 390.8,
+     "h": 278.5
+    },
+    "answer2": {
+     "x": 32,
+     "y": 238.8,
+     "w": 390.8,
+     "h": 128
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 88.3,
+     "w": 625.2,
+     "h": 529.4
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 178,
+     "w": 625.2,
+     "h": 390
+    },
+    "chartTitle": {
+     "x": 478.8,
+     "y": 88.3,
+     "w": 625.2,
+     "h": 43.2
+    },
+    "keyMarks": {
+     "x": 709,
+     "y": 191,
+     "w": 338.3,
+     "h": 315.5
+    },
+    "keyLabel": {
+     "x": 538.5,
+     "y": 191,
+     "w": 40.2,
+     "h": 16
+    }
+   },
+   "text": {
+    "answer": "University of Illinois Urbana-Champaign had the largest increase: its median sale price rose +7.6%, from $245,000 in 2024 to $263,500 in 2025.\n\n2 campus areas had a decrease: The University of North Carolina at Chapel Hill (−4.6%, from $745,000 to $710,500) and University of California, Davis (−1.7%, from $900,000 to $885,000).",
+    "chartTitle": "Change in median sale price from 2024 to 2025, by campus area"
+   }
+  },
+  "q5": {
+   "w": 1136,
+   "h": 664,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.7,
+     "w": 1072,
+     "h": 28.5
+    },
+    "answer": {
+     "x": 32,
+     "y": 88.2,
+     "w": 390.8,
+     "h": 254.7
+    },
+    "answer2": {
+     "x": 32,
+     "y": 183.7,
+     "w": 390.8,
+     "h": 102.4
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 88.2,
+     "w": 625.2,
+     "h": 547.4
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 177.8,
+     "w": 625.2,
+     "h": 408
+    },
+    "chartTitle": {
+     "x": 478.8,
+     "y": 88.2,
+     "w": 625.2,
+     "h": 43.2
+    },
+    "keyMarks": {
+     "x": 616.6,
+     "y": 209.3,
+     "w": 487.5,
+     "h": 315
+    },
+    "keyLabel": {
+     "x": 528.5,
+     "y": 208.8,
+     "w": 49.2,
+     "h": 16
+    }
+   },
+   "text": {
+    "answer": "Slowest: University of Georgia, with a median of 27 days on market.\n\nFastest: University of Illinois Urbana-Champaign, University of Michigan, University of Virginia and University of Wisconsin-Madison, each with a median of 7 days, a 4-way tie.\n\nBased on the 28,028 sales that have both a list date and a contract date.",
+    "chartTitle": "Days on market by campus area"
+   }
+  },
+  "q6": {
+   "w": 1136,
+   "h": 646,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.6,
+     "w": 1072,
+     "h": 28.5
+    },
+    "answer": {
+     "x": 32,
+     "y": 88,
+     "w": 390.8,
+     "h": 258.5
+    },
+    "answer2": {
+     "x": 32,
+     "y": 238.6,
+     "w": 390.8,
+     "h": 51.2
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 88,
+     "w": 625.2,
+     "h": 529.4
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 177.7,
+     "w": 625.2,
+     "h": 390
+    },
+    "chartTitle": {
+     "x": 478.8,
+     "y": 88,
+     "w": 625.2,
+     "h": 43.2
+    },
+    "keyMarks": {
+     "x": 748,
+     "y": 191.2,
+     "w": 338.2,
+     "h": 315
+    },
+    "keyLabel": {
+     "x": 537.5,
+     "y": 190.7,
+     "w": 40.2,
+     "h": 16
+    }
+   },
+   "text": {
+    "answer": "Highest: University of Illinois Urbana-Champaign, where annual property tax adds up to 1.93% of sale prices ($19,456,633 of tax on $1,008,225,786 of sales).\n\nLowest: Purdue University, at 0.63% ($8,969,536 on $1,423,523,850).\n\nBased on 34,683 sales with a valid price and a tax amount above $0 and below 10% of the sale price.",
+    "chartTitle": "Annual property tax as a percent of sale price, by campus area"
+   }
+  },
+  "q7-s0": {
+   "w": 1136,
+   "h": 919,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 28.5,
+     "w": 1072,
+     "h": 28.5
+    },
+    "controls": {
+     "x": 32,
+     "y": 84.9,
+     "w": 1072,
+     "h": 67.6
+    },
+    "answer": {
+     "x": 32,
+     "y": 184.6,
+     "w": 390.8,
+     "h": 174.2
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 184.6,
+     "w": 625.2,
+     "h": 706.9
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 241.8,
+     "w": 625.2,
+     "h": 600
+    },
+    "keyLabel": {
+     "x": 501.8,
+     "y": 254.8,
+     "w": 90,
+     "h": 16
+    },
+    "ctl_beds": {
+     "x": 32,
+     "y": 110.9,
+     "w": 240,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "answer": "For 3-bedroom homes, Champaign, IL has the lowest median sale price: $215,000, from 1,106 sales.\n\nThe highest is Davis, CA at $780,000 (424 sales). 17,028 sales in all match this bedroom count.",
+    "chartTitle": "Median sale price of 3-bedroom homes by city",
+    "values": {
+     "beds": "3 bedrooms"
+    }
+   }
+  },
+  "q7-s1": {
+   "w": 1136,
+   "h": 919,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 28.5,
+     "w": 1072,
+     "h": 28.5
+    },
+    "controls": {
+     "x": 32,
+     "y": 84.9,
+     "w": 1072,
+     "h": 67.6
+    },
+    "answer": {
+     "x": 32,
+     "y": 184.6,
+     "w": 390.8,
+     "h": 174.2
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 184.6,
+     "w": 625.2,
+     "h": 706.9
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 241.8,
+     "w": 625.2,
+     "h": 600
+    },
+    "keyLabel": {
+     "x": 527.6,
+     "y": 254.8,
+     "w": 64.2,
+     "h": 16
+    },
+    "ctl_beds": {
+     "x": 32,
+     "y": 110.9,
+     "w": 240,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "answer": "For 2-bedroom homes, Urbana, IL has the lowest median sale price: $135,500, from 152 sales.\n\nThe highest is Davis, CA at $660,000 (46 sales). 3,101 sales in all match this bedroom count.",
+    "chartTitle": "Median sale price of 2-bedroom homes by city",
+    "values": {
+     "beds": "2 bedrooms"
+    }
+   }
+  },
+  "q8-s0": {
+   "w": 1136,
+   "h": 938,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.5,
+     "w": 1072,
+     "h": 28.5
+    },
+    "controls": {
+     "x": 32,
+     "y": 84,
+     "w": 1072,
+     "h": 67.6
+    },
+    "answer": {
+     "x": 32,
+     "y": 183.6,
+     "w": 390.8,
+     "h": 227.3
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 183.6,
+     "w": 625.2,
+     "h": 726.1
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 260,
+     "w": 625.2,
+     "h": 600
+    },
+    "keyLabel": {
+     "x": 501.8,
+     "y": 273,
+     "w": 90,
+     "h": 16
+    },
+    "ctl_min": {
+     "x": 32,
+     "y": 110,
+     "w": 240,
+     "h": 41.7
+    },
+    "ctl_max": {
+     "x": 292,
+     "y": 110,
+     "w": 240,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "answer": "For sales priced from $200,000 to $400,000, Champaign, IL, Madison, WI and Savoy, IL have the shortest median days on market: 6 days each.\n\nThe longest is Middleton, WI at 44 days (53 sales). 10,913 sales in this range have both dates, and 1 city has none.",
+    "chartTitle": "Median days on market by city",
+    "values": {
+     "min": "200,000",
+     "max": "400,000"
+    }
+   }
+  },
+  "q8-s1": {
+   "w": 1136,
+   "h": 938,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.5,
+     "w": 1072,
+     "h": 28.5
+    },
+    "controls": {
+     "x": 32,
+     "y": 84,
+     "w": 1072,
+     "h": 67.6
+    },
+    "answer": {
+     "x": 32,
+     "y": 183.6,
+     "w": 390.8,
+     "h": 227.3
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 183.6,
+     "w": 625.2,
+     "h": 726.1
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 260,
+     "w": 625.2,
+     "h": 600
+    },
+    "keyLabel": {
+     "x": 501.8,
+     "y": 273,
+     "w": 90,
+     "h": 16
+    },
+    "ctl_min": {
+     "x": 32,
+     "y": 110,
+     "w": 240,
+     "h": 41.7
+    },
+    "ctl_max": {
+     "x": 292,
+     "y": 110,
+     "w": 240,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "answer": "For sales priced from $250,000 to $400,000, Champaign, IL, Madison, WI and Savoy, IL have the shortest median days on market: 6 days each.\n\nThe longest is Middleton, WI at 44 days (53 sales). 8,984 sales in this range have both dates, and 1 city has none.",
+    "chartTitle": "Median days on market by city",
+    "values": {
+     "min": "250,000",
+     "max": "400,000"
+    }
+   }
+  },
+  "q8-s2": {
+   "w": 1136,
+   "h": 938,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.5,
+     "w": 1072,
+     "h": 28.5
+    },
+    "controls": {
+     "x": 32,
+     "y": 84,
+     "w": 1072,
+     "h": 67.6
+    },
+    "answer": {
+     "x": 32,
+     "y": 183.6,
+     "w": 390.8,
+     "h": 199.8
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 183.6,
+     "w": 625.2,
+     "h": 726.1
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 260,
+     "w": 625.2,
+     "h": 600
+    },
+    "keyLabel": {
+     "x": 501.8,
+     "y": 273,
+     "w": 90,
+     "h": 16
+    },
+    "ctl_min": {
+     "x": 32,
+     "y": 110,
+     "w": 240,
+     "h": 41.7
+    },
+    "ctl_max": {
+     "x": 292,
+     "y": 110,
+     "w": 240,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "answer": "For sales priced from $250,000 to $499,999, Champaign, IL and Madison, WI have the shortest median days on market: 6 days each.\n\nThe longest is Newberry, FL at 91 days (119 sales). 13,820 sales in this range have both dates, and 1 city has none.",
+    "chartTitle": "Median days on market by city",
+    "values": {
+     "min": "250,000",
+     "max": "499,999"
+    }
+   }
+  },
+  "q9-s0": {
+   "w": 1136,
+   "h": 619,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.7,
+     "w": 1072,
+     "h": 28.5
+    },
+    "controls": {
+     "x": 32,
+     "y": 84.2,
+     "w": 1072,
+     "h": 67.6
+    },
+    "answer": {
+     "x": 32,
+     "y": 183.8,
+     "w": 390.8,
+     "h": 121.1
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 183.8,
+     "w": 625.2,
+     "h": 406.9
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 241,
+     "w": 625.2,
+     "h": 300
+    },
+    "keyLabel": {
+     "x": 868.9,
+     "y": 497,
+     "w": 23.6,
+     "h": 15
+    },
+    "ctl_city": {
+     "x": 32,
+     "y": 110.1,
+     "w": 240,
+     "h": 41.7
+    },
+    "ctl_year": {
+     "x": 292,
+     "y": 110.1,
+     "w": 240,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "answer": "In Champaign, IL in 2024, August had the most sales: 97.\n\n765 sales were recorded across the year.",
+    "chartTitle": "Sales recorded each month in Champaign, IL, 2024",
+    "values": {
+     "city": "Champaign, IL",
+     "year": "2024"
+    }
+   }
+  },
+  "q9-s1": {
+   "w": 1136,
+   "h": 619,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.7,
+     "w": 1072,
+     "h": 28.5
+    },
+    "controls": {
+     "x": 32,
+     "y": 84.2,
+     "w": 1072,
+     "h": 67.6
+    },
+    "answer": {
+     "x": 32,
+     "y": 183.8,
+     "w": 390.8,
+     "h": 121.1
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 183.8,
+     "w": 625.2,
+     "h": 406.9
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 241,
+     "w": 625.2,
+     "h": 300
+    },
+    "keyLabel": {
+     "x": 771.3,
+     "y": 497,
+     "w": 21.7,
+     "h": 15
+    },
+    "ctl_city": {
+     "x": 32,
+     "y": 110.1,
+     "w": 240,
+     "h": 41.7
+    },
+    "ctl_year": {
+     "x": 292,
+     "y": 110.1,
+     "w": 240,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "answer": "In Champaign, IL in 2025, June had the most sales: 86.\n\n717 sales were recorded across the year.",
+    "chartTitle": "Sales recorded each month in Champaign, IL, 2025",
+    "values": {
+     "city": "Champaign, IL",
+     "year": "2025"
+    }
+   }
+  },
+  "q10-s0": {
+   "w": 1136,
+   "h": 665,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.8,
+     "w": 1072,
+     "h": 55.2
+    },
+    "controls": {
+     "x": 32,
+     "y": 110.9,
+     "w": 1072,
+     "h": 67.6
+    },
+    "answer": {
+     "x": 32,
+     "y": 210.6,
+     "w": 390.8,
+     "h": 201.7
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 210.6,
+     "w": 625.2,
+     "h": 426.1
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 286.9,
+     "w": 625.2,
+     "h": 300
+    },
+    "keyLabel": {
+     "x": 685.7,
+     "y": 306.9,
+     "w": 99.4,
+     "h": 15
+    },
+    "ctl_campus": {
+     "x": 32,
+     "y": 136.9,
+     "w": 460,
+     "h": 41.7
+    },
+    "ctl_budget": {
+     "x": 512,
+     "y": 136.9,
+     "w": 240,
+     "h": 41.7
+    },
+    "ctl_beds": {
+     "x": 772,
+     "y": 136.9,
+     "w": 180,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "answer": "Near University of Illinois Urbana-Champaign, homes that sold for $300,000 or less with 3 or more bedrooms are a median of 2.7 miles from campus.\n\n1,913 sales meet these conditions. The closest is 0.5 miles away and the farthest 7.3 miles.",
+    "chartTitle": "Distance to campus for matching homes near Illinois",
+    "values": {
+     "campus": "University of Illinois Urbana-Champaign",
+     "budget": "300,000",
+     "beds": "3"
+    }
+   }
+  },
+  "q10-s1": {
+   "w": 1136,
+   "h": 665,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 27.8,
+     "w": 1072,
+     "h": 55.2
+    },
+    "controls": {
+     "x": 32,
+     "y": 110.9,
+     "w": 1072,
+     "h": 67.6
+    },
+    "answer": {
+     "x": 32,
+     "y": 210.6,
+     "w": 390.8,
+     "h": 201.7
+    },
+    "chart": {
+     "x": 478.8,
+     "y": 210.6,
+     "w": 625.2,
+     "h": 426.1
+    },
+    "chartBody": {
+     "x": 478.8,
+     "y": 286.9,
+     "w": 625.2,
+     "h": 300
+    },
+    "keyLabel": {
+     "x": 691.9,
+     "y": 306.9,
+     "w": 99.4,
+     "h": 15
+    },
+    "ctl_campus": {
+     "x": 32,
+     "y": 136.9,
+     "w": 460,
+     "h": 41.7
+    },
+    "ctl_budget": {
+     "x": 512,
+     "y": 136.9,
+     "w": 240,
+     "h": 41.7
+    },
+    "ctl_beds": {
+     "x": 772,
+     "y": 136.9,
+     "w": 180,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "answer": "Near University of Illinois Urbana-Champaign, homes that sold for $400,000 or less with 3 or more bedrooms are a median of 2.8 miles from campus.\n\n2,601 sales meet these conditions. The closest is 0.4 miles away and the farthest 8.7 miles.",
+    "chartTitle": "Distance to campus for matching homes near Illinois",
+    "values": {
+     "campus": "University of Illinois Urbana-Champaign",
+     "budget": "400,000",
+     "beds": "3"
+    }
+   }
+  },
+  "insights": {
+   "w": 1136,
+   "h": 1895,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 71.8,
+     "w": 1072,
+     "h": 141.1
+    },
+    "p1": {
+     "x": 32,
+     "y": 308.9,
+     "w": 1072,
+     "h": 863.5
+    },
+    "p1head": {
+     "x": 32,
+     "y": 308.9,
+     "w": 1072,
+     "h": 28.5
+    },
+    "p1chart": {
+     "x": 478.8,
+     "y": 369.4,
+     "w": 625.2,
+     "h": 803
+    },
+    "p2": {
+     "x": 32,
+     "y": 1268.4,
+     "w": 1072,
+     "h": 602.8
+    },
+    "p2head": {
+     "x": 32,
+     "y": 1268.4,
+     "w": 1072,
+     "h": 28.5
+    }
+   },
+   "text": {}
+  },
+  "f1-s0": {
+   "w": 1136,
+   "h": 699,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "filters": {
+     "x": 32,
+     "y": 28.3,
+     "w": 1072,
+     "h": 489.8
+    },
+    "city": {
+     "x": 578,
+     "y": 99.2,
+     "w": 526,
+     "h": 41.7
+    },
+    "campus": {
+     "x": 32,
+     "y": 99.2,
+     "w": 526,
+     "h": 41.7
+    },
+    "year": {
+     "x": 32,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "beds": {
+     "x": 305,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "pmin": {
+     "x": 578,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "pmax": {
+     "x": 851,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "summary": {
+     "x": 32,
+     "y": 486.4,
+     "w": 319.3,
+     "h": 23
+    },
+    "tiles": {
+     "x": 32,
+     "y": 582.1,
+     "w": 1072,
+     "h": 89
+    },
+    "tile0": {
+     "x": 32,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile1": {
+     "x": 310,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile2": {
+     "x": 588,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile3": {
+     "x": 866,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    }
+   },
+   "text": {
+    "tiles": "Sales\n\n35,371\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$410,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n11 days\n\nFrom 28,028 sales with both dates\n\nMedian price per sq ft\n\n$212\n\nFrom 34,871 sales with a living area"
+   }
+  },
+  "f1-s1": {
+   "w": 1136,
+   "h": 699,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "filters": {
+     "x": 32,
+     "y": 28.3,
+     "w": 1072,
+     "h": 489.8
+    },
+    "city": {
+     "x": 578,
+     "y": 99.2,
+     "w": 526,
+     "h": 41.7
+    },
+    "campus": {
+     "x": 32,
+     "y": 99.2,
+     "w": 526,
+     "h": 41.7
+    },
+    "year": {
+     "x": 32,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "beds": {
+     "x": 305,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "pmin": {
+     "x": 578,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "pmax": {
+     "x": 851,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "summary": {
+     "x": 32,
+     "y": 486.4,
+     "w": 298.2,
+     "h": 23
+    },
+    "tiles": {
+     "x": 32,
+     "y": 582.1,
+     "w": 1072,
+     "h": 89
+    },
+    "tile0": {
+     "x": 32,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile1": {
+     "x": 310,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile2": {
+     "x": 588,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile3": {
+     "x": 866,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    }
+   },
+   "text": {
+    "tiles": "Sales\n\n1,909\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$342,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n23.5 days\n\nFrom 1,248 sales with both dates\n\nMedian price per sq ft\n\n$176\n\nFrom 1,907 sales with a living area",
+    "summary": "1,909 of 35,371 sales match, with 1 filter on."
+   }
+  },
+  "f2-s0": {
+   "w": 1136,
+   "h": 855,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "map": {
+     "x": 32,
+     "y": 197.2,
+     "w": 602,
+     "h": 630.3
+    },
+    "tiles": {
+     "x": 32,
+     "y": 28.1,
+     "w": 1072,
+     "h": 89
+    },
+    "tile0": {
+     "x": 32,
+     "y": 28.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile1": {
+     "x": 310,
+     "y": 28.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile2": {
+     "x": 588,
+     "y": 28.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile3": {
+     "x": 866,
+     "y": 28.1,
+     "w": 238,
+     "h": 89
+    },
+    "marker": {
+     "x": 393.4,
+     "y": 411,
+     "w": 21.6,
+     "h": 21.6
+    },
+    "campus": {
+     "x": 32,
+     "y": -454.8,
+     "w": 526,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "tiles": "Sales\n\n35,371\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$410,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n11 days\n\nFrom 28,028 sales with both dates\n\nMedian price per sq ft\n\n$212\n\nFrom 34,871 sales with a living area"
+   }
+  },
+  "f2-s1": {
+   "w": 1136,
+   "h": 855,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "map": {
+     "x": 32,
+     "y": 197.2,
+     "w": 602,
+     "h": 630.3
+    },
+    "tiles": {
+     "x": 32,
+     "y": 28.1,
+     "w": 1072,
+     "h": 89
+    },
+    "tile0": {
+     "x": 32,
+     "y": 28.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile1": {
+     "x": 310,
+     "y": 28.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile2": {
+     "x": 588,
+     "y": 28.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile3": {
+     "x": 866,
+     "y": 28.1,
+     "w": 238,
+     "h": 89
+    },
+    "marker": {
+     "x": 393.4,
+     "y": 411,
+     "w": 21.6,
+     "h": 21.6
+    },
+    "campus": {
+     "x": 32,
+     "y": -454.8,
+     "w": 526,
+     "h": 41.7
+    }
+   },
+   "text": {
+    "tiles": "Sales\n\n1,909\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$342,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n23.5 days\n\nFrom 1,248 sales with both dates\n\nMedian price per sq ft\n\n$176\n\nFrom 1,907 sales with a living area",
+    "campus": "The University of Iowa"
+   }
+  },
+  "f4-s0": {
+   "w": 1136,
+   "h": 699,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "garage": {
+     "x": 32,
+     "y": 270.4,
+     "w": 253,
+     "h": 41.7
+    },
+    "basement": {
+     "x": 305,
+     "y": 270.4,
+     "w": 253,
+     "h": 41.7
+    },
+    "fireplace": {
+     "x": 578,
+     "y": 270.4,
+     "w": 253,
+     "h": 41.7
+    },
+    "filters": {
+     "x": 32,
+     "y": 28.3,
+     "w": 1072,
+     "h": 489.8
+    },
+    "tiles": {
+     "x": 32,
+     "y": 582.1,
+     "w": 1072,
+     "h": 89
+    },
+    "tile0": {
+     "x": 32,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile1": {
+     "x": 310,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile2": {
+     "x": 588,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile3": {
+     "x": 866,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    }
+   },
+   "text": {
+    "tiles": "Sales\n\n35,371\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$410,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n11 days\n\nFrom 28,028 sales with both dates\n\nMedian price per sq ft\n\n$212\n\nFrom 34,871 sales with a living area",
+    "options": [
+     "Any",
+     "Yes",
+     "No",
+     "Unknown"
+    ]
+   }
+  },
+  "f4-s1": {
+   "w": 1136,
+   "h": 699,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "garage": {
+     "x": 32,
+     "y": 270.4,
+     "w": 253,
+     "h": 41.7
+    },
+    "basement": {
+     "x": 305,
+     "y": 270.4,
+     "w": 253,
+     "h": 41.7
+    },
+    "fireplace": {
+     "x": 578,
+     "y": 270.4,
+     "w": 253,
+     "h": 41.7
+    },
+    "filters": {
+     "x": 32,
+     "y": 28.3,
+     "w": 1072,
+     "h": 489.8
+    },
+    "tiles": {
+     "x": 32,
+     "y": 582.1,
+     "w": 1072,
+     "h": 89
+    },
+    "tile0": {
+     "x": 32,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile1": {
+     "x": 310,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile2": {
+     "x": 588,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    },
+    "tile3": {
+     "x": 866,
+     "y": 582.1,
+     "w": 238,
+     "h": 89
+    }
+   },
+   "text": {
+    "tiles": "Sales\n\n14,179\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$430,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n15 days\n\nFrom 9,597 sales with both dates\n\nMedian price per sq ft\n\n$229\n\nFrom 14,107 sales with a living area",
+    "options": [
+     "Any",
+     "Yes",
+     "No",
+     "Unknown"
+    ]
+   }
+  },
+  "f6-s0": {
+   "w": 462,
+   "h": 670,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "a": {
+     "x": 24,
+     "y": 107.1,
+     "w": 201,
+     "h": 41.7
+    },
+    "b": {
+     "x": 237,
+     "y": 107.1,
+     "w": 201,
+     "h": 41.7
+    },
+    "result": {
+     "x": 24,
+     "y": 166.8,
+     "w": 414,
+     "h": 419.9
+    },
+    "pickers": {
+     "x": 24,
+     "y": 81.2,
+     "w": 414,
+     "h": 67.6
+    }
+   },
+   "text": {
+    "result": "Champaign, IL\nUrbana, IL\n\nNumber of sales\n\n2,285\n\n1,131\n\nMedian sale price\n\n$240,000\n\n$229,900\n\nMedian days on market\n\n7 days\n\n8 days\n\nMedian price per sq ft\n\n$150\n\n$144\n\nMedian distance to campus\n\n3.0 miles\n\n2.2 miles"
+   }
+  },
+  "f6-s1": {
+   "w": 462,
+   "h": 670,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "a": {
+     "x": 24,
+     "y": 107.1,
+     "w": 201,
+     "h": 41.7
+    },
+    "b": {
+     "x": 237,
+     "y": 107.1,
+     "w": 201,
+     "h": 41.7
+    },
+    "result": {
+     "x": 24,
+     "y": 166.8,
+     "w": 414,
+     "h": 419.9
+    },
+    "pickers": {
+     "x": 24,
+     "y": 81.2,
+     "w": 414,
+     "h": 67.6
+    }
+   },
+   "text": {
+    "result": "Champaign, IL\nSavoy, IL\n\nNumber of sales\n\n2,285\n\n247\n\nMedian sale price\n\n$240,000\n\n$402,700\n\nMedian days on market\n\n7 days\n\n10.5 days\n\nMedian price per sq ft\n\n$150\n\n$187\n\nMedian distance to campus\n\n3.0 miles\n\n3.8 miles"
+   }
+  },
+  "methods": {
+   "w": 1136,
+   "h": 1765,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "head": {
+     "x": 32,
+     "y": 72.1,
+     "w": 1072,
+     "h": 141.1
+    },
+    "m0": {
+     "x": 32,
+     "y": 261.2,
+     "w": 706.6,
+     "h": 132
+    },
+    "m1": {
+     "x": 32,
+     "y": 425.2,
+     "w": 706.6,
+     "h": 106.4
+    },
+    "m2": {
+     "x": 32,
+     "y": 563.6,
+     "w": 706.6,
+     "h": 106.4
+    },
+    "m3": {
+     "x": 32,
+     "y": 701.9,
+     "w": 706.6,
+     "h": 106.4
+    },
+    "m4": {
+     "x": 32,
+     "y": 840.3,
+     "w": 706.6,
+     "h": 157.6
+    },
+    "m5": {
+     "x": 32,
+     "y": 1029.9,
+     "w": 706.6,
+     "h": 106.4
+    },
+    "m6": {
+     "x": 32,
+     "y": 1168.3,
+     "w": 706.6,
+     "h": 132
+    },
+    "m7": {
+     "x": 32,
+     "y": 1332.2,
+     "w": 706.6,
+     "h": 106.4
+    },
+    "m8": {
+     "x": 32,
+     "y": 1470.6,
+     "w": 706.6,
+     "h": 132
+    },
+    "m9": {
+     "x": 32,
+     "y": 1634.6,
+     "w": 706.6,
+     "h": 106.4
+    }
+   },
+   "text": {
+    "headings": [
+     "Price rule",
+     "Days on market",
+     "Places and dates",
+     "Medians, ties and small groups",
+     "Missing and impossible values",
+     "Rows are never merged",
+     "The map",
+     "How the numbers were checked",
+     "Chart types",
+     "Dataset"
+    ]
+   }
+  },
+  "chart-q1": {
+   "w": 657,
+   "h": 739,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 73.3,
+     "w": 625.2,
+     "h": 600
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 16.1,
+     "w": 625.2,
+     "h": 43.2
+    }
+   },
+   "text": {}
+  },
+  "chart-q2": {
+   "w": 657,
+   "h": 789,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 105.2,
+     "w": 625.2,
+     "h": 618
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 15.5,
+     "w": 625.2,
+     "h": 43.2
+    }
+   },
+   "text": {}
+  },
+  "chart-q3": {
+   "w": 657,
+   "h": 717,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 106.1,
+     "w": 625.2,
+     "h": 546
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 16.4,
+     "w": 625.2,
+     "h": 43.2
+    }
+   },
+   "text": {}
+  },
+  "chart-q4": {
+   "w": 657,
+   "h": 561,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 106,
+     "w": 625.2,
+     "h": 390
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 16.3,
+     "w": 625.2,
+     "h": 43.2
+    }
+   },
+   "text": {}
+  },
+  "chart-q5": {
+   "w": 657,
+   "h": 579,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 105.8,
+     "w": 625.2,
+     "h": 408
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 16.2,
+     "w": 625.2,
+     "h": 43.2
+    }
+   },
+   "text": {}
+  },
+  "chart-q6": {
+   "w": 657,
+   "h": 561,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 105.7,
+     "w": 625.2,
+     "h": 390
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 16,
+     "w": 625.2,
+     "h": 43.2
+    }
+   },
+   "text": {}
+  },
+  "chart-q7": {
+   "w": 657,
+   "h": 739,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 72.8,
+     "w": 625.2,
+     "h": 600
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 15.6,
+     "w": 625.2,
+     "h": 43.2
+    }
+   },
+   "text": {}
+  },
+  "chart-q8": {
+   "w": 657,
+   "h": 758,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 92,
+     "w": 625.2,
+     "h": 600
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 15.6,
+     "w": 625.2,
+     "h": 62.3
+    }
+   },
+   "text": {}
+  },
+  "chart-q9": {
+   "w": 657,
+   "h": 439,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 73,
+     "w": 625.2,
+     "h": 300
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 15.8,
+     "w": 625.2,
+     "h": 43.2
+    }
+   },
+   "text": {}
+  },
+  "chart-q10": {
+   "w": 657,
+   "h": 458,
+   "dsf": 3,
+   "learner": true,
+   "rects": {
+    "body": {
+     "x": 15.8,
+     "y": 91.9,
+     "w": 625.2,
+     "h": 300
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 15.6,
+     "w": 625.2,
+     "h": 62.3
+    }
+   },
+   "text": {}
+  },
+  "empty": {
+   "w": 1136,
+   "h": 636,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "banner": {
+     "x": 32,
+     "y": 558.1,
+     "w": 1072,
+     "h": 50.1
+    },
+    "summary": {
+     "x": 32,
+     "y": 486.4,
+     "w": 280.7,
+     "h": 23
+    }
+   },
+   "text": {
+    "banner": "No sales match these filters\n\nTry widening a range or choosing \"Any\", or start again.\n\nReset filters"
+   }
+  },
+  "tip-q1": {
+   "w": 657,
+   "h": 739,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "tooltip": {
+     "x": 423,
+     "y": 110,
+     "w": 210.5,
+     "h": 85.6
+    },
+    "body": {
+     "x": 15.8,
+     "y": 73.3,
+     "w": 625.2,
+     "h": 600
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 16.1,
+     "w": 625.2,
+     "h": 43.2
+    },
+    "bar": {
+     "x": 143.3,
+     "y": 86.3,
+     "w": 379.1,
+     "h": 16
+    }
+   },
+   "text": {
+    "tooltip": "Davis, CA\nMedian sale price\n$889,000\nSales\n941"
+   }
+  },
+  "f3-s0": {
+   "w": 1136,
+   "h": 546,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "slider": {
+     "x": 596,
+     "y": 368.1,
+     "w": 508,
+     "h": 28
+    },
+    "lo": {
+     "x": 596,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "hi": {
+     "x": 738.5,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "group": {
+     "x": 596,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "other": {
+     "x": 32,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "thumbLo": {
+     "x": 605,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    },
+    "thumbHi": {
+     "x": 1095,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    }
+   },
+   "text": {
+    "values": {
+     "sliderLo": "1900",
+     "sliderHi": "2026",
+     "boxLo": "1900",
+     "boxHi": "2026"
+    }
+   }
+  },
+  "f3-s1": {
+   "w": 1136,
+   "h": 546,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "slider": {
+     "x": 596,
+     "y": 368.1,
+     "w": 508,
+     "h": 28
+    },
+    "lo": {
+     "x": 596,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "hi": {
+     "x": 738.5,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "group": {
+     "x": 596,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "other": {
+     "x": 32,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "thumbLo": {
+     "x": 640,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    },
+    "thumbHi": {
+     "x": 1095,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    }
+   },
+   "text": {
+    "values": {
+     "sliderLo": "1909",
+     "sliderHi": "2026",
+     "boxLo": "1909",
+     "boxHi": "2026"
+    }
+   }
+  },
+  "f3-s2": {
+   "w": 1136,
+   "h": 546,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "slider": {
+     "x": 596,
+     "y": 368.1,
+     "w": 508,
+     "h": 28
+    },
+    "lo": {
+     "x": 596,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "hi": {
+     "x": 738.5,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "group": {
+     "x": 596,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "other": {
+     "x": 32,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "thumbLo": {
+     "x": 675,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    },
+    "thumbHi": {
+     "x": 1095,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    }
+   },
+   "text": {
+    "values": {
+     "sliderLo": "1918",
+     "sliderHi": "2026",
+     "boxLo": "1918",
+     "boxHi": "2026"
+    }
+   }
+  },
+  "f3-s3": {
+   "w": 1136,
+   "h": 546,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "slider": {
+     "x": 596,
+     "y": 368.1,
+     "w": 508,
+     "h": 28
+    },
+    "lo": {
+     "x": 596,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "hi": {
+     "x": 738.5,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "group": {
+     "x": 596,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "other": {
+     "x": 32,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "thumbLo": {
+     "x": 710,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    },
+    "thumbHi": {
+     "x": 1095,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    }
+   },
+   "text": {
+    "values": {
+     "sliderLo": "1927",
+     "sliderHi": "2026",
+     "boxLo": "1927",
+     "boxHi": "2026"
+    }
+   }
+  },
+  "f3-s4": {
+   "w": 1136,
+   "h": 546,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "slider": {
+     "x": 596,
+     "y": 368.1,
+     "w": 508,
+     "h": 28
+    },
+    "lo": {
+     "x": 596,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "hi": {
+     "x": 738.5,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "group": {
+     "x": 596,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "other": {
+     "x": 32,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "thumbLo": {
+     "x": 748.9,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    },
+    "thumbHi": {
+     "x": 1095,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    }
+   },
+   "text": {
+    "values": {
+     "sliderLo": "1937",
+     "sliderHi": "2026",
+     "boxLo": "1937",
+     "boxHi": "2026"
+    }
+   }
+  },
+  "f3-s5": {
+   "w": 1136,
+   "h": 546,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "slider": {
+     "x": 596,
+     "y": 368.1,
+     "w": 508,
+     "h": 28
+    },
+    "lo": {
+     "x": 596,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "hi": {
+     "x": 738.5,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "group": {
+     "x": 596,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "other": {
+     "x": 32,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "thumbLo": {
+     "x": 783.9,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    },
+    "thumbHi": {
+     "x": 1095,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    }
+   },
+   "text": {
+    "values": {
+     "sliderLo": "1946",
+     "sliderHi": "2026",
+     "boxLo": "1946",
+     "boxHi": "2026"
+    }
+   }
+  },
+  "f3-s6": {
+   "w": 1136,
+   "h": 546,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "slider": {
+     "x": 596,
+     "y": 368.1,
+     "w": 508,
+     "h": 28
+    },
+    "lo": {
+     "x": 596,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "hi": {
+     "x": 738.5,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "group": {
+     "x": 596,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "other": {
+     "x": 32,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "thumbLo": {
+     "x": 818.9,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    },
+    "thumbHi": {
+     "x": 1095,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    }
+   },
+   "text": {
+    "values": {
+     "sliderLo": "1955",
+     "sliderHi": "2026",
+     "boxLo": "1955",
+     "boxHi": "2026"
+    }
+   }
+  },
+  "f3-s7": {
+   "w": 1136,
+   "h": 546,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "slider": {
+     "x": 596,
+     "y": 368.1,
+     "w": 508,
+     "h": 28
+    },
+    "lo": {
+     "x": 596,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "hi": {
+     "x": 738.5,
+     "y": 404.1,
+     "w": 110,
+     "h": 41.7
+    },
+    "group": {
+     "x": 596,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "other": {
+     "x": 32,
+     "y": 340.1,
+     "w": 508,
+     "h": 105.6
+    },
+    "thumbLo": {
+     "x": 818.9,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    },
+    "thumbHi": {
+     "x": 993.9,
+     "y": 382.1,
+     "w": 0,
+     "h": 0
+    }
+   },
+   "text": {
+    "values": {
+     "sliderLo": "1955",
+     "sliderHi": "2000",
+     "boxLo": "1955",
+     "boxHi": "2000"
+    },
+    "summary": "18,431 of 35,371 sales match, with 1 filter on."
+   }
+  },
+  "f7-s0": {
+   "w": 1104,
+   "h": 778,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "table": {
+     "x": 16,
+     "y": 77.3,
+     "w": 1072,
+     "h": 685.5
+    },
+    "thead": {
+     "x": 16,
+     "y": 77.3,
+     "w": 1072,
+     "h": 34.7
+    },
+    "th0": {
+     "x": 16,
+     "y": 77.3,
+     "w": 134.1,
+     "h": 34.7
+    },
+    "icon0": {
+     "x": 50.5,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th1": {
+     "x": 150.1,
+     "y": 77.3,
+     "w": 127.9,
+     "h": 34.7
+    },
+    "icon1": {
+     "x": 245.6,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th2": {
+     "x": 278,
+     "y": 77.3,
+     "w": 77.6,
+     "h": 34.7
+    },
+    "icon2": {
+     "x": 331.6,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th3": {
+     "x": 355.6,
+     "y": 77.3,
+     "w": 156.5,
+     "h": 34.7
+    },
+    "icon3": {
+     "x": 488.1,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th4": {
+     "x": 512.1,
+     "y": 77.3,
+     "w": 183.8,
+     "h": 34.7
+    },
+    "icon4": {
+     "x": 671.9,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th5": {
+     "x": 695.9,
+     "y": 77.3,
+     "w": 193,
+     "h": 34.7
+    },
+    "icon5": {
+     "x": 864.9,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th6": {
+     "x": 888.9,
+     "y": 77.3,
+     "w": 199.1,
+     "h": 34.7
+    },
+    "icon6": {
+     "x": 1064,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    }
+   },
+   "text": {
+    "headers": [
+     "City|none",
+     "Campus area|none",
+     "Sales|descending",
+     "Median sale price|none",
+     "Median price per sq ft|none",
+     "Median days on market|none",
+     "Median miles to campus|none"
+    ],
+    "firstRows": [
+     "Gainesville, FL\tFlorida\t5,467\t$350,000\t$204\t25\t4.3",
+     "Madison, WI\tWisconsin\t5,061\t$421,000\t$248\t7\t4.6",
+     "Lafayette, IN\tPurdue\t3,053\t$260,000\t$163\t9\t4.1"
+    ]
+   }
+  },
+  "f7-s1": {
+   "w": 1104,
+   "h": 778,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "table": {
+     "x": 16,
+     "y": 77.3,
+     "w": 1072,
+     "h": 685.5
+    },
+    "thead": {
+     "x": 16,
+     "y": 77.3,
+     "w": 1072,
+     "h": 34.7
+    },
+    "th0": {
+     "x": 16,
+     "y": 77.3,
+     "w": 134.1,
+     "h": 34.7
+    },
+    "icon0": {
+     "x": 50.5,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th1": {
+     "x": 150.1,
+     "y": 77.3,
+     "w": 127.9,
+     "h": 34.7
+    },
+    "icon1": {
+     "x": 245.6,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th2": {
+     "x": 278,
+     "y": 77.3,
+     "w": 77.6,
+     "h": 34.7
+    },
+    "icon2": {
+     "x": 331.6,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th3": {
+     "x": 355.6,
+     "y": 77.3,
+     "w": 156.5,
+     "h": 34.7
+    },
+    "icon3": {
+     "x": 488.1,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th4": {
+     "x": 512.1,
+     "y": 77.3,
+     "w": 183.8,
+     "h": 34.7
+    },
+    "icon4": {
+     "x": 671.9,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th5": {
+     "x": 695.9,
+     "y": 77.3,
+     "w": 193,
+     "h": 34.7
+    },
+    "icon5": {
+     "x": 864.9,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th6": {
+     "x": 888.9,
+     "y": 77.3,
+     "w": 199.1,
+     "h": 34.7
+    },
+    "icon6": {
+     "x": 1064,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    }
+   },
+   "text": {
+    "headers": [
+     "City|none",
+     "Campus area|none",
+     "Sales|none",
+     "Median sale price|descending",
+     "Median price per sq ft|none",
+     "Median days on market|none",
+     "Median miles to campus|none"
+    ],
+    "firstRows": [
+     "Davis, CA\tUC Davis\t941\t$889,000\t$493\t11\t2.0",
+     "Pittsboro, NC\tUNC Chapel Hill\t92\t$876,986\t$302\t38\t8.0",
+     "Chapel Hill, NC\tUNC Chapel Hill\t2,705\t$734,000\t$277\t10\t3.9"
+    ],
+    "sortCol": 3
+   }
+  },
+  "f7-s2": {
+   "w": 1104,
+   "h": 778,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "table": {
+     "x": 16,
+     "y": 77.3,
+     "w": 1072,
+     "h": 685.5
+    },
+    "thead": {
+     "x": 16,
+     "y": 77.3,
+     "w": 1072,
+     "h": 34.7
+    },
+    "th0": {
+     "x": 16,
+     "y": 77.3,
+     "w": 134.1,
+     "h": 34.7
+    },
+    "icon0": {
+     "x": 50.5,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th1": {
+     "x": 150.1,
+     "y": 77.3,
+     "w": 127.9,
+     "h": 34.7
+    },
+    "icon1": {
+     "x": 245.6,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th2": {
+     "x": 278,
+     "y": 77.3,
+     "w": 77.6,
+     "h": 34.7
+    },
+    "icon2": {
+     "x": 331.6,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th3": {
+     "x": 355.6,
+     "y": 77.3,
+     "w": 156.5,
+     "h": 34.7
+    },
+    "icon3": {
+     "x": 488.1,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th4": {
+     "x": 512.1,
+     "y": 77.3,
+     "w": 183.8,
+     "h": 34.7
+    },
+    "icon4": {
+     "x": 671.9,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th5": {
+     "x": 695.9,
+     "y": 77.3,
+     "w": 193,
+     "h": 34.7
+    },
+    "icon5": {
+     "x": 864.9,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    },
+    "th6": {
+     "x": 888.9,
+     "y": 77.3,
+     "w": 199.1,
+     "h": 34.7
+    },
+    "icon6": {
+     "x": 1064,
+     "y": 87.4,
+     "w": 14,
+     "h": 14
+    }
+   },
+   "text": {
+    "headers": [
+     "City|none",
+     "Campus area|none",
+     "Sales|none",
+     "Median sale price|ascending",
+     "Median price per sq ft|none",
+     "Median days on market|none",
+     "Median miles to campus|none"
+    ],
+    "firstRows": [
+     "Urbana, IL\tIllinois\t1,131\t$229,900\t$144\t8\t2.2",
+     "Champaign, IL\tIllinois\t2,285\t$240,000\t$150\t7\t3.0",
+     "Lafayette, IN\tPurdue\t3,053\t$260,000\t$163\t9\t4.1"
+    ],
+    "sortCol": 3
+   }
+  },
+  "ctl-rest": {
+   "w": 1120,
+   "h": 80,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "reset": {
+     "x": 745.5,
+     "y": 19.8,
+     "w": 139.1,
+     "h": 40.4
+    },
+    "copy": {
+     "x": 894.5,
+     "y": 19.8,
+     "w": 201.5,
+     "h": 40.4
+    }
+   },
+   "text": {}
+  },
+  "ctl-hover": {
+   "w": 1120,
+   "h": 80,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "reset": {
+     "x": 745.5,
+     "y": 19.8,
+     "w": 139.1,
+     "h": 40.4
+    },
+    "copy": {
+     "x": 894.5,
+     "y": 19.8,
+     "w": 201.5,
+     "h": 40.4
+    }
+   },
+   "text": {}
+  },
+  "ctl-focus": {
+   "w": 1120,
+   "h": 80,
+   "dsf": 5,
+   "learner": false,
+   "rects": {
+    "reset": {
+     "x": 745.5,
+     "y": 19.8,
+     "w": 139.1,
+     "h": 40.4
+    },
+    "copy": {
+     "x": 894.5,
+     "y": 19.8,
+     "w": 201.5,
+     "h": 40.4
+    }
+   },
+   "text": {
+    "focused": "copy-link"
+   }
+  },
+  "f5-s0": {
+   "w": 1136,
+   "h": 699,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "city": {
+     "x": 578,
+     "y": 99.2,
+     "w": 526,
+     "h": 41.7
+    },
+    "beds": {
+     "x": 305,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "copy": {
+     "x": 902.5,
+     "y": 477.8,
+     "w": 201.5,
+     "h": 40.4
+    },
+    "tiles": {
+     "x": 32,
+     "y": 582.1,
+     "w": 1072,
+     "h": 89
+    },
+    "filters": {
+     "x": 32,
+     "y": 28.3,
+     "w": 1072,
+     "h": 489.8
+    }
+   },
+   "text": {
+    "query": "",
+    "tiles": "Sales\n\n35,371\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$410,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n11 days\n\nFrom 28,028 sales with both dates\n\nMedian price per sq ft\n\n$212\n\nFrom 34,871 sales with a living area"
+   }
+  },
+  "f5-s1": {
+   "w": 1136,
+   "h": 699,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "city": {
+     "x": 578,
+     "y": 99.2,
+     "w": 526,
+     "h": 41.7
+    },
+    "beds": {
+     "x": 305,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "copy": {
+     "x": 902.5,
+     "y": 477.8,
+     "w": 201.5,
+     "h": 40.4
+    },
+    "tiles": {
+     "x": 32,
+     "y": 582.1,
+     "w": 1072,
+     "h": 89
+    },
+    "filters": {
+     "x": 32,
+     "y": 28.3,
+     "w": 1072,
+     "h": 489.8
+    }
+   },
+   "text": {
+    "query": "?city=iowa-city-ia",
+    "tiles": "Sales\n\n1,909\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$342,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n23.5 days\n\nFrom 1,248 sales with both dates\n\nMedian price per sq ft\n\n$176\n\nFrom 1,907 sales with a living area"
+   }
+  },
+  "f5-s2": {
+   "w": 1136,
+   "h": 699,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "city": {
+     "x": 578,
+     "y": 99.2,
+     "w": 526,
+     "h": 41.7
+    },
+    "beds": {
+     "x": 305,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "copy": {
+     "x": 902.5,
+     "y": 477.8,
+     "w": 201.5,
+     "h": 40.4
+    },
+    "tiles": {
+     "x": 32,
+     "y": 582.1,
+     "w": 1072,
+     "h": 89
+    },
+    "filters": {
+     "x": 32,
+     "y": 28.3,
+     "w": 1072,
+     "h": 489.8
+    }
+   },
+   "text": {
+    "query": "?city=iowa-city-ia&beds=3",
+    "tiles": "Sales\n\n707\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$285,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n18 days\n\nFrom 458 sales with both dates\n\nMedian price per sq ft\n\n$174\n\nFrom 707 sales with a living area"
+   }
+  },
+  "f5-s3": {
+   "w": 1136,
+   "h": 699,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "city": {
+     "x": 578,
+     "y": 99.2,
+     "w": 526,
+     "h": 41.7
+    },
+    "beds": {
+     "x": 305,
+     "y": 184.8,
+     "w": 253,
+     "h": 41.7
+    },
+    "copy": {
+     "x": 902.5,
+     "y": 477.8,
+     "w": 201.5,
+     "h": 40.4
+    },
+    "tiles": {
+     "x": 32,
+     "y": 582.1,
+     "w": 1072,
+     "h": 89
+    },
+    "filters": {
+     "x": 32,
+     "y": 28.3,
+     "w": 1072,
+     "h": 489.8
+    }
+   },
+   "text": {
+    "query": "?city=iowa-city-ia&beds=3",
+    "tiles": "Sales\n\n707\n\nof 35,371 sales in the price range\n\nMedian sale price\n\n$285,000\n\nHalf sold for less, half for more\n\nMedian days on market\n\n18 days\n\nFrom 458 sales with both dates\n\nMedian price per sq ft\n\n$174\n\nFrom 707 sales with a living area",
+    "city": "Iowa City, IA",
+    "beds": "3"
+   }
+  },
+  "loading": {
+   "w": 1920,
+   "h": 1080,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "status": {
+     "x": 424,
+     "y": 537.7,
+     "w": 1072,
+     "h": 48.6
+    },
+    "h1": {
+     "x": 424,
+     "y": 187.6,
+     "w": 695.8,
+     "h": 187.7
+    }
+   },
+   "text": {
+    "status": "Loading the sales data\n\nThis takes a few seconds the first time."
+   }
+  },
+  "dark-top": {
+   "w": 1920,
+   "h": 1080,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "toggle": {
+     "x": 1371.4,
+     "y": 11.1,
+     "w": 124.6,
+     "h": 37.8
+    }
+   },
+   "text": {}
+  },
+  "dark-q1": {
+   "w": 1136,
+   "h": 823,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "chart": {
+     "x": 478.8,
+     "y": 88.1,
+     "w": 625.2,
+     "h": 706.9
+    },
+    "answer": {
+     "x": 32,
+     "y": 88.1,
+     "w": 390.8,
+     "h": 146.7
+    }
+   },
+   "text": {}
+  },
+  "dark-map": {
+   "w": 1136,
+   "h": 855,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "map": {
+     "x": 32,
+     "y": 197.2,
+     "w": 602,
+     "h": 630.3
+    }
+   },
+   "text": {}
+  },
+  "dark-tip-q1": {
+   "w": 657,
+   "h": 739,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "tooltip": {
+     "x": 423,
+     "y": 110,
+     "w": 210.5,
+     "h": 85.6
+    },
+    "body": {
+     "x": 15.8,
+     "y": 73.3,
+     "w": 625.2,
+     "h": 600
+    },
+    "caption": {
+     "x": 15.8,
+     "y": 16.1,
+     "w": 625.2,
+     "h": 43.2
+    },
+    "bar": {
+     "x": 143.3,
+     "y": 86.3,
+     "w": 379.1,
+     "h": 16
+    }
+   },
+   "text": {
+    "tooltip": "Davis, CA\nMedian sale price\n$889,000\nSales\n941"
+   }
+  },
+  "phone-top": {
+   "w": 390,
+   "h": 844,
+   "dsf": 3,
+   "learner": false,
+   "rects": {
+    "toggle": {
+     "x": 286,
+     "y": 8,
+     "w": 40,
+     "h": 40
+    }
+   },
+   "text": {}
+  },
+  "phone-00": {
+   "w": 390,
+   "h": 2400,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  },
+  "phone-01": {
+   "w": 390,
+   "h": 1172,
+   "dsf": 3,
+   "learner": true,
+   "rects": {},
+   "text": {}
+  }
+ },
+ "site": {
+  "title": "College-Town Home Sales Analysis",
+  "pageHeight": 16090,
+  "palette": {
+   "--bg": "#ffffff",
+   "--surface-2": "#f1f0ec",
+   "--ink": "#16181d",
+   "--ink-2": "#4a4d55",
+   "--muted": "#6d6e73",
+   "--line": "#e7e5df",
+   "--accent": "#eb6834",
+   "--accent-2": "#2a78d6",
+   "--quiet": "#bdbab0",
+   "--accent-ink": "#b8451a"
+  },
+  "pageTiles": [
+   "page-00",
+   "page-01",
+   "page-02",
+   "page-03",
+   "page-04",
+   "page-05",
+   "page-06",
+   "page-07"
+  ],
+  "sections": {
+   "top": {
+    "x": 0,
+    "y": 60,
+    "w": 1920,
+    "h": 612
+   },
+   "questions": {
+    "x": 0,
+    "y": 672,
+    "w": 1920,
+    "h": 8523
+   },
+   "explore": {
+    "x": 0,
+    "y": 9195,
+    "w": 1920,
+    "h": 3000
+   },
+   "insights": {
+    "x": 0,
+    "y": 12195,
+    "w": 1920,
+    "h": 1895
+   },
+   "methods": {
+    "x": 0,
+    "y": 14090,
+    "w": 1920,
+    "h": 1765
+   }
+  },
+  "rangeSteps": 8,
+  "darkPalette": {
+   "theme": "dark",
+   "bg": "#151514",
+   "ink": "#f0efec"
+  },
+  "phone": {
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "end": 3572,
+   "tiles": [
+    "phone-00",
+    "phone-01"
+   ]
+  }
+ },
+ "capturedAt": "2026-11-13T12:03:57.857Z"
+}
