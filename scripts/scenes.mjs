@@ -421,7 +421,8 @@ export const scenes = {
     w.box(grow(w.r(a, 'm1'), 6), { label: 'Days on market', at: 1.2, until: 3.6 });
     w.box(grow(w.r(a, 'm4'), 6), { label: 'Missing values', at: 1.6, until: 3.6 });
     const last = Object.keys(r).filter((k) => /^m\d+$/.test(k)).sort((x, y) => +x.slice(1) - +y.slice(1)).pop();
-    w.pan(2.0, 1.6, { x: 0, y: r[last].y + r[last].h - 740, w: a.shot.w, h: 760 }, { scale: 1.0, align: 'top', pad: 20, ease: 'power2.inOut' });
+    // Scroll far enough that the citation's highlight box, border included, sits inside the window.
+    w.pan(2.0, 1.6, { x: 0, y: r[last].y + r[last].h - 700, w: a.shot.w, h: 760 }, { scale: 1.0, align: 'top', pad: 20, ease: 'power2.inOut' });
     w.box(grow(w.r(a, last), 6), { label: 'Dataset citation', at: 3.3, until: 4.4 });
     w.hideAt(4.4);
     // At least three chart types: thumbnails of the question charts.
