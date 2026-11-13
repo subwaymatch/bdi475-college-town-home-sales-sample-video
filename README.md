@@ -40,6 +40,7 @@ All in `video.config.json`:
 | Setting | Values | What it does |
 |---|---|---|
 | `RESOLUTION` | `"4k"` (default) or `"1080p"` | The video is laid out once at 1920x1080. For 4K, HyperFrames renders the same layout at twice the pixel density (`--resolution 4k`), so text, boxes and the cursor scale with it and the layout does not change. |
+| `VOICEOVER` | `true` (default) or `false` | Include the narration from `assets/voice/`. |
 | `SHOW_ALL_ANSWERS` | `false` (default) or `true` | `false` is the learner version: Q1 and Q2 are shown in full as worked examples, while the answer text and chart data labels of Q3 to Q10 and the insights text are blurred. `true` is the instructor version, with every answer visible. |
 | `FPS` | `30` | Frame rate. |
 | `QUALITY` | `"high"` | HyperFrames render quality (`draft`, `looks`, `high`). |
@@ -125,7 +126,17 @@ The capture script blurs parts of the page inside the browser before each screen
 
 The video never shows the browser's address bar, tabs, the site's domain, the repository name or a username. Feature 5 (shareable filters) shows only the query string, in a box drawn by the video.
 
-## Change the timing (for narration later)
+## Voiceover
+
+The narration is in `narration.json`, one line per scene id, read by the ElevenLabs voice Drew (`q0IMILNRPxOgtBTS4taI`). Both versions share one audio track, so the narration never states a Q3 to Q10 answer.
+
+```bash
+npm run voiceover
+```
+
+This generates a clip for each new or changed line in `assets/voice/`, evens out the loudness, and lengthens any scene in `scenes.json` that is shorter than its line (it never shortens one). Then run `npm run build`. It needs an ElevenLabs API key in `ELEVENLABS_API_KEY`, sent in the `xi-api-key` header. `node scripts/voiceover.mjs --dry-run` shows what would be generated and how many characters it costs. Set `VOICEOVER` to `false` in `video.config.json` to render without narration. The clips are committed, so rendering (locally or in the GitHub workflow) never calls ElevenLabs.
+
+## Change the timing
 
 Each scene has a stable id in `scenes.json` (`title`, `first-look`, `q1` to `q10`, `insights`, `feature-01` to `feature-10`, `design`, `closing`). To fit a scene to narration, change its `duration` and run `npm run build`. Every later scene moves to match, and the beats inside the scene stretch or shrink in proportion. The bottom 200 pixels of the frame (at 1080p) are kept empty for captions.
 

@@ -79,6 +79,21 @@ const overlayHosts = overlays
   .map((o) => `      <div id="${o.id}" data-composition-id="${o.id}" data-composition-src="compositions/${o.id}.html" data-start="${o.start}" data-duration="${o.duration}" data-track-index="2" data-track-kind="graphics" data-width="1920" data-height="1080"></div>`)
   .join('\n');
 
+// Voiceover: one clip per scene from assets/voice (made by scripts/voiceover.mjs), starting a
+// moment after its scene starts. VOICEOVER: false in video.config.json renders a silent video.
+const voiceManifest = path.join(ROOT, 'assets', 'voice', 'manifest.json');
+const audioTags = [];
+if (config.VOICEOVER !== false && fs.existsSync(voiceManifest)) {
+  const vm = JSON.parse(fs.readFileSync(voiceManifest, 'utf8'));
+  for (const s of list.scenes) {
+    const clip = vm.clips[s.id];
+    if (!clip) continue;
+    const start = +(s.start + vm.lead).toFixed(3);
+    if (vm.lead + clip.duration > s.duration) warnings.push(`${s.id}: narration (${clip.duration} s) runs past the scene; run npm run voiceover to refit`);
+    audioTags.push(`      <audio id="vo-${s.id}" class="clip" src="${clip.file}" data-start="${start}" data-duration="${clip.duration}" data-track-index="3" data-volume="1"></audio>`);
+  }
+}
+
 const variables = [{ id: 'SHOW_ALL_ANSWERS', type: 'boolean', label: 'Show all answers (instructor version)', default: !!config.SHOW_ALL_ANSWERS }];
 
 const index = `<!doctype html>
@@ -113,6 +128,7 @@ const index = `<!doctype html>
       <div id="bg"></div>
 ${hosts}
 ${overlayHosts}
+${audioTags.join('\n')}
     </div>
     <script>
       window.__timelines["main"] = gsap.timeline({ paused: true });
@@ -132,5 +148,5 @@ const md = [
 fs.mkdirSync(path.join(ROOT, 'docs'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'docs', 'on-screen-text.md'), md);
 
-console.log(`Built ${list.scenes.length} scenes, ${total} s (${Math.floor(total / 60)} min ${Math.round(total % 60)} s).`);
+console.log(`Built ${list.scenes.length} scenes, ${total} s (${Math.floor(total / 60)} min ${Math.round(total % 60)} s)${audioTags.length ? `, ${audioTags.length} voiceover clips` : ', no voiceover'}.`);
 for (const w of warnings) console.log(`warning: ${w}`);
