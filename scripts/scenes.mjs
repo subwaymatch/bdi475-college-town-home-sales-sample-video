@@ -168,7 +168,7 @@ export const scenes = {
 
   'feature-01': feature(1, 'Filters and key numbers', 'Change a filter and the key numbers update.', (S, w) => {
     const a = w.img('f1-s0');
-    w.img('f1-s1', { at: 3.5, fade: 0.25 });
+    w.img('f1-s1', { at: 3.5, fade: 0.1 });
     w.cam(0, full(a), { dur: 0, pad: 20 });
     w.box(grow(w.r(a, 'filters'), -6), { label: 'Filters', at: 0.8, until: 1.9 });
     const city = w.r(a, 'city');
@@ -184,7 +184,7 @@ export const scenes = {
 
   'feature-02': feature(2, 'Map filter', 'Click a campus on the map to filter the section.', (S, w) => {
     const a = w.img('f2-s0');
-    w.img('f2-s1', { at: 3.0, fade: 0.25 });
+    w.img('f2-s1', { at: 3.0, fade: 0.1 });
     w.cam(0, full(a), { dur: 0, pad: 16 });
     const mk = w.r(a, 'marker');
     w.box(w.r(a, 'map'), { label: 'Map of campus areas', at: 0.8, until: 2.0 });
@@ -203,7 +203,7 @@ export const scenes = {
     const drag = [];
     for (let i = 1; i < steps; i++) {
       const at = i < steps - 1 ? 2.75 + (i - 1) * 0.33 : 6.0;
-      w.img(`f3-s${i}`, { at, fade: i < steps - 1 ? 0.06 : 0.2 });
+      w.img(`f3-s${i}`, { at, fade: i < steps - 1 ? 0.06 : 0.1 });
       drag.push(at);
     }
     w.cam(0, full(a), { dur: 0, pad: 16 });
@@ -229,7 +229,7 @@ export const scenes = {
 
   'feature-04': feature(4, 'Home feature filter', 'Garage, basement and fireplace each offer Any, Yes, No and Unknown.', (S, w) => {
     const a = w.img('f4-s0');
-    w.img('f4-s1', { at: 3.6, fade: 0.25 });
+    w.img('f4-s1', { at: 3.6, fade: 0.1 });
     w.cam(0, full(a), { dur: 0, pad: 20 });
     const feats = union(w.r(a, 'garage'), w.r(a, 'basement'), w.r(a, 'fireplace'));
     w.box(grow(feats, 4), { label: 'Home features', at: 0.8, until: 2.2 });
@@ -250,7 +250,7 @@ export const scenes = {
     const q1 = S.m.shots['f5-s1'].text.query;
     const q2 = S.m.shots['f5-s2'].text.query;
     const a = w.img('f5-s1');
-    w.img('f5-s2', { at: 3.3, fade: 0.25 });
+    w.img('f5-s2', { at: 3.3, fade: 0.1 });
     // A fresh page load: white page, the loading message, then the same view.
     const wipe = `${S.id}-reload`;
     w.add(`<div id="${wipe}" style="position:absolute;left:0;top:0;width:${a.shot.w}px;height:${a.shot.h}px;background:#fff"></div>`);
@@ -283,7 +283,7 @@ export const scenes = {
 
   'feature-06': feature(6, 'Side-by-side comparison', 'Pick any two places.', (S, w) => {
     const a = w.img('f6-s0', { x: 0 });
-    w.img('f6-s1', { at: 3.3, fade: 0.25 });
+    w.img('f6-s1', { at: 3.3, fade: 0.1 });
     w.cam(0, full(a), { dur: 0, pad: 20, max: 1.4 });
     const b = w.r(a, 'b');
     const menu = w.menu(b, ['Pittsboro, NC', 'Savoy, IL', 'State College, PA', 'Urbana, IL'], { at: 2.1, until: 3.25, selected: 3, pick: 1, pickAt: 3.0, width: 300 });
@@ -299,15 +299,16 @@ export const scenes = {
 
   'feature-07': feature(7, 'Sortable table', 'Click a column heading to sort.', (S, w) => {
     const a = w.img('f7-s0');
-    w.img('f7-s1', { at: 2.85, fade: 0.2 });
-    w.img('f7-s2', { at: 4.95, fade: 0.2 });
+    w.img('f7-s1', { at: 2.85, fade: 0.1 });
+    w.img('f7-s2', { at: 4.95, fade: 0.1 });
     const col = S.m.shots['f7-s1'].text.sortCol;
     w.cam(0, full(a), { dur: 0, pad: 16 });
-    const thead = w.r(a, 'thead');
-    w.cam(0.9, grow(union(thead, w.r(a, `th${col}`)), 30), { dur: 1.2, max: 2.4 });
     const th = w.r(a, `th${col}`);
     const icon = w.r(a, `icon${col}`);
-    w.box(grow(thead, 2), { label: 'Every heading has a sort icon', at: 1.0, until: 2.9 });
+    // Close-up of the sorted column and its neighbours: headings, sort icons and the first rows.
+    const near = union(w.r(a, `th${col - 1}`), th, w.r(a, `th${col + 1}`));
+    w.cam(0.9, { x: near.x - 20, y: near.y - 70, w: near.w + 40, h: 300 }, { dur: 1.2, max: 2.4 });
+    w.box(grow(near, 2), { label: 'Every heading has a sort icon', at: 1.0, until: 2.9 });
     w.cursor([
       { t: 1.7, x: th.x + 40, y: th.y + 90 },
       { t: 1.8, x: center(th).x, y: center(th).y, click: true, dur: 0.75 },
@@ -315,7 +316,7 @@ export const scenes = {
     ], { hide: 6.4 });
     w.box(grow(union(th, icon), 3), { label: 'Highest first', at: 3.05, until: 4.7, color: 'blue', pos: 'top' });
     w.box(grow(union(th, icon), 3), { label: 'Lowest first', at: 5.1, color: 'blue', pos: 'top' });
-    w.cam(5.4, grow(w.r(a, 'table'), 10), { dur: 1.2, max: 1.3, align: 'top' });
+    w.cam(5.6, grow(w.r(a, 'table'), 10), { dur: 1.1, max: 1.3, align: 'top', pad: 60 });
     return { notes: [{ text: 'The icon shows the sorted column and its direction.', at: 3.2 }] };
   }, { base: 7 }),
 
@@ -484,7 +485,7 @@ function live(nq, { chart, line, base, actions }) {
           t += 1.7;
         }
       }
-      for (const [st, at] of swapAt) w.img(`${id}-s${st}`, { at, fade: 0.22 });
+      for (const [st, at] of swapAt) w.img(`${id}-s${st}`, { at, fade: 0.1 });
       w.cursor(path, { hide: t + 0.6 });
       const tb = t + 0.2;
       const ans = w.r(p, 'answer');
