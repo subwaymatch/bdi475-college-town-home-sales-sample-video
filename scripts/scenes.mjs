@@ -347,10 +347,10 @@ export const scenes = {
     const a = w.img('top');
     const dark = w.img('dark-top');
     S.js.push(`tl.fromTo('#${dark.id}', { clipPath: 'inset(0 0 0 100%)' }, { clipPath: 'inset(0 0 0 0%)', duration: 0.7, ease: 'power2.inOut' }, ${S.T(2.65)});`);
-    w.cam(0, { x: 640, y: 0, w: 1280, h: 840 }, { dur: 0, pad: 0, scale: 1170 / 1280 });
+    w.cam(0, { x: 0, y: 0, w: 1920, h: 1080 }, { dur: 0, pad: 0, scale: 1170 / 1920, align: 'top' });
     const tg = w.r(a, 'toggle');
     w.cursor([
-      { t: 1.0, x: tg.x - 120, y: tg.y + 260 },
+      { t: 1.0, x: tg.x - 220, y: tg.y + 420 },
       { t: 1.1, x: center(tg).x, y: center(tg).y, click: true, dur: 1.0 },
     ], { hide: 3.6 });
     w.box(grow(tg, 2), { label: 'Theme toggle', at: 0.7, until: 2.4, pos: 'bottom' });

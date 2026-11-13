@@ -1,0 +1,19 @@
+{
+  "name": "college-town-home-sales-sample-video",
+  "private": true,
+  "type": "module",
+  "description": "A short demo video of one sample site for the College-Town Home Sales case, made with HyperFrames.",
+  "scripts": {
+    "capture": "node scripts/capture.mjs",
+    "verify": "node scripts/verify-numbers.mjs",
+    "build": "node scripts/build.mjs",
+    "lint": "npx --yes hyperframes@0.9.41 lint",
+    "check": "npx --yes hyperframes@0.9.41 check",
+    "preview": "npx --yes hyperframes@0.9.41 preview",
+    "render": "node scripts/render.mjs",
+    "render:all": "node scripts/render.mjs --all"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}
