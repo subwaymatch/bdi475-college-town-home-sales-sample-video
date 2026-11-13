@@ -21,7 +21,7 @@ const full = (p) => ({ x: p.x, y: p.y, w: p.shot.w * p.k, h: p.shot.h * p.k });
 
 // ---------- Cards ----------
 
-function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, immediate = false, image = null }) {
+function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, subWidth = 1100, immediate = false, image = null }) {
   const id = `${S.id}-card`;
   const parts = [];
   const items = [];
@@ -35,7 +35,7 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, immediate =
   };
   if (kicker) add('kicker', kicker, 32);
   add('title', title, titleSize, 'max-width:1500px');
-  if (sub) add('note', sub, subSize, 'max-width:1100px');
+  if (sub) add('note', sub, subSize, `max-width:${subWidth}px`);
   // Centred in the area above the caption band; the opening card (with its image) is centred in
   // the whole frame, sized so that it still ends above the caption band.
   S.raw(`<div id="${id}" data-hold style="position:absolute;left:0;top:0;width:1920px;height:${image ? 1080 : 880}px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">${parts.join('')}</div>`);
@@ -422,9 +422,11 @@ export const scenes = {
     build(S) {
       S.fadeOut = 0;
       card(S, {
+        image: { src: 'assets/images/design-tools-riso.webp', w: 520, space: 36 },
         kicker: 'One sample site, not the answer key.',
         title: 'Your site will look different, and that is expected.',
         sub: 'Check your numbers against the rules in the case, not against this video.',
+        subWidth: 1400,
         titleSize: 64,
       });
     },
@@ -563,8 +565,8 @@ function designScene(S) {
     const p = w.img('top');
     const h1 = w.r(p, 'h1'), lead = w.r(p, 'lead');
     w.cam(0, grow(union(h1, lead), 60), { dur: 0, max: 1.3 });
-    w.box(grow(h1, 6), { label: 'Headings: Source Serif 4', at: 0.6 });
-    w.box(grow(lead, 6), { label: 'Text: Inter', at: 1.3, pos: 'bottom' });
+    w.box(grow(h1, 6), { label: 'Headings: serif', at: 0.6 });
+    w.box(grow(lead, 6), { label: 'Text: sans serif', at: 1.3, pos: 'bottom' });
   }
   // b. Color
   {
