@@ -1,6 +1,6 @@
 # College-Town Home Sales: one sample site (demo video)
 
-This repository holds the source of a short silent video (about 3.5 minutes) that walks through one sample website for the College-Town Home Sales data analytics case. The case asks learners to build, with a coding agent, a website that analyzes home sales in U.S. college towns.
+This repository holds the source of a short silent video (3 minutes 29 seconds) that walks through one sample website for the College-Town Home Sales data analytics case. The case asks learners to build, with a coding agent, a website that analyzes home sales in U.S. college towns.
 
 The video shows one possible finished site: how it answers the case's questions, and how it meets the required features and the design items. It is not the answer key and not the only right design. The video says this at the start and at the end.
 
@@ -67,7 +67,7 @@ To render one version with the settings in `video.config.json`:
 npm run render
 ```
 
-A 4K render takes a while (tens of minutes on a 4-core machine). To look at the video before rendering, run `npm run preview` and open the Studio link it prints.
+A 4K render takes about 15 minutes on a 4-core machine, and the 1080p version about 5. To look at the video before rendering, run `npm run preview` and open the Studio link it prints.
 
 ## Render on GitHub
 
@@ -77,7 +77,7 @@ The workflow in `.github/workflows/render.yml` renders all three versions on Git
 - **Attach the videos to a new GitHub release.** On by default.
 - **Release tag.** Leave it blank for `video-<run number>`.
 
-The three versions render in parallel, one per runner. Each 4K render takes about an hour and a half. Each video is checked with OCR (see below) before it is uploaded, and the release is created only if all three pass. The videos are attached to the release rather than committed: GitHub does not accept files over 100 MB in the repository, and a release accepts files up to 2 GB. Each run's videos also stay as workflow artifacts for 14 days.
+The three versions render in parallel, one per runner. Each 4K render takes roughly 15 to 30 minutes, depending on the runner. Each video is checked with OCR (see below) before it is uploaded, and the release is created only if all three pass. The videos are attached to the release rather than committed: GitHub does not accept files over 100 MB in the repository, and a release accepts files up to 2 GB. Each run's videos also stay as workflow artifacts for 14 days.
 
 ## Check a render
 
