@@ -22,6 +22,7 @@ import re
 import subprocess
 import sys
 import tempfile
+from concurrent.futures import ThreadPoolExecutor
 
 video, mode = sys.argv[1], (sys.argv[2] if len(sys.argv) > 2 else "learner")
 fps = float(os.environ.get("CHECK_FPS", "1"))
@@ -49,12 +50,21 @@ tmp = tempfile.mkdtemp(prefix="frames-")
 subprocess.run(["ffmpeg", "-loglevel", "error", "-i", video, "-vf", f"fps={fps}", os.path.join(tmp, "f%05d.png")], check=True)
 frames = sorted(f for f in os.listdir(tmp) if f.endswith(".png"))
 
+def ocr(f):
+    path = os.path.join(tmp, f)
+    text = subprocess.run(["tesseract", path, "-", "--psm", "11"], capture_output=True, text=True, env={**os.environ, "OMP_THREAD_LIMIT": "1"}).stdout
+    os.remove(path)
+    return text
+
+
+# One Tesseract process per CPU.
+with ThreadPoolExecutor(max_workers=os.cpu_count() or 2) as pool:
+    texts = list(pool.map(ocr, frames))
+
 hits = []
 answer_hits = []
-for i, f in enumerate(frames):
+for i, text in enumerate(texts):
     t = i / fps
-    path = os.path.join(tmp, f)
-    text = subprocess.run(["tesseract", path, "-", "--psm", "11"], capture_output=True, text=True).stdout
     low = text.lower()
     for name, pat in ALWAYS.items():
         for m in re.finditer(pat, low):
@@ -62,7 +72,6 @@ for i, f in enumerate(frames):
     for q, pat in ANSWERS.items():
         for m in re.finditer(pat, low):
             answer_hits.append({"time": t, "question": q, "text": m.group(0)})
-    os.remove(path)
 os.rmdir(tmp)
 
 report = {"video": video, "mode": mode, "frames": len(frames), "fps": fps, "identifying": hits, "answers": answer_hits}
