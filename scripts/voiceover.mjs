@@ -87,7 +87,8 @@ function tts(id) {
   return out;
 }
 
-const duration = (file) => +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', file], { encoding: 'utf8' }).trim();
+// The length of the decoded audio, without the MP3 encoder's padding (what the renderer plays).
+const duration = (file) => execFileSync('ffmpeg', ['-loglevel', 'error', '-i', file, '-f', 's16le', '-ac', '1', '-ar', '44100', '-'], { maxBuffer: 1 << 28 }).length / 2 / 44100 - 0.005;
 
 // The voice sometimes starts on the next line (it is given as context), or takes a breath, in the
 // last few milliseconds, which plays as a sudden cut-off sound. Two checks, in order:
@@ -148,6 +149,8 @@ for (const id of todo) {
   console.log(`${manifest.clips[id].duration} s`);
 }
 for (const id of Object.keys(manifest.clips)) if (!narration.lines[id]) delete manifest.clips[id];
+// Durations are measured from the decoded audio, for every clip.
+for (const id of ids) if (manifest.clips[id]) manifest.clips[id].duration = +duration(path.join(OUT, `${id}.mp3`)).toFixed(3);
 // Check every clip (new or not) for a cut-off sound at the end.
 for (const id of ids) {
   const file = path.join(OUT, `${id}.mp3`);
