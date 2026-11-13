@@ -54,3 +54,11 @@ Authored at 1920x1080 and rendered at 4K with HyperFrames' supersampling (`--res
 
 - No address bar, tab, domain, repo name or username anywhere. The query string in feature 5 is the only part of a URL shown.
 - The footer line "The code is on GitHub." is blurred in every capture that includes it.
+
+## Changes after approval
+
+- The video's own colours are a light neutral grey ground with black type, highlight boxes and labels (the site's colours stay in the captures and the palette swatches). Inter is set slightly tighter.
+- The title card opens with a risograph illustration of a college town (`assets/images/college-town-riso.webp`).
+- First look: no "Ten questions" chip.
+- Responsive layout: the phone sits on top of the desktop's box. Light and dark mode: the dark background fills the window.
+- Sortable table: the camera zooms in on the sort icons; state changes swap in 0.1 s.

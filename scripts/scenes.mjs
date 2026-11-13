@@ -21,10 +21,11 @@ const full = (p) => ({ x: p.x, y: p.y, w: p.shot.w * p.k, h: p.shot.h * p.k });
 
 // ---------- Cards ----------
 
-function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, immediate = false }) {
+function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, immediate = false, image = null }) {
   const id = `${S.id}-card`;
   const parts = [];
   const items = [];
+  if (image) parts.push(`<img id="${id}-img" src="${image.src}" alt="" style="width:${image.w}px;height:auto;display:block;margin-bottom:10px">`);
   const add = (cls, text, size, extra = '') => {
     const pid = `${id}-${items.length}`;
     parts.push(`<p id="${pid}" class="${cls}" style="margin:0;font-size:${size}px;text-align:center;${extra}">${text}</p>`);
@@ -54,6 +55,7 @@ export const scenes = {
       S.fadeIn = 0;
       card(S, {
         immediate: true,
+        image: { src: 'assets/images/college-town-riso.webp', w: 820 },
         kicker: 'A data analytics case study',
         title: 'College-Town Home Sales: one sample site',
         sub: 'A sample of what your site could look like. Not the answer key, and not the only way.',
@@ -84,7 +86,6 @@ export const scenes = {
         kicker: 'First look',
         title: 'One long page, read from top to bottom.',
         notes: [
-          { text: 'Ten questions', chip: true, at: when(sec.questions.y) },
           { text: 'Explore', chip: true, at: when(sec.explore.y) },
           { text: 'Insights', chip: true, at: when(sec.insights.y) },
           { text: 'Data and methods', chip: true, at: Math.min(when(sec.methods.y), 10.6) },
@@ -221,7 +222,7 @@ export const scenes = {
     path.push({ t: 4.7, x: P(thumb(steps - 2)).x, y: P(thumb(steps - 2)).y, dur: 0.01, release: true });
     path.push({ t: 4.9, x: center(hi).x, y: center(hi).y, dur: 0.8, click: true });
     w.cursor(path, { hide: 7.3 });
-    w.box(grow(S.m.shots['f3-s0'].rects.slider && w.r(a, 'slider'), 4), { label: 'Drag the handle', at: 1.6, until: 4.6, color: 'blue', pos: 'top-right' });
+    w.box(grow(S.m.shots['f3-s0'].rects.slider && w.r(a, 'slider'), 4), { label: 'Drag the handle', at: 1.6, until: 4.6, pos: 'top-right' });
     w.box(union(w.r(a, 'lo'), w.r(a, 'hi')), { label: 'Number boxes move with it', at: 2.9, until: 4.8, pos: 'bottom' });
     w.box(w.r(a, 'hi'), { label: 'Or type an exact value', at: 6.2, pos: 'bottom' });
     return { notes: [{ text: 'The two stay in sync.', at: 3.6 }] };
@@ -272,11 +273,11 @@ export const scenes = {
     // The query string, in a plain box drawn by the video. Never the address bar or the domain.
     const qy = 520;
     S.text('Query string', { x: COL.x, y: qy, w: COL.w, size: 28, cls: 'kicker', at: 0.9 });
-    S.raw(`<div id="${S.id}-qbox" style="position:absolute;left:${COL.x}px;top:${qy + 50}px;width:${COL.w}px;height:74px;background:#fff;border:2px solid ${C.line};border-radius:10px"></div>`);
+    S.raw(`<div id="${S.id}-qbox" style="position:absolute;left:${COL.x}px;top:${qy + 50}px;width:${COL.w}px;height:74px;background:#fff;border:2px solid ${C.black};border-radius:10px"></div>`);
     const qa = S.text(q1, { x: COL.x + 22, y: qy + 66, w: COL.w - 30, size: 28, cls: 'mono qs', at: 1.0, until: 3.35 });
     S.text(q2, { x: COL.x + 22, y: qy + 66, w: COL.w - 30, size: 28, cls: 'mono qs', at: 3.45 });
     S.js.push(`tl.fromTo('#${S.id}-qbox', { opacity: 0 }, { opacity: 1, duration: 0.4 }, ${S.T(0.9)});`);
-    S.css.push(`#root .qs { margin: 0; color: ${C.ink}; white-space: nowrap; }`);
+    S.css.push(`#root .qs { margin: 0; color: ${C.black}; white-space: nowrap; }`);
     void qa;
     return { notes: [{ text: 'Open the link and the same view loads.', at: 5.2 }] };
   }, { base: 9 }),
@@ -300,23 +301,24 @@ export const scenes = {
   'feature-07': feature(7, 'Sortable table', 'Click a column heading to sort.', (S, w) => {
     const a = w.img('f7-s0');
     w.img('f7-s1', { at: 2.85, fade: 0.1 });
-    w.img('f7-s2', { at: 4.95, fade: 0.1 });
+    w.img('f7-s2', { at: 4.6, fade: 0.1 });
     const col = S.m.shots['f7-s1'].text.sortCol;
     w.cam(0, full(a), { dur: 0, pad: 16 });
     const th = w.r(a, `th${col}`);
     const icon = w.r(a, `icon${col}`);
     // Close-up of the sorted column and its neighbours: headings, sort icons and the first rows.
+    // Labels appear only while the camera holds still, so they keep their size on screen.
     const near = union(w.r(a, `th${col - 1}`), th, w.r(a, `th${col + 1}`));
-    w.cam(0.9, { x: near.x - 20, y: near.y - 70, w: near.w + 40, h: 300 }, { dur: 1.2, max: 2.4 });
-    w.box(grow(near, 2), { label: 'Every heading has a sort icon', at: 1.0, until: 2.9 });
+    w.cam(0.6, { x: near.x - 20, y: near.y - 70, w: near.w + 40, h: 300 }, { dur: 1.0, max: 2.4 });
+    w.box(grow(near, 2), { label: 'Sort icons', at: 1.6, until: 2.9 });
     w.cursor([
       { t: 1.7, x: th.x + 40, y: th.y + 90 },
       { t: 1.8, x: center(th).x, y: center(th).y, click: true, dur: 0.75 },
-      { t: 4.0, x: center(th).x + 4, y: center(th).y + 2, click: true, dur: 0.6 },
-    ], { hide: 6.4 });
-    w.box(grow(union(th, icon), 3), { label: 'Highest first', at: 3.05, until: 4.7, color: 'blue', pos: 'top' });
-    w.box(grow(union(th, icon), 3), { label: 'Lowest first', at: 5.1, color: 'blue', pos: 'top' });
-    w.cam(5.6, grow(w.r(a, 'table'), 10), { dur: 1.1, max: 1.3, align: 'top', pad: 60 });
+      { t: 3.7, x: center(th).x + 4, y: center(th).y + 2, click: true, dur: 0.55 },
+    ], { hide: 5.8 });
+    w.box(grow(union(th, icon), 3), { label: 'Highest first', at: 3.0, until: 4.35 });
+    w.box(grow(union(th, icon), 3), { label: 'Lowest first', at: 4.7, until: 5.85 });
+    w.cam(5.9, grow(w.r(a, 'table'), 10), { dur: 0.9, max: 1.3, align: 'top', pad: 60 });
     return { notes: [{ text: 'The icon shows the sorted column and its direction.', at: 3.2 }] };
   }, { base: 7 }),
 
@@ -334,19 +336,21 @@ export const scenes = {
       y += sh.h;
     }
     const sid = `${S.id}-phone-scroll`;
-    w.add(`<div style="position:absolute;left:${px - 12}px;top:${py - 12}px;width:${pw + 24}px;height:${ph + 24}px;border-radius:44px;background:${C.ink}"></div>`);
+    // Desktop box first, so the phone sits on top of it.
+    w.box({ x: 34, y: 150, w: 1920 * 0.42, h: 1080 * 0.42 }, { label: 'Desktop, 1920 pixels wide', at: 0.8, pos: 'bottom' });
+    w.add(`<div style="position:absolute;left:${px - 12}px;top:${py - 12}px;width:${pw + 24}px;height:${ph + 24}px;border-radius:44px;background:${C.black}"></div>`);
     w.add(`<div style="position:absolute;left:${px}px;top:${py}px;width:${pw}px;height:${ph}px;border-radius:32px;overflow:hidden;background:#fff"><div id="${sid}" style="position:absolute;left:0;top:0;width:${pw}px">${inner.join('')}</div></div>`);
     const scrollTo = Math.min(y * k - ph, 1850 * k);
     S.js.push(`tl.fromTo('#${sid}', { y: 0 }, { y: ${-scrollTo.toFixed(1)}, duration: ${S.T(5.2) - S.T(1.4)}, ease: 'power1.inOut' }, ${S.T(1.4)});`);
     w.cam(0, { x: 0, y: 0, w: 1170, h: 768 }, { dur: 0, scale: 1, pad: 0 });
-    w.box({ x: 34, y: 150, w: 1920 * 0.42, h: 1080 * 0.42 }, { label: 'Desktop, 1920 pixels wide', at: 0.8, pos: 'bottom' });
     w.box({ x: px - 12, y: py - 12, w: pw + 24, h: ph + 24 }, { label: 'Phone, 390 pixels wide', at: 1.4, pos: 'bottom', pad: 4 });
     return { notes: [{ text: 'Nothing needs sideways scrolling on a phone.', at: 2.6 }] };
   }, { titleSize: 50 }),
 
   'feature-09': feature(9, 'Light and dark mode', 'A toggle switches the theme.', (S, w) => {
     const a = w.img('top');
-    const dark = w.img('dark-top');
+    // The dark capture, extended with the page's dark background to fill the whole window.
+    const dark = w.img('dark-top', { crop: { x: 0, y: 0, w: 1920, h: Math.ceil((1920 * 768) / 1170) }, frame: 'background:#151514' });
     S.js.push(`tl.fromTo('#${dark.id}', { clipPath: 'inset(0 0 0 100%)' }, { clipPath: 'inset(0 0 0 0%)', duration: 0.7, ease: 'power2.inOut' }, ${S.T(2.65)});`);
     w.cam(0, { x: 0, y: 0, w: 1920, h: 1080 }, { dur: 0, pad: 0, scale: 1170 / 1920, align: 'top' });
     const tg = w.r(a, 'toggle');
@@ -356,7 +360,7 @@ export const scenes = {
     ], { hide: 3.6 });
     w.box(grow(tg, 2), { label: 'Theme toggle', at: 0.7, until: 2.4, pos: 'bottom' });
     // Then the map, charts and controls in dark mode.
-    const w2 = S.window({ ...WIN, at: 3.7 });
+    const w2 = S.window({ ...WIN, at: 3.7, bg: '#151514' });
     const m = w2.img('dark-map');
     w2.cam(0, full(m), { dur: 0, pad: 0 });
     return { notes: [{ text: 'Charts, the map and controls follow the theme.', at: 3.9 }] };
@@ -392,7 +396,7 @@ export const scenes = {
       const k = Math.min(cw / body.w, ch / body.h);
       const crop = { x: body.x, y: body.y, w: body.w, h: body.h };
       g.img(name, { x: x0 + (cw - body.w * k) / 2, y: y0 + (ch - body.h * k) / 2, k, crop, at: 4.7 + i * 0.12 });
-      g.add(`<p id="${S.id}-ct${i}" style="position:absolute;left:${x0}px;top:${y0 + ch + 10}px;width:${cw}px;margin:0;text-align:center;font-size:28px;font-weight:600;color:${C.ink};white-space:nowrap">${label}</p>`);
+      g.add(`<p id="${S.id}-ct${i}" style="position:absolute;left:${x0}px;top:${y0 + ch + 10}px;width:${cw}px;margin:0;text-align:center;font-size:28px;font-weight:600;color:${C.black};white-space:nowrap">${label}</p>`);
       S.copy.push(label);
       S.js.push(`tl.fromTo('#${S.id}-ct${i}', { opacity: 0 }, { opacity: 1, duration: 0.35 }, ${S.T(4.8 + i * 0.12)});`);
     });
@@ -436,7 +440,7 @@ function question(nq, { worked = false, chart, line, answer, extra }) {
       const notes = [];
       if (worked) {
         w.cam(4.6, grow(union(ans, w.r(p, extra.rect)), 30), { dur: 1.4, max: 1.45 });
-        w.box(grow(w.r(p, extra.rect), 4), { label: extra.label, at: 5.6, color: 'blue', pos: nq === 1 ? 'bottom' : 'top' });
+        w.box(grow(w.r(p, extra.rect), 4), { label: extra.label, at: 5.6, pos: nq === 1 ? 'bottom' : 'top' });
         notes.push({ text: answer, answer: true, at: 5.0 });
       }
       S.column({
@@ -462,7 +466,7 @@ function live(nq, { chart, line, base, actions }) {
       w.cam(0, grow(union(head, { x: head.x, y: head.y, w: p.shot.w * 0.8, h: 120 }), 24), { dur: 0, max: 1.45 });
       w.box(grow(head, 2), { label: 'The question', at: 0.5, until: 1.8 });
       w.cam(1.4, full(p), { dur: 1.2, pad: 18 });
-      w.box(grow(w.r(p, 'controls'), 2), { label: 'Settings', at: 2.1, until: 2.9, color: 'blue' });
+      w.box(grow(w.r(p, 'controls'), 2), { label: 'Settings', at: 2.1, until: 2.9 });
 
       const path = [];
       let t = 2.4;
@@ -570,7 +574,7 @@ function designScene(S) {
     sw.forEach(([color, label], i) => {
       const y0 = 70 + i * 128;
       w.add(`<div id="${S.id}-sw${i}" style="position:absolute;left:${x0}px;top:${y0}px;width:72px;height:72px;border-radius:12px;background:${color};box-shadow:0 0 0 1px rgba(22,24,29,0.12)"></div>`);
-      w.add(`<p id="${S.id}-swl${i}" style="position:absolute;left:${x0 + 92}px;top:${y0 + 16}px;margin:0;font-size:28px;font-weight:600;color:${C.ink};white-space:nowrap">${label}</p>`);
+      w.add(`<p id="${S.id}-swl${i}" style="position:absolute;left:${x0 + 92}px;top:${y0 + 16}px;margin:0;font-size:28px;font-weight:600;color:${C.black};white-space:nowrap">${label}</p>`);
       S.copy.push(label);
       S.js.push(`tl.fromTo(['#${S.id}-sw${i}', '#${S.id}-swl${i}'], { opacity: 0 }, { opacity: 1, duration: 0.35 }, ${S.T(L + 0.4 + i * 0.15)});`);
     });
@@ -595,7 +599,7 @@ function designScene(S) {
     // A slow drift down the page.
     S.js.push(`tl.fromTo([${ids.map((i) => `'#${i}'`).join(',')}], { y: '+=0' }, { y: '-=${(y - WIN.h).toFixed(0) > 0 ? Math.min(y - WIN.h, 900).toFixed(0) : 0}', duration: ${L - 0.4}, ease: 'none' }, ${S.T(2 * L)});`);
     const colX = x + 424 * k, colW = 1072 * k;
-    w.box({ x: colX, y: 90, w: colW, h: WIN.h - 130 }, { label: 'One column, one width', at: 2 * L + 0.6, color: 'blue', pad: 10 });
+    w.box({ x: colX, y: 90, w: colW, h: WIN.h - 130 }, { label: 'One column, one width', at: 2 * L + 0.6, pad: 10 });
   }
   // d. Controls
   {
@@ -643,8 +647,8 @@ function designScene(S) {
     w.box(e.box, { label: 'No matches message', at: 5 * L + 0.6, pos: 'top', pad: 4 });
     const title = S.m.site.title;
     const ty = 560;
-    w.add(`<p id="${S.id}-ptl" style="position:absolute;left:60px;top:${ty}px;margin:0;font-size:28px;font-weight:600;color:${C.accentInk};white-space:nowrap">Page title, as the browser tab shows it</p>`);
-    w.add(`<p id="${S.id}-pt" style="position:absolute;left:60px;top:${ty + 48}px;margin:0;padding:16px 24px;font-size:34px;font-weight:600;color:${C.ink};background:${C.ground};border-radius:10px;white-space:nowrap">${title}</p>`);
+    w.add(`<p id="${S.id}-ptl" style="position:absolute;left:60px;top:${ty}px;margin:0;font-size:28px;font-weight:600;color:${C.black};white-space:nowrap">Page title, as the browser tab shows it</p>`);
+    w.add(`<p id="${S.id}-pt" style="position:absolute;left:60px;top:${ty + 48}px;margin:0;padding:16px 24px;font-size:34px;font-weight:600;color:${C.black};background:#fff;border:2px solid ${C.black};border-radius:10px;white-space:nowrap">${title}</p>`);
     S.copy.push('Page title, as the browser tab shows it', title);
     S.js.push(`tl.fromTo(['#${S.id}-ptl', '#${S.id}-pt'], { opacity: 0 }, { opacity: 1, duration: 0.4 }, ${S.T(5 * L + 0.8)});`);
   }

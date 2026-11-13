@@ -14,7 +14,10 @@ export const CAPTION_TOP = 880;
 export const MIN_TEXT = 28;
 
 export const C = {
-  ground: '#f1f0ec', // the site's surface-2
+  // The video's own colours: a light, neutral grey ground and black type, boxes and labels.
+  // (The site's own colours appear only in the captures and the palette swatches.)
+  ground: '#f4f4f5',
+  black: '#111111',
   paper: '#ffffff',
   ink: '#16181d',
   ink2: '#4a4d55',
@@ -134,27 +137,24 @@ export class Scene {
     return `<template>
   <style>
     ${FONTS_CSS}
-    #root { position: absolute; inset: 0; overflow: hidden; background: ${C.ground}; font-family: 'Inter Site', sans-serif; color: ${C.ink}; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: ${C.ground}; font-family: 'Inter Site', sans-serif; color: ${C.black}; letter-spacing: -0.012em; }
     #root .content { position: absolute; inset: 0; }
     #root .column { position: absolute; display: flex; flex-direction: column; gap: 22px; }
-    #root .kicker { margin: 0; font-size: 28px; font-weight: 600; color: ${C.accentInk}; letter-spacing: 0.01em; }
-    #root .title { margin: 0; font-family: 'Source Serif 4', serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.01em; color: ${C.ink}; }
-    #root .note { margin: 0; font-size: 30px; line-height: 1.38; color: ${C.ink2}; }
-    #root .note.answer { color: ${C.ink}; font-weight: 600; padding: 14px 18px; background: #fff; border-left: 6px solid ${C.accent}; border-radius: 6px; }
-    #root .chip { margin: 0; align-self: flex-start; font-size: 28px; font-weight: 600; color: ${C.ink}; background: #fff; border: 2px solid ${C.line}; border-radius: 999px; padding: 8px 20px; }
-    #root .win { position: absolute; overflow: hidden; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1px rgba(22,24,29,0.08), 0 18px 50px rgba(22,24,29,0.10); }
+    #root .kicker { margin: 0; font-size: 28px; font-weight: 600; color: ${C.black}; }
+    #root .title { margin: 0; font-family: 'Source Serif 4', serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.01em; color: ${C.black}; }
+    #root .note { margin: 0; font-size: 30px; line-height: 1.38; color: ${C.black}; }
+    #root .note.answer { color: ${C.black}; font-weight: 600; padding: 14px 18px; background: #fff; border-left: 6px solid ${C.black}; border-radius: 6px; }
+    #root .chip { margin: 0; align-self: flex-start; font-size: 28px; font-weight: 600; color: ${C.black}; background: #fff; border: 2px solid ${C.black}; border-radius: 999px; padding: 8px 20px; }
+    #root .win { position: absolute; overflow: hidden; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 18px 50px rgba(0,0,0,0.08); }
     #root .stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
     #root .shot, #root .shot img { position: absolute; left: 0; top: 0; display: block; }
-    #root .box { position: absolute; box-sizing: border-box; border-style: solid; border-color: ${C.accent}; }
-    #root .box.blue { border-color: ${C.blue}; }
-    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: ${C.accentInk}; line-height: 1.2; }
-    #root .lbl.blue { background: #1d5fb0; }
-    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: rgba(22,24,29,0.88); line-height: 1.2; }
+    #root .box { position: absolute; box-sizing: border-box; border-style: solid; border-color: ${C.black}; }
+    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: ${C.black}; line-height: 1.2; }
+    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: ${C.black}; line-height: 1.2; }
     #root .cursor { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
-    #root .menu { position: absolute; background: #fff; border-style: solid; border-color: rgba(22,24,29,0.16); box-shadow: 0 8px 28px rgba(22,24,29,0.18); overflow: hidden; }
-    #root .menu p { margin: 0; color: ${C.ink}; white-space: nowrap; }
-    #root .menu p.sel { background: ${C.blueSoft}; color: #1d5fb0; font-weight: 600; }
-    #root .mono { font-family: 'JetBrains Mono', monospace; }
+    #root .menu { position: absolute; background: #fff; border-style: solid; border-color: rgba(0,0,0,0.2); box-shadow: 0 8px 28px rgba(0,0,0,0.16); overflow: hidden; }
+    #root .menu p { margin: 0; color: ${C.black}; white-space: nowrap; }
+    #root .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 0; }
     ${this.css.join('\n    ')}
   </style>
   <div id="root" data-composition-id="${this.id}" data-width="${FRAME.W}" data-height="${FRAME.H}">
@@ -311,7 +311,7 @@ export class Win {
     this.cursorId = id;
     const s0 = this.scaleAt(this.s.T(steps[0].t));
     const k = 1 / s0;
-    const svg = `<svg width="${size}" height="${size * 1.25}" viewBox="0 0 24 30" aria-hidden="true"><path d="M2 2 L2 24 L8 18.5 L12 27.5 L16 25.8 L12.2 17 L20 17 Z" fill="${C.ink}" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
+    const svg = `<svg width="${size}" height="${size * 1.25}" viewBox="0 0 24 30" aria-hidden="true"><path d="M2 2 L2 24 L8 18.5 L12 27.5 L16 25.8 L12.2 17 L20 17 Z" fill="${C.black}" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
     this.items.push(`<div id="${id}" class="cursor"><div id="${id}-i" style="transform-origin:2px 2px">${svg}</div></div>`);
     const first = steps[0];
     const T0 = this.s.T(appear != null ? appear : first.t);
@@ -348,7 +348,7 @@ export class Win {
       return `<p style="position:absolute;left:0;right:0;top:${n(top + i * rowH)}px;height:${n(rowH)}px;box-sizing:border-box;font-size:${n(fs)}px;line-height:${n(fs * 1.25)}px;padding:${n(padY)}px ${n(padX)}px">${esc(o)}</p>`;
     });
     const w = Math.max(width ? width / s : 0, anchor.w);
-    const hl = `<div id="${id}-hl" style="position:absolute;left:0;right:0;top:${n(top + selected * rowH)}px;height:${n(rowH)}px;background:${C.blueSoft}"></div>`;
+    const hl = `<div id="${id}-hl" style="position:absolute;left:0;right:0;top:${n(top + selected * rowH)}px;height:${n(rowH)}px;background:rgba(0,0,0,0.07)"></div>`;
     this.items.push(`<div id="${id}" class="menu" style="left:${n(anchor.x)}px;top:${n(anchor.y + anchor.h + 4 / s)}px;width:${n(w)}px;height:${n(2 * top + options.length * rowH)}px;border-width:${n(1.5 / s)}px;border-radius:${n(8 / s)}px">${hl}${rows.join('')}</div>`);
     this.s.js.push(`tl.fromTo('#${id}', { opacity: 0, y: ${n(-6 / s)} }, { opacity: 1, y: 0, duration: 0.2, ease: 'power2.out' }, ${T});`);
     if (pick != null && pickAt != null) {

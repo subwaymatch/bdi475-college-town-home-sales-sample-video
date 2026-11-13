@@ -22,12 +22,12 @@
     { "id": "feature-04", "title": "Home feature filter", "start": 129.5, "duration": 7 },
     { "id": "feature-05", "title": "Shareable filters", "start": 136.5, "duration": 9.5 },
     { "id": "feature-06", "title": "Side-by-side comparison", "start": 146, "duration": 6.5 },
-    { "id": "feature-07", "title": "Sortable table", "start": 152.5, "duration": 7 },
-    { "id": "feature-08", "title": "Responsive layout", "start": 159.5, "duration": 6.5 },
-    { "id": "feature-09", "title": "Light and dark mode", "start": 166, "duration": 6.5 },
-    { "id": "feature-10", "title": "Data and methods", "start": 172.5, "duration": 8 },
-    { "id": "design", "title": "Design and polish", "start": 180.5, "duration": 21 },
-    { "id": "closing", "title": "Closing", "start": 201.5, "duration": 7 }
+    { "id": "feature-07", "title": "Sortable table", "start": 152.5, "duration": 7.5 },
+    { "id": "feature-08", "title": "Responsive layout", "start": 160, "duration": 6.5 },
+    { "id": "feature-09", "title": "Light and dark mode", "start": 166.5, "duration": 6.5 },
+    { "id": "feature-10", "title": "Data and methods", "start": 173, "duration": 8 },
+    { "id": "design", "title": "Design and polish", "start": 181, "duration": 21 },
+    { "id": "closing", "title": "Closing", "start": 202, "duration": 7 }
   ],
-  "total": 208.5
+  "total": 209
 }
