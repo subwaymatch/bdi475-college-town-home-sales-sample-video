@@ -11,8 +11,8 @@
 //   manifest.json        for every shot: size, scale, the positions of the elements the video
 //                        points at (in CSS pixels, relative to the shot), and the answer text
 //
-// Every shot also blurs, in both versions, the parts of the page that could identify the site:
-// the footer (dataset citation and the source-code link) and the dataset citation card.
+// Every shot also blurs, in both versions, the footer line that links to the site's source code.
+// The dataset citation (in the footer and in the Data and methods section) stays readable.
 
 import { createRequire } from 'node:module';
 import fs from 'node:fs';
@@ -41,7 +41,7 @@ const LEARNER_BLUR = [
   '.tooltip',
 ];
 // Hidden in every version: nothing in the video may lead back to the site or its repository.
-const ALWAYS_BLUR = ['.site-footer p', '#methods .method:last-child p'];
+const ALWAYS_BLUR = ['.site-footer p:not(:first-child)'];
 
 const CAPTURE_CSS = `
   html { scroll-behavior: auto !important; }
