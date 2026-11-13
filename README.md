@@ -141,7 +141,7 @@ Where narration lengthens a scene, the scene's beats stretch in proportion, and 
 
 ## Sound effects
 
-Quiet sounds on visible actions: a click wherever the cursor clicks, light typing wherever a value is typed, a pencil stroke for the two hand-drawn underlines, and a soft whoosh on the section cards. The sounds are in `sfx.json` (a prompt, a length and a playback volume for each), made with ElevenLabs text to sound v3 (`eleven_text_to_sound_v3`).
+Quiet sounds on visible actions: a click wherever the cursor clicks, light typing wherever a value is typed, a soft mallet note as each of the two hand-drawn underlines draws, and a soft whoosh on the section cards. The sounds are in `sfx.json` (a prompt, a length and a playback volume for each), made with ElevenLabs text to sound v3 (`eleven_text_to_sound_v3`).
 
 ```bash
 npm run sfx

@@ -17,7 +17,7 @@
   },
   "q1": {
    "file": "assets/voice/q1.mp3",
-   "duration": 17.554,
+   "duration": 17.398,
    "hash": "b9e69bfff6f7fbcd"
   },
   "q2": {
@@ -32,7 +32,7 @@
   },
   "q4": {
    "file": "assets/voice/q4.mp3",
-   "duration": 10.945,
+   "duration": 10.736,
    "hash": "39e46bb32726e76d"
   },
   "q5": {
@@ -52,7 +52,7 @@
   },
   "q8": {
    "file": "assets/voice/q8.mp3",
-   "duration": 3.579,
+   "duration": 3.318,
    "hash": "1eac451999630f20"
   },
   "q9": {
@@ -67,7 +67,7 @@
   },
   "insights": {
    "file": "assets/voice/insights.mp3",
-   "duration": 7.758,
+   "duration": 7.68,
    "hash": "18f5bf7b9f68b9cc"
   },
   "features-intro": {
@@ -92,7 +92,7 @@
   },
   "feature-04": {
    "file": "assets/voice/feature-04.mp3",
-   "duration": 6.087,
+   "duration": 5.904,
    "hash": "27cdef50ac9d89a0"
   },
   "feature-05": {

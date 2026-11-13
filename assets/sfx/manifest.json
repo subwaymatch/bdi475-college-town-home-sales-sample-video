@@ -21,19 +21,19 @@
    "kind": "typing",
    "volume": 0.25
   },
-  "pencil": {
-   "file": "assets/sfx/pencil.mp3",
-   "duration": 0.519,
-   "hash": "86aaaea267befcdf",
-   "kind": "pencil",
-   "volume": 0.4
-  },
   "whoosh": {
    "file": "assets/sfx/whoosh.mp3",
    "duration": 0.787,
    "hash": "8c9d3c09031faaa5",
    "kind": "whoosh",
    "volume": 0.2
+  },
+  "underline": {
+   "file": "assets/sfx/underline.mp3",
+   "hash": "8722924e279fd293",
+   "kind": "underline",
+   "volume": 0.22,
+   "duration": 0.795
   }
  },
  "model": "eleven_text_to_sound_v3"

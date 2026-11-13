@@ -67,7 +67,7 @@ function underlined(S, text, { word, at = 1.7 }) {
     </g>
   </svg>`;
   S.js.push(`tl.fromTo('#${u}-r1', { attr: { width: 0 } }, { attr: { width: 120 }, duration: 0.5, ease: 'power2.inOut' }, ${S.T(at)});`);
-  S.cue(S.T(at), 'pencil');
+  S.cue(S.T(at), 'underline');
   return text.replace(word, `<span style="position:relative;display:inline-block">${word}${svg}</span>`);
 }
 

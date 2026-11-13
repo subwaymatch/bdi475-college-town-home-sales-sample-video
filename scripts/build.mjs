@@ -105,7 +105,7 @@ if (config.SFX !== false && fs.existsSync(sfxManifest)) {
   const sm = JSON.parse(fs.readFileSync(sfxManifest, 'utf8'));
   const byKind = {};
   for (const [name, snd] of Object.entries(sm.sounds)) (byKind[snd.kind] ||= []).push({ name, ...snd });
-  const tracks = { click: 4, typing: 5, pencil: 6, whoosh: 6 };
+  const tracks = { click: 4, typing: 5, underline: 6, whoosh: 6 };
   const lastEnd = {};
   const used = {};
   cues.sort((a, b) => a.t - b.t);

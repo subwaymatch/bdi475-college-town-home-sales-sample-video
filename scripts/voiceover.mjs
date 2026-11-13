@@ -89,6 +89,37 @@ function tts(id) {
 
 const duration = (file) => +execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', file], { encoding: 'utf8' }).trim();
 
+// The voice sometimes starts on the next line (it is given as context) in the last few
+// milliseconds, which plays as a sudden cut-off sound. Find a short burst that follows a pause at
+// the very end, and end the clip in the pause with a short fade. Returns true if it trimmed.
+function trimTailBurst(file) {
+  const pcm = execFileSync('ffmpeg', ['-loglevel', 'error', '-i', file, '-f', 'f32le', '-ac', '1', '-ar', '44100', '-'], { maxBuffer: 1 << 28 });
+  const x = new Float32Array(pcm.buffer, pcm.byteOffset, pcm.length / 4);
+  const win = 441; // 10 ms
+  const db = [];
+  for (let i = 0; i + win <= x.length; i += win) {
+    let e = 0;
+    for (let j = i; j < i + win; j++) e += x[j] * x[j];
+    db.push(10 * Math.log10(e / win + 1e-12));
+  }
+  const QUIET = -55, LOUD = -45;
+  let k = db.length - 1;
+  while (k >= 0 && db[k] < QUIET) k--; // skip true silence at the end
+  if (k < 0) return false;
+  let burst = 0;
+  while (k >= 0 && db[k] >= QUIET) { k--; burst++; } // the final sound
+  let gap = 0;
+  while (k >= 0 && db[k] < QUIET) { k--; gap++; } // the pause before it
+  const peak = Math.max(...db.slice(k + gap + 1));
+  // A burst of at most 120 ms after a pause of at least 30 ms, and loud enough to hear.
+  if (!(burst <= 12 && gap >= 3 && peak > LOUD && k > 0)) return false;
+  const cut = (k + 1 + Math.min(gap, 6)) * 0.01; // keep up to 60 ms of the pause
+  const tmpOut = file.replace(/\.mp3$/, '.trim.mp3');
+  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-i', file, '-af', `atrim=0:${cut.toFixed(3)},afade=t=out:st=${(cut - 0.02).toFixed(3)}:d=0.02`, '-ar', '44100', '-ac', '1', '-b:a', '160k', tmpOut]);
+  fs.renameSync(tmpOut, file);
+  return true;
+}
+
 for (const id of todo) {
   process.stdout.write(`  ${id} ... `);
   const file = tts(id);
@@ -96,6 +127,14 @@ for (const id of todo) {
   console.log(`${manifest.clips[id].duration} s`);
 }
 for (const id of Object.keys(manifest.clips)) if (!narration.lines[id]) delete manifest.clips[id];
+// Check every clip (new or not) for a cut-off sound at the end.
+for (const id of ids) {
+  const file = path.join(OUT, `${id}.mp3`);
+  if (fs.existsSync(file) && trimTailBurst(file)) {
+    manifest.clips[id].duration = +duration(file).toFixed(3);
+    console.log(`  ${id}: removed a cut-off sound at the end (now ${manifest.clips[id].duration} s)`);
+  }
+}
 manifest.voice = voice;
 manifest.lead = LEAD;
 manifest.tail = TAIL;
