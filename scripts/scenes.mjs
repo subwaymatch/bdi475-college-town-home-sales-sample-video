@@ -131,7 +131,7 @@ export const scenes = {
       const w = S.window({ ...WIN, y: 236, h: 420 });
       const p = w.img('questions-intro');
       w.cam(0, full(p), { dur: 0, pad: 24 });
-      w.box(w.r(p, 'intro'), { label: 'How the questions work', at: 1.4 });
+      w.box(w.r(p, 'intro'), { label: 'How the questions work', at: 1.4, pos: 'right' });
       S.column({ ...COL, kicker: 'Ten questions', title: 'Q1 to Q6 always use the full dataset.', notes: [{ text: 'Q7 to Q10 update when a visitor changes a setting.', at: 1.6 }] });
     },
   },
