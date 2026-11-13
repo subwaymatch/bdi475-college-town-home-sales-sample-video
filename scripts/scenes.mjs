@@ -25,7 +25,7 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, immediate =
   const id = `${S.id}-card`;
   const parts = [];
   const items = [];
-  if (image) parts.push(`<img id="${id}-img" src="${image.src}" alt="" style="width:${image.w}px;height:auto;display:block;margin-bottom:10px">`);
+  if (image) parts.push(`<img id="${id}-img" src="${image.src}" alt="" style="width:${image.w}px;height:auto;display:block;margin-bottom:${image.space || 10}px">`);
   const add = (cls, text, size, extra = '') => {
     if (cls === 'kicker') extra += 'margin-bottom:-20px;';
     const pid = `${id}-${items.length}`;
@@ -36,8 +36,9 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, immediate =
   if (kicker) add('kicker', kicker, 32);
   add('title', title, titleSize, 'max-width:1500px');
   if (sub) add('note', sub, subSize, 'max-width:1100px');
-  // Centred in the area above the caption band.
-  S.raw(`<div id="${id}" data-hold style="position:absolute;left:0;top:0;width:1920px;height:880px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">${parts.join('')}</div>`);
+  // Centred in the area above the caption band; the opening card (with its image) is centred in
+  // the whole frame, sized so that it still ends above the caption band.
+  S.raw(`<div id="${id}" data-hold style="position:absolute;left:0;top:0;width:1920px;height:${image ? 1080 : 880}px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">${parts.join('')}</div>`);
   const times = immediate ? [null, null, 0.9] : kicker ? [0.3, 0.5, 1.3] : [0.4, 0.8];
   items.forEach((pid, i) => {
     if (times[i] == null) return; // already on screen at frame 0
@@ -66,7 +67,7 @@ export const scenes = {
       S.fadeIn = 0;
       card(S, {
         immediate: true,
-        image: { src: 'assets/images/college-town-riso.webp', w: 820 },
+        image: { src: 'assets/images/college-town-riso.webp', w: 720, space: 36 },
         kicker: 'A data analytics case study',
         title: 'College-Town Home Sales: one sample site',
         sub: 'A sample of what your site could look like. Not the answer key, and not the only way.',
