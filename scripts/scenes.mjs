@@ -42,6 +42,7 @@ function card(S, { kicker, title, sub, sub2 = null, titleSize = 72, subSize = 36
   // the whole frame, sized so that it still ends above the caption band.
   S.raw(`<div id="${id}" data-hold style="position:absolute;left:0;top:0;width:1920px;height:${image ? 1080 : 880}px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">${parts.join('')}</div>`);
   const times = beats || (immediate ? [null, null, 0.9] : kicker ? [0.3, 0.5, 1.3] : [0.4, 0.8]);
+  if (!immediate) S.cue(S.T(0.1), 'whoosh');
   items.forEach((pid, i) => {
     if (times[i] == null) return; // already on screen at frame 0
     const blur = pid.endsWith('-0') && !kicker || (kicker && pid.endsWith('-1'));
@@ -66,6 +67,7 @@ function underlined(S, text, { word, at = 1.7 }) {
     </g>
   </svg>`;
   S.js.push(`tl.fromTo('#${u}-r1', { attr: { width: 0 } }, { attr: { width: 120 }, duration: 0.5, ease: 'power2.inOut' }, ${S.T(at)});`);
+  S.cue(S.T(at), 'pencil');
   return text.replace(word, `<span style="position:relative;display:inline-block">${word}${svg}</span>`);
 }
 
@@ -265,6 +267,7 @@ export const scenes = {
     const hi = w.r(a, 'hi');
     path.push({ t: 4.7, x: P(thumb(steps - 2)).x, y: P(thumb(steps - 2)).y, dur: 0.01, release: true });
     path.push({ t: 4.9, x: center(hi).x, y: center(hi).y, dur: 0.8, click: true });
+    S.cue(S.T(4.9) + 0.95, 'typing');
     w.cursor(path, { hide: 7.3 });
     w.box(grow(S.m.shots['f3-s0'].rects.slider && w.r(a, 'slider'), 4), { label: 'Drag the handle', at: 1.6, until: 4.6, pos: 'top-right' });
     w.box(union(w.r(a, 'lo'), w.r(a, 'hi')), { label: 'Number boxes move with it', at: 2.9, until: 4.8, pos: 'bottom' });
@@ -539,6 +542,7 @@ function live(nq, { chart, line, base, actions }) {
           path.push({ t, x: c.x + c.w * 0.55, y: center(c).y, click: true, dur: 0.7 });
           // Typing: the new value appears in the box, then the page recalculates.
           swapAt.push([act.state, t + 1.25]);
+          S.cue(S.T(t) + 0.85, 'typing');
           t += 1.7;
         }
       }
@@ -586,6 +590,7 @@ function designScene(S) {
   ];
   const L = 3.5; // seconds per beat
   S.text('Design and polish', { x: COL.x, y: COL.y, w: COL.w, size: 28, cls: 'kicker', at: 0.2 });
+  S.cue(0.1, 'whoosh');
   beats.forEach((b, i) => {
     const t0 = i * L;
     const last = i === beats.length - 1;

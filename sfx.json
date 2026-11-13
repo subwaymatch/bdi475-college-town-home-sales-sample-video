@@ -1,0 +1,11 @@
+{
+  "_note": "Sound effects, made with ElevenLabs text to sound v3 by `npm run sfx`. The scenes place them on visible actions (cursor clicks, typing, the hand-drawn underlines, section cards). volume is the playback level in the mix, kept low so the narration stays in front. Edit a prompt, then run `npm run sfx` (only changed sounds are regenerated) and `npm run build`.",
+  "model": "eleven_text_to_sound_v3",
+  "sounds": {
+    "click-1": { "kind": "click", "prompt": "A single soft, clean computer mouse click, close and dry, no room sound", "seconds": 0.5, "volume": 0.3 },
+    "click-2": { "kind": "click", "prompt": "One quiet trackpad click, crisp and gentle, dry studio recording", "seconds": 0.5, "volume": 0.3 },
+    "typing": { "kind": "typing", "prompt": "A few quick, soft keystrokes on a modern laptop keyboard, light and quiet, dry", "seconds": 0.8, "volume": 0.25 },
+    "pencil": { "kind": "pencil", "prompt": "One quick pencil stroke on paper, a short underline drawn left to right, close and dry", "seconds": 0.6, "volume": 0.4 },
+    "whoosh": { "kind": "whoosh", "prompt": "A very soft, airy whoosh for a gentle slide transition, smooth and subtle, no impact", "seconds": 1.0, "volume": 0.2 }
+  }
+}

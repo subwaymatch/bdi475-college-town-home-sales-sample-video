@@ -36,6 +36,7 @@ fs.writeFileSync(path.join(ROOT, 'scenes.json'), JSON.stringify(list, null, 2).r
 fs.mkdirSync(path.join(ROOT, 'compositions'), { recursive: true });
 const copy = [];
 const warnings = [];
+const cues = []; // sound effect cues from every scene, in video time
 for (const s of list.scenes) {
   const def = defs[s.id];
   const scene = new Scene({ id: s.id, duration: s.duration, base: def.base, manifest });
@@ -46,6 +47,7 @@ for (const s of list.scenes) {
     const need = (w.camMax || 1) * 2;
     if (w.minDsf && need > w.minDsf + 0.05) warnings.push(`${s.id}: camera zoom ${w.camMax.toFixed(2)} needs scale ${need.toFixed(2)}, capture has ${w.minDsf.toFixed(2)}`);
   }
+  for (const c of scene.sfx) cues.push({ t: +(s.start + c.t).toFixed(3), kind: c.kind, scene: s.id });
   fs.writeFileSync(path.join(ROOT, 'compositions', `${s.id}.html`), finish(scene));
   copy.push({ id: s.id, title: s.title, start: s.start, duration: s.duration, lines: [...new Set(scene.copy)] });
 }
@@ -93,6 +95,37 @@ if (config.VOICEOVER !== false && fs.existsSync(voiceManifest)) {
     audioTags.push(`      <audio id="vo-${s.id}" class="clip" src="${clip.file}" data-start="${start}" data-duration="${clip.duration}" data-track-index="3" data-volume="1"></audio>`);
   }
 }
+
+// Sound effects: quiet sounds on visible actions, from assets/sfx (made by scripts/sfx.mjs).
+// Clicks alternate between the click sounds so repeats do not sound mechanical. Each kind has its
+// own track, and a sound never runs into the next one on its track. SFX: false turns them off.
+const sfxManifest = path.join(ROOT, 'assets', 'sfx', 'manifest.json');
+const sfxTags = [];
+if (config.SFX !== false && fs.existsSync(sfxManifest)) {
+  const sm = JSON.parse(fs.readFileSync(sfxManifest, 'utf8'));
+  const byKind = {};
+  for (const [name, snd] of Object.entries(sm.sounds)) (byKind[snd.kind] ||= []).push({ name, ...snd });
+  const tracks = { click: 4, typing: 5, pencil: 6, whoosh: 6 };
+  const lastEnd = {};
+  const used = {};
+  cues.sort((a, b) => a.t - b.t);
+  for (const c of cues) {
+    const options = byKind[c.kind];
+    if (!options) { warnings.push(`${c.scene}: no sound for ${c.kind}; run npm run sfx`); continue; }
+    used[c.kind] = (used[c.kind] || 0) + 1;
+    const snd = options[(used[c.kind] - 1) % options.length];
+    const track = tracks[c.kind] || 7;
+    const end = Math.min(c.t + snd.duration, total);
+    const prev = lastEnd[track] ?? -1;
+    if (c.t < prev) { // trim the earlier sound rather than overlap on one track
+      const tag = sfxTags[sfxTags.length - 1 - [...sfxTags].reverse().findIndex((x) => x.track === track)];
+      tag.duration = +(c.t - tag.start).toFixed(3);
+    }
+    sfxTags.push({ id: `sfx-${sfxTags.length + 1}`, file: snd.file, start: c.t, duration: +(end - c.t).toFixed(3), volume: snd.volume, track });
+    lastEnd[track] = end;
+  }
+}
+for (const x of sfxTags) audioTags.push(`      <audio id="${x.id}" class="clip" src="${x.file}" data-start="${x.start}" data-duration="${x.duration}" data-track-index="${x.track}" data-volume="${x.volume}"></audio>`);
 
 const variables = [{ id: 'SHOW_ALL_ANSWERS', type: 'boolean', label: 'Show all answers (instructor version)', default: !!config.SHOW_ALL_ANSWERS }];
 
@@ -148,5 +181,5 @@ const md = [
 fs.mkdirSync(path.join(ROOT, 'docs'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'docs', 'on-screen-text.md'), md);
 
-console.log(`Built ${list.scenes.length} scenes, ${total} s (${Math.floor(Math.round(total) / 60)} min ${Math.round(total) % 60} s)${audioTags.length ? `, ${audioTags.length} voiceover clips` : ', no voiceover'}.`);
+console.log(`Built ${list.scenes.length} scenes, ${total} s (${Math.floor(Math.round(total) / 60)} min ${Math.round(total) % 60} s)${audioTags.length - sfxTags.length ? `, ${audioTags.length - sfxTags.length} voiceover clips` : ', no voiceover'}, ${sfxTags.length} sound effects.`);
 for (const w of warnings) console.log(`warning: ${w}`);

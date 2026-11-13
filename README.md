@@ -41,6 +41,7 @@ All in `video.config.json`:
 |---|---|---|
 | `RESOLUTION` | `"4k"` (default) or `"1080p"` | The video is laid out once at 1920x1080. For 4K, HyperFrames renders the same layout at twice the pixel density (`--resolution 4k`), so text, boxes and the cursor scale with it and the layout does not change. |
 | `VOICEOVER` | `true` (default) or `false` | Include the narration from `assets/voice/`. |
+| `SFX` | `true` (default) or `false` | Include the sound effects from `assets/sfx/`. |
 | `SHOW_ALL_ANSWERS` | `false` (default) or `true` | `false` is the learner version: Q1 and Q2 are shown in full as worked examples, while the answer text and chart data labels of Q3 to Q10 and the insights text are blurred. `true` is the instructor version, with every answer visible. |
 | `FPS` | `30` | Frame rate. |
 | `QUALITY` | `"high"` | HyperFrames render quality (`draft`, `looks`, `high`). |
@@ -137,6 +138,16 @@ npm run voiceover
 This generates a clip for each new or changed line in `assets/voice/`, evens out the loudness, and lengthens any scene in `scenes.json` that is shorter than its line (it never shortens one). Then run `npm run build`. It needs an ElevenLabs API key in `ELEVENLABS_API_KEY`, sent in the `xi-api-key` header. `node scripts/voiceover.mjs --dry-run` shows what would be generated and how many characters it costs. Set `VOICEOVER` to `false` in `video.config.json` to render without narration. The clips are committed, so rendering (locally or in the GitHub workflow) never calls ElevenLabs.
 
 Where narration lengthens a scene, the scene's beats stretch in proportion, and the question scenes end on a slow push-in so the camera never sits still for long. After generating, it is worth transcribing the clips back (for example with ElevenLabs speech to text) and comparing them with `narration.json`, to catch a skipped or misread word.
+
+## Sound effects
+
+Quiet sounds on visible actions: a click wherever the cursor clicks, light typing wherever a value is typed, a pencil stroke for the two hand-drawn underlines, and a soft whoosh on the section cards. The sounds are in `sfx.json` (a prompt, a length and a playback volume for each), made with ElevenLabs text to sound v3 (`eleven_text_to_sound_v3`).
+
+```bash
+npm run sfx
+```
+
+This generates each new or changed sound in `assets/sfx/`, trims its leading silence and sets its peak to -3 dBFS. Then run `npm run build`. The scenes decide where sounds go: the kit records a cue whenever it animates one of those actions (`Scene.cue` in `scripts/lib/kit.mjs`), so cues follow the timing when scenes change. The volumes in `sfx.json` keep them well under the narration. Set `SFX` to `false` in `video.config.json` to render without them. Like the voice clips, the sounds are committed.
 
 ## Change the timing
 
