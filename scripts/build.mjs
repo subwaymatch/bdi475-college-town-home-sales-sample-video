@@ -148,5 +148,5 @@ const md = [
 fs.mkdirSync(path.join(ROOT, 'docs'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'docs', 'on-screen-text.md'), md);
 
-console.log(`Built ${list.scenes.length} scenes, ${total} s (${Math.floor(total / 60)} min ${Math.round(total % 60)} s)${audioTags.length ? `, ${audioTags.length} voiceover clips` : ', no voiceover'}.`);
+console.log(`Built ${list.scenes.length} scenes, ${total} s (${Math.floor(Math.round(total) / 60)} min ${Math.round(total) % 60} s)${audioTags.length ? `, ${audioTags.length} voiceover clips` : ', no voiceover'}.`);
 for (const w of warnings) console.log(`warning: ${w}`);

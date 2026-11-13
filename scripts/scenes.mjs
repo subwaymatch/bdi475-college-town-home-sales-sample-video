@@ -133,6 +133,7 @@ export const scenes = {
       w.cam(0, full(p), { dur: 0, pad: 24 });
       w.box(w.r(p, 'intro'), { label: 'How the questions work', at: 1.4, pos: 'right' });
       S.column({ ...COL, kicker: 'Ten questions', title: 'Q1 to Q6 always use the full dataset.', notes: [{ text: 'Q7 to Q10 update when a visitor changes a setting.', at: 1.6 }] });
+      w.drift(2.0, { factor: 1.05, toward: w.r(p, 'intro') });
     },
   },
 
@@ -463,7 +464,8 @@ function question(nq, { worked = false, chart, line, answer, extra }) {
       const p = w.img(`q${nq}`);
       const head = w.r(p, 'head');
       w.cam(0, grow(union(head, { x: head.x, y: head.y, w: p.shot.w * 0.8, h: 120 }), 24), { dur: 0, max: 1.45 });
-      w.box(grow(head, 2), { label: 'The question', at: 0.5, until: 1.9 });
+      // The label leaves as the camera starts to pull back, so it never shrinks below the type floor.
+      w.box(grow(head, 2), { label: 'The question', at: 0.5, until: 1.35 });
       w.cam(1.5, full(p), { dur: 1.3, pad: 18 });
       const ans = w.r(p, 'answer');
       const off = worked ? 4.5 : null;
@@ -475,6 +477,9 @@ function question(nq, { worked = false, chart, line, answer, extra }) {
         w.cam(4.6, grow(union(ans, w.r(p, extra.rect)), 30), { dur: 1.4, max: 1.45 });
         w.box(grow(w.r(p, extra.rect), 4), { label: extra.label, at: 5.6, pos: nq === 1 ? 'bottom' : 'top' });
         notes.push({ text: answer, answer: true, at: 5.0 });
+        w.drift(6.1, { factor: 1.04, toward: w.r(p, extra.rect) });
+      } else {
+        w.drift(3.8, { factor: 1.05, toward: union(ans, w.r(p, 'chartBody')) });
       }
       S.column({
         ...COL,
@@ -497,7 +502,7 @@ function live(nq, { chart, line, base, actions }) {
       const p = w.img(states[0]);
       const head = w.r(p, 'head');
       w.cam(0, grow(union(head, { x: head.x, y: head.y, w: p.shot.w * 0.8, h: 120 }), 24), { dur: 0, max: 1.45 });
-      w.box(grow(head, 2), { label: 'The question', at: 0.5, until: 1.8 });
+      w.box(grow(head, 2), { label: 'The question', at: 0.5, until: 1.25 });
       w.cam(1.4, full(p), { dur: 1.2, pad: 18 });
       w.box(grow(w.r(p, 'controls'), 2), { label: 'Settings', at: 2.1, until: 2.9 });
 

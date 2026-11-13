@@ -261,6 +261,24 @@ export class Win {
     return s;
   }
 
+  // A slow push-in from beat t to the end of the scene, so a hold that narration has lengthened
+  // never sits still. Zooms in by `factor` about the centre of a stage rectangle (default: the
+  // window centre). Call it after the scene's last box: labels are sized for the scale at the
+  // moment they appear, and a push-in only makes them larger.
+  drift(t, { factor = 1.05, toward = null } = {}) {
+    const T = this.s.T(t);
+    const dur = +(this.s.duration - this.s.fadeOut - T).toFixed(2);
+    if (dur < 1) return;
+    const k = this.keys.filter((key) => key.t <= T + 1e-6).pop() || this.keys[0];
+    const cx = toward ? (toward.x + toward.w / 2) * k.s + k.tx : this.w / 2;
+    const cy = toward ? (toward.y + toward.h / 2) * k.s + k.ty : this.h / 2;
+    const s = k.s * factor, tx = cx - (cx - k.tx) * factor, ty = cy - (cy - k.ty) * factor;
+    this.keys.push({ t: T, s, tx, ty });
+    this.keys.sort((a, b) => a.t - b.t);
+    this.s.js.push(`tl.to('#${this.stageId}', { x: ${n(tx)}, y: ${n(ty)}, scale: ${+s.toFixed(4)}, duration: ${dur}, ease: 'sine.inOut' }, ${T});`);
+    this.camMax = Math.max(this.camMax || 0, s);
+  }
+
   // A pan at constant speed between two camera settings (used for scrolling).
   pan(t, dur, focus, opts = {}) {
     return this.cam(t, focus, { dur, ease: opts.ease || 'none', ...opts });

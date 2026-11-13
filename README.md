@@ -1,6 +1,6 @@
 # College-Town Home Sales: one sample site (demo video)
 
-This repository holds the source of a short silent video (3 minutes 29 seconds) that walks through one sample website for the College-Town Home Sales data analytics case. The case asks learners to build, with a coding agent, a website that analyzes home sales in U.S. college towns.
+This repository holds the source of a short narrated video (just under 4 minutes) that walks through one sample website for the College-Town Home Sales data analytics case. The case asks learners to build, with a coding agent, a website that analyzes home sales in U.S. college towns.
 
 The video shows one possible finished site: how it answers the case's questions, and how it meets the required features and the design items. It is not the answer key and not the only right design. The video says this at the start and at the end.
 
@@ -31,7 +31,7 @@ The video is made with [HyperFrames](https://github.com/heygen-com/hyperframes),
 - Chrome for rendering: `npx hyperframes browser ensure` installs the one HyperFrames uses.
 - Playwright with Chromium, for capturing: `npm install`, then `npx playwright install chromium`.
 
-Run `npx hyperframes doctor` to check the setup. Whisper, text-to-speech, music and Docker are optional and not needed.
+Run `npx hyperframes doctor` to check the setup. Whisper, music and Docker are optional and not needed. Text to speech is needed only to regenerate the narration (see Voiceover).
 
 ## The switches
 
@@ -135,6 +135,8 @@ npm run voiceover
 ```
 
 This generates a clip for each new or changed line in `assets/voice/`, evens out the loudness, and lengthens any scene in `scenes.json` that is shorter than its line (it never shortens one). Then run `npm run build`. It needs an ElevenLabs API key in `ELEVENLABS_API_KEY`, sent in the `xi-api-key` header. `node scripts/voiceover.mjs --dry-run` shows what would be generated and how many characters it costs. Set `VOICEOVER` to `false` in `video.config.json` to render without narration. The clips are committed, so rendering (locally or in the GitHub workflow) never calls ElevenLabs.
+
+Where narration lengthens a scene, the scene's beats stretch in proportion, and the question scenes end on a slow push-in so the camera never sits still for long. After generating, it is worth transcribing the clips back (for example with ElevenLabs speech to text) and comparing them with `narration.json`, to catch a skipped or misread word.
 
 ## Change the timing
 
