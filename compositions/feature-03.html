@@ -1,0 +1,92 @@
+<template>
+  <style>
+    
+  @font-face { font-family: 'Inter Site'; src: url('assets/fonts/Inter-latin.woff2') format('woff2'); font-weight: 100 900; font-style: normal; }
+  @font-face { font-family: 'Source Serif 4'; src: url('assets/fonts/SourceSerif4-latin.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; background: #f1f0ec; font-family: 'Inter Site', sans-serif; color: #16181d; }
+    #root .content { position: absolute; inset: 0; }
+    #root .column { position: absolute; display: flex; flex-direction: column; gap: 22px; }
+    #root .kicker { margin: 0; font-size: 28px; font-weight: 600; color: #b8451a; letter-spacing: 0.01em; }
+    #root .title { margin: 0; font-family: 'Source Serif 4', serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.01em; color: #16181d; }
+    #root .note { margin: 0; font-size: 30px; line-height: 1.38; color: #4a4d55; }
+    #root .note.answer { color: #16181d; font-weight: 600; padding: 14px 18px; background: #fff; border-left: 6px solid #eb6834; border-radius: 6px; }
+    #root .chip { margin: 0; align-self: flex-start; font-size: 28px; font-weight: 600; color: #16181d; background: #fff; border: 2px solid #e7e5df; border-radius: 999px; padding: 8px 20px; }
+    #root .win { position: absolute; overflow: hidden; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1px rgba(22,24,29,0.08), 0 18px 50px rgba(22,24,29,0.10); }
+    #root .stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    #root .shot, #root .shot img { position: absolute; left: 0; top: 0; display: block; }
+    #root .box { position: absolute; box-sizing: border-box; border-style: solid; border-color: #eb6834; }
+    #root .box.blue { border-color: #2a78d6; }
+    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: #b8451a; line-height: 1.2; }
+    #root .lbl.blue { background: #1d5fb0; }
+    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: rgba(22,24,29,0.88); line-height: 1.2; }
+    #root .cursor { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    #root .menu { position: absolute; background: #fff; border-style: solid; border-color: rgba(22,24,29,0.16); box-shadow: 0 8px 28px rgba(22,24,29,0.18); overflow: hidden; }
+    #root .menu p { margin: 0; color: #16181d; white-space: nowrap; }
+    #root .menu p.sel { background: rgba(42, 120, 214, 0.12); color: #1d5fb0; font-weight: 600; }
+    #root .mono { font-family: 'JetBrains Mono', monospace; }
+    
+  </style>
+  <div id="root" data-composition-id="feature-03" data-width="1920" data-height="1080">
+    <div id="feature-03-content" class="content">
+      <div id="feature-03-win1" class="win" style="left:640px;top:96px;width:1170px;height:768px;border-radius:16px;background:#fff"><div id="feature-03-win1-stage" class="stage"><div id="feature-03-img2" class="shot" style="left:0px;top:0px;width:1136px;height:546px;overflow:hidden;"><img src="captures/f3-s0.png" width="1136" height="546" style="left:0px;top:0px" alt=""></div><div id="feature-03-img3" class="shot" style="left:0px;top:0px;width:1136px;height:546px;overflow:hidden;"><img src="captures/f3-s1.png" width="1136" height="546" style="left:0px;top:0px" alt=""></div><div id="feature-03-img4" class="shot" style="left:0px;top:0px;width:1136px;height:546px;overflow:hidden;"><img src="captures/f3-s2.png" width="1136" height="546" style="left:0px;top:0px" alt=""></div><div id="feature-03-img5" class="shot" style="left:0px;top:0px;width:1136px;height:546px;overflow:hidden;"><img src="captures/f3-s3.png" width="1136" height="546" style="left:0px;top:0px" alt=""></div><div id="feature-03-img6" class="shot" style="left:0px;top:0px;width:1136px;height:546px;overflow:hidden;"><img src="captures/f3-s4.png" width="1136" height="546" style="left:0px;top:0px" alt=""></div><div id="feature-03-img7" class="shot" style="left:0px;top:0px;width:1136px;height:546px;overflow:hidden;"><img src="captures/f3-s5.png" width="1136" height="546" style="left:0px;top:0px" alt=""></div><div id="feature-03-img8" class="shot" style="left:0px;top:0px;width:1136px;height:546px;overflow:hidden;"><img src="captures/f3-s6.png" width="1136" height="546" style="left:0px;top:0px" alt=""></div><div id="feature-03-img9" class="shot" style="left:0px;top:0px;width:1136px;height:546px;overflow:hidden;"><img src="captures/f3-s7.png" width="1136" height="546" style="left:0px;top:0px" alt=""></div><div id="feature-03-cur10" class="cursor"><div id="feature-03-cur10-i" style="transform-origin:2px 2px"><svg width="34" height="42.5" viewBox="0 0 24 30" aria-hidden="true"><path d="M2 2 L2 24 L8 18.5 L12 27.5 L16 25.8 L12.2 17 L20 17 Z" fill="#16181d" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></div></div><div id="feature-03-box11" class="box blue" style="left:588.01px;top:360.11px;width:523.99px;height:43.99px;border-width:1.5px;border-radius:3.99px"></div><p id="feature-03-box11-l" class="lbl blue" style="right:auto;left:1111.99px;top:338.85px;transform:translateX(-100%);font-size:13.97px;padding:2.99px 5.99px;border-radius:2.99px;margin:0">Drag the handle</p><div id="feature-03-box12" class="box" style="left:592.01px;top:400.11px;width:260.49px;height:49.69px;border-width:1.5px;border-radius:3.99px"></div><p id="feature-03-box12-l" class="lbl" style="left:592.01px;top:448.3px;font-size:13.97px;padding:2.99px 5.99px;border-radius:2.99px;margin:0">Number boxes move with it</p><div id="feature-03-box13" class="box" style="left:734.51px;top:400.11px;width:117.99px;height:49.69px;border-width:1.5px;border-radius:3.99px"></div><p id="feature-03-box13-l" class="lbl" style="left:734.51px;top:448.3px;font-size:13.97px;padding:2.99px 5.99px;border-radius:2.99px;margin:0">Or type an exact value</p></div></div>
+      <div id="feature-03-col14" class="column" style="left:110px;top:150px;width:480px"><p id="feature-03-col14-k" class="kicker">Required feature 3 of 10</p>
+<h2 id="feature-03-col14-t" class="title" style="font-size:52px">Range filter</h2>
+<p id="feature-03-col14-n0" class="note">Drag the slider or type exact values.</p>
+<p id="feature-03-col14-n1" class="note">The two stay in sync.</p></div>
+    </div>
+  </div>
+  <script>
+    // Answer switch: SHOW_ALL_ANSWERS comes from the render (--variables), else the declared default.
+    (function () {
+      var o = window.__hfVariables || {};
+      var show;
+      if (Object.prototype.hasOwnProperty.call(o, 'SHOW_ALL_ANSWERS')) show = !!o.SHOW_ALL_ANSWERS;
+      else {
+        try {
+          var d = JSON.parse(document.documentElement.getAttribute('data-composition-variables') || '[]');
+          show = !!(d.find(function (x) { return x.id === 'SHOW_ALL_ANSWERS'; }) || {}).default;
+        } catch (e) { show = false; }
+      }
+      document.documentElement.setAttribute('data-answers', show ? 'all' : 'hidden');
+    })();
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#feature-03-content', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+    tl.to('#feature-03-content', { opacity: 0, duration: 0.35, ease: 'power2.in' }, 7.63);
+    tl.fromTo('#feature-03-img3', { opacity: 0 }, { opacity: 1, duration: 0.06, ease: 'power1.inOut' }, 2.75);
+    tl.fromTo('#feature-03-img4', { opacity: 0 }, { opacity: 1, duration: 0.06, ease: 'power1.inOut' }, 3.08);
+    tl.fromTo('#feature-03-img5', { opacity: 0 }, { opacity: 1, duration: 0.06, ease: 'power1.inOut' }, 3.41);
+    tl.fromTo('#feature-03-img6', { opacity: 0 }, { opacity: 1, duration: 0.06, ease: 'power1.inOut' }, 3.74);
+    tl.fromTo('#feature-03-img7', { opacity: 0 }, { opacity: 1, duration: 0.06, ease: 'power1.inOut' }, 4.07);
+    tl.fromTo('#feature-03-img8', { opacity: 0 }, { opacity: 1, duration: 0.06, ease: 'power1.inOut' }, 4.4);
+    tl.fromTo('#feature-03-img9', { opacity: 0 }, { opacity: 1, duration: 0.2, ease: 'power1.inOut' }, 6);
+    tl.set('#feature-03-win1-stage', { x: 16, y: 110.52, scale: 1.0018 }, 0);
+    tl.to('#feature-03-win1-stage', { x: -1118.06, y: -403.21, scale: 2.0036, duration: 1.3, ease: 'power2.inOut' }, 1);
+    tl.set('#feature-03-cur10', { x: 665, y: 452.1, scale: 0.5 }, 0);
+    tl.fromTo('#feature-03-cur10', { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' }, 1.9);
+    tl.to('#feature-03-cur10', { x: 605, y: 382.1, scale: 0.5, duration: 0.45, ease: 'power2.inOut' }, 1.95);
+    tl.to('#feature-03-cur10-i', { scale: 0.82, duration: 0.09, ease: 'power2.out' }, 2.45);
+    tl.to('#feature-03-cur10', { x: 640, y: 382.1, scale: 0.5, duration: 0.3, ease: 'power2.inOut' }, 2.45);
+    tl.to('#feature-03-cur10', { x: 675, y: 382.1, scale: 0.5, duration: 0.3, ease: 'power2.inOut' }, 2.78);
+    tl.to('#feature-03-cur10', { x: 710, y: 382.1, scale: 0.5, duration: 0.3, ease: 'power2.inOut' }, 3.11);
+    tl.to('#feature-03-cur10', { x: 748.9, y: 382.1, scale: 0.5, duration: 0.3, ease: 'power2.inOut' }, 3.44);
+    tl.to('#feature-03-cur10', { x: 783.9, y: 382.1, scale: 0.5, duration: 0.3, ease: 'power2.inOut' }, 3.77);
+    tl.to('#feature-03-cur10', { x: 818.9, y: 382.1, scale: 0.5, duration: 0.3, ease: 'power2.inOut' }, 4.1);
+    tl.to('#feature-03-cur10', { x: 818.9, y: 382.1, scale: 0.5, duration: 0.01, ease: 'power2.inOut' }, 4.7);
+    tl.to('#feature-03-cur10-i', { scale: 1, duration: 0.16, ease: 'power2.out' }, 4.7);
+    tl.to('#feature-03-cur10', { x: 793.5, y: 424.95, scale: 0.5, duration: 0.8, ease: 'power2.inOut' }, 4.9);
+    tl.to('#feature-03-cur10-i', { scale: 0.82, duration: 0.09, ease: 'power2.out' }, 5.75);
+    tl.to('#feature-03-cur10-i', { scale: 1, duration: 0.16, ease: 'power2.out' }, 5.85);
+    tl.to('#feature-03-cur10', { opacity: 0, duration: 0.3 }, 7.3);
+    tl.fromTo(['#feature-03-box11','#feature-03-box11-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 1.6);
+    tl.to(['#feature-03-box11','#feature-03-box11-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 4.6);
+    tl.fromTo(['#feature-03-box12','#feature-03-box12-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 2.9);
+    tl.to(['#feature-03-box12','#feature-03-box12-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 4.8);
+    tl.fromTo(['#feature-03-box13','#feature-03-box13-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 6.2);
+    tl.fromTo('#feature-03-col14-k', { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.25);
+    tl.fromTo('#feature-03-col14-t', { opacity: 0, filter: 'blur(8px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' }, 0.4);
+    tl.fromTo('#feature-03-col14-n0', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 0.9);
+    tl.fromTo('#feature-03-col14-n1', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 3.6);
+    window.__timelines["feature-03"] = tl;
+  </script>
+</template>

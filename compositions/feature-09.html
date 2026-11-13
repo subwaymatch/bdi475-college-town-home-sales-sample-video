@@ -1,0 +1,75 @@
+<template>
+  <style>
+    
+  @font-face { font-family: 'Inter Site'; src: url('assets/fonts/Inter-latin.woff2') format('woff2'); font-weight: 100 900; font-style: normal; }
+  @font-face { font-family: 'Source Serif 4'; src: url('assets/fonts/SourceSerif4-latin.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; background: #f1f0ec; font-family: 'Inter Site', sans-serif; color: #16181d; }
+    #root .content { position: absolute; inset: 0; }
+    #root .column { position: absolute; display: flex; flex-direction: column; gap: 22px; }
+    #root .kicker { margin: 0; font-size: 28px; font-weight: 600; color: #b8451a; letter-spacing: 0.01em; }
+    #root .title { margin: 0; font-family: 'Source Serif 4', serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.01em; color: #16181d; }
+    #root .note { margin: 0; font-size: 30px; line-height: 1.38; color: #4a4d55; }
+    #root .note.answer { color: #16181d; font-weight: 600; padding: 14px 18px; background: #fff; border-left: 6px solid #eb6834; border-radius: 6px; }
+    #root .chip { margin: 0; align-self: flex-start; font-size: 28px; font-weight: 600; color: #16181d; background: #fff; border: 2px solid #e7e5df; border-radius: 999px; padding: 8px 20px; }
+    #root .win { position: absolute; overflow: hidden; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1px rgba(22,24,29,0.08), 0 18px 50px rgba(22,24,29,0.10); }
+    #root .stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    #root .shot, #root .shot img { position: absolute; left: 0; top: 0; display: block; }
+    #root .box { position: absolute; box-sizing: border-box; border-style: solid; border-color: #eb6834; }
+    #root .box.blue { border-color: #2a78d6; }
+    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: #b8451a; line-height: 1.2; }
+    #root .lbl.blue { background: #1d5fb0; }
+    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: rgba(22,24,29,0.88); line-height: 1.2; }
+    #root .cursor { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    #root .menu { position: absolute; background: #fff; border-style: solid; border-color: rgba(22,24,29,0.16); box-shadow: 0 8px 28px rgba(22,24,29,0.18); overflow: hidden; }
+    #root .menu p { margin: 0; color: #16181d; white-space: nowrap; }
+    #root .menu p.sel { background: rgba(42, 120, 214, 0.12); color: #1d5fb0; font-weight: 600; }
+    #root .mono { font-family: 'JetBrains Mono', monospace; }
+    
+  </style>
+  <div id="root" data-composition-id="feature-09" data-width="1920" data-height="1080">
+    <div id="feature-09-content" class="content">
+      <div id="feature-09-win1" class="win" style="left:640px;top:96px;width:1170px;height:768px;border-radius:16px;background:#fff"><div id="feature-09-win1-stage" class="stage"><div id="feature-09-img2" class="shot" style="left:0px;top:0px;width:1920px;height:1080px;overflow:hidden;"><img src="captures/top.png" width="1920" height="1080" style="left:0px;top:0px" alt=""></div><div id="feature-09-img3" class="shot" style="left:0px;top:0px;width:1920px;height:1080px;overflow:hidden;"><img src="captures/dark-top.png" width="1920" height="1080" style="left:0px;top:0px" alt=""></div><div id="feature-09-cur4" class="cursor"><div id="feature-09-cur4-i" style="transform-origin:2px 2px"><svg width="34" height="42.5" viewBox="0 0 24 30" aria-hidden="true"><path d="M2 2 L2 24 L8 18.5 L12 27.5 L16 25.8 L12.2 17 L20 17 Z" fill="#16181d" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg></div></div><div id="feature-09-box5" class="box" style="left:1362.35px;top:0.35px;width:144.4px;height:59.3px;border-width:3.28px;border-radius:8.75px"></div><p id="feature-09-box5-l" class="lbl" style="left:1362.35px;top:56.37px;font-size:30.63px;padding:6.56px 13.13px;border-radius:6.56px;margin:0">Theme toggle</p></div></div>
+      <div id="feature-09-win6" class="win" style="left:640px;top:96px;width:1170px;height:768px;border-radius:16px;background:#fff"><div id="feature-09-win6-stage" class="stage"><div id="feature-09-img7" class="shot" style="left:0px;top:0px;width:1136px;height:855px;overflow:hidden;"><img src="captures/dark-map.png" width="1136" height="855" style="left:0px;top:0px" alt=""></div></div></div>
+      <div id="feature-09-col8" class="column" style="left:110px;top:150px;width:480px"><p id="feature-09-col8-k" class="kicker">Required feature 9 of 10</p>
+<h2 id="feature-09-col8-t" class="title" style="font-size:52px">Light and dark mode</h2>
+<p id="feature-09-col8-n0" class="note">A toggle switches the theme.</p>
+<p id="feature-09-col8-n1" class="note">Charts, the map and controls follow the theme.</p></div>
+    </div>
+  </div>
+  <script>
+    // Answer switch: SHOW_ALL_ANSWERS comes from the render (--variables), else the declared default.
+    (function () {
+      var o = window.__hfVariables || {};
+      var show;
+      if (Object.prototype.hasOwnProperty.call(o, 'SHOW_ALL_ANSWERS')) show = !!o.SHOW_ALL_ANSWERS;
+      else {
+        try {
+          var d = JSON.parse(document.documentElement.getAttribute('data-composition-variables') || '[]');
+          show = !!(d.find(function (x) { return x.id === 'SHOW_ALL_ANSWERS'; }) || {}).default;
+        } catch (e) { show = false; }
+      }
+      document.documentElement.setAttribute('data-answers', show ? 'all' : 'hidden');
+    })();
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#feature-09-content', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+    tl.to('#feature-09-content', { opacity: 0, duration: 0.35, ease: 'power2.in' }, 6.13);
+    tl.fromTo('#feature-09-img3', { clipPath: 'inset(0 0 0 100%)' }, { clipPath: 'inset(0 0 0 0%)', duration: 0.7, ease: 'power2.inOut' }, 2.65);
+    tl.set('#feature-09-win1-stage', { x: -585, y: 0.09, scale: 0.9141 }, 0);
+    tl.set('#feature-09-cur4', { x: 1253.1, y: 271.1, scale: 1.09 }, 0);
+    tl.fromTo('#feature-09-cur4', { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' }, 1);
+    tl.to('#feature-09-cur4', { x: 1434.55, y: 30, scale: 1.09, duration: 1, ease: 'power2.inOut' }, 1.1);
+    tl.to('#feature-09-cur4-i', { scale: 0.82, duration: 0.09, ease: 'power2.out' }, 2.15);
+    tl.to('#feature-09-cur4-i', { scale: 1, duration: 0.16, ease: 'power2.out' }, 2.25);
+    tl.to('#feature-09-cur4', { opacity: 0, duration: 0.3 }, 3.6);
+    tl.fromTo(['#feature-09-box5','#feature-09-box5-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.7);
+    tl.to(['#feature-09-box5','#feature-09-box5-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 2.4);
+    tl.fromTo('#feature-09-win6', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, 3.7);
+    tl.set('#feature-09-win6-stage', { x: 74.8, y: 0, scale: 0.8982 }, 0);
+    tl.fromTo('#feature-09-col8-k', { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.25);
+    tl.fromTo('#feature-09-col8-t', { opacity: 0, filter: 'blur(8px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' }, 0.4);
+    tl.fromTo('#feature-09-col8-n0', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 0.9);
+    tl.fromTo('#feature-09-col8-n1', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 3.9);
+    window.__timelines["feature-09"] = tl;
+  </script>
+</template>

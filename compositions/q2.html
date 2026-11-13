@@ -1,0 +1,70 @@
+<template>
+  <style>
+    
+  @font-face { font-family: 'Inter Site'; src: url('assets/fonts/Inter-latin.woff2') format('woff2'); font-weight: 100 900; font-style: normal; }
+  @font-face { font-family: 'Source Serif 4'; src: url('assets/fonts/SourceSerif4-latin.woff2') format('woff2'); font-weight: 600; font-style: normal; }
+
+    #root { position: absolute; inset: 0; overflow: hidden; background: #f1f0ec; font-family: 'Inter Site', sans-serif; color: #16181d; }
+    #root .content { position: absolute; inset: 0; }
+    #root .column { position: absolute; display: flex; flex-direction: column; gap: 22px; }
+    #root .kicker { margin: 0; font-size: 28px; font-weight: 600; color: #b8451a; letter-spacing: 0.01em; }
+    #root .title { margin: 0; font-family: 'Source Serif 4', serif; font-weight: 600; line-height: 1.14; letter-spacing: -0.01em; color: #16181d; }
+    #root .note { margin: 0; font-size: 30px; line-height: 1.38; color: #4a4d55; }
+    #root .note.answer { color: #16181d; font-weight: 600; padding: 14px 18px; background: #fff; border-left: 6px solid #eb6834; border-radius: 6px; }
+    #root .chip { margin: 0; align-self: flex-start; font-size: 28px; font-weight: 600; color: #16181d; background: #fff; border: 2px solid #e7e5df; border-radius: 999px; padding: 8px 20px; }
+    #root .win { position: absolute; overflow: hidden; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1px rgba(22,24,29,0.08), 0 18px 50px rgba(22,24,29,0.10); }
+    #root .stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    #root .shot, #root .shot img { position: absolute; left: 0; top: 0; display: block; }
+    #root .box { position: absolute; box-sizing: border-box; border-style: solid; border-color: #eb6834; }
+    #root .box.blue { border-color: #2a78d6; }
+    #root .lbl { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: #b8451a; line-height: 1.2; }
+    #root .lbl.blue { background: #1d5fb0; }
+    #root .hid { position: absolute; white-space: nowrap; font-weight: 600; color: #fff; background: rgba(22,24,29,0.88); line-height: 1.2; }
+    #root .cursor { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+    #root .menu { position: absolute; background: #fff; border-style: solid; border-color: rgba(22,24,29,0.16); box-shadow: 0 8px 28px rgba(22,24,29,0.18); overflow: hidden; }
+    #root .menu p { margin: 0; color: #16181d; white-space: nowrap; }
+    #root .menu p.sel { background: rgba(42, 120, 214, 0.12); color: #1d5fb0; font-weight: 600; }
+    #root .mono { font-family: 'JetBrains Mono', monospace; }
+    
+  </style>
+  <div id="root" data-composition-id="q2" data-width="1920" data-height="1080">
+    <div id="q2-content" class="content">
+      <div id="q2-win1" class="win" style="left:640px;top:96px;width:1170px;height:768px;border-radius:16px;background:#fff"><div id="q2-win1-stage" class="stage"><div id="q2-img2" class="shot" style="left:0px;top:0px;width:1136px;height:874px;overflow:hidden;"><img src="captures/q2.png" width="1136" height="874" style="left:0px;top:0px" alt=""></div><div id="q2-box3" class="box" style="left:21.96px;top:18.06px;width:1092.09px;height:48.59px;border-width:3.02px;border-radius:8.04px"></div><p id="q2-box3-l" class="lbl" style="left:21.96px;top:-24.77px;font-size:28.15px;padding:6.03px 12.06px;border-radius:6.03px;margin:0">The question</p><div id="q2-box4" class="box" style="left:22.45px;top:78.95px;width:409.9px;height:348.8px;border-width:3.58px;border-radius:9.55px"></div><p id="q2-box4-l" class="lbl" style="left:22.45px;top:424.17px;font-size:33.43px;padding:7.16px 14.33px;border-radius:7.16px;margin:0">Written answer</p><div id="q2-box5" class="box" style="left:469.25px;top:168.65px;width:644.3px;height:637.1px;border-width:3.58px;border-radius:9.55px"></div><p id="q2-box5-l" class="lbl" style="left:469.25px;top:802.17px;font-size:33.43px;padding:7.16px 14.33px;border-radius:7.16px;margin:0">Chart: dumbbell chart</p><div id="q2-box6" class="box blue" style="left:22.48px;top:229.58px;width:409.83px;height:198.23px;border-width:2.07px;border-radius:5.52px"></div><p id="q2-box6-l" class="lbl blue" style="left:22.48px;top:200.2px;font-size:19.31px;padding:4.14px 8.28px;border-radius:4.14px;margin:0">What causes it</p></div></div>
+      <div id="q2-col7" class="column" style="left:110px;top:150px;width:480px"><p id="q2-col7-k" class="kicker">Question 2 of 10. Worked example.</p>
+<h2 id="q2-col7-t" class="title" style="font-size:44px">The answer also explains what causes the gap.</h2>
+<p id="q2-col7-n0" class="note answer">Answer: Athens, GA. Its mean is 32.8% above its median.</p></div>
+    </div>
+  </div>
+  <script>
+    // Answer switch: SHOW_ALL_ANSWERS comes from the render (--variables), else the declared default.
+    (function () {
+      var o = window.__hfVariables || {};
+      var show;
+      if (Object.prototype.hasOwnProperty.call(o, 'SHOW_ALL_ANSWERS')) show = !!o.SHOW_ALL_ANSWERS;
+      else {
+        try {
+          var d = JSON.parse(document.documentElement.getAttribute('data-composition-variables') || '[]');
+          show = !!(d.find(function (x) { return x.id === 'SHOW_ALL_ANSWERS'; }) || {}).default;
+        } catch (e) { show = false; }
+      }
+      document.documentElement.setAttribute('data-answers', show ? 'all' : 'hidden');
+    })();
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo('#q2-content', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+    tl.to('#q2-content', { opacity: 0, duration: 0.35, ease: 'power2.in' }, 7.63);
+    tl.set('#q2-win1-stage', { x: 20.04, y: 296.37, scale: 0.9946 }, 0);
+    tl.fromTo(['#q2-box3','#q2-box3-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.5);
+    tl.to(['#q2-box3','#q2-box3-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 1.9);
+    tl.to('#q2-win1-stage', { x: 109.28, y: 18, scale: 0.8375, duration: 1.3, ease: 'power2.inOut' }, 1.5);
+    tl.fromTo(['#q2-box4','#q2-box4-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 2.6);
+    tl.to(['#q2-box4','#q2-box4-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 4.5);
+    tl.fromTo(['#q2-box5','#q2-box5-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 3.3);
+    tl.to(['#q2-box5','#q2-box5-l'], { opacity: 0, duration: 0.3, ease: 'power2.in' }, 4.5);
+    tl.to('#q2-win1-stage', { x: 255.27, y: 16.57, scale: 1.45, duration: 1.4, ease: 'power2.inOut' }, 4.6);
+    tl.fromTo(['#q2-box6','#q2-box6-l'], { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 5.6);
+    tl.fromTo('#q2-col7-k', { opacity: 0 }, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 0.25);
+    tl.fromTo('#q2-col7-t', { opacity: 0, filter: 'blur(8px)' }, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' }, 0.4);
+    tl.fromTo('#q2-col7-n0', { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 5);
+    window.__timelines["q2"] = tl;
+  </script>
+</template>
