@@ -21,7 +21,7 @@ const full = (p) => ({ x: p.x, y: p.y, w: p.shot.w * p.k, h: p.shot.h * p.k });
 
 // ---------- Cards ----------
 
-function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, subWidth = 1100, immediate = false, image = null, underline = null }) {
+function card(S, { kicker, title, sub, sub2 = null, titleSize = 72, subSize = 36, subWidth = 1100, immediate = false, image = null, underline = null, times: beats = null }) {
   const id = `${S.id}-card`;
   const parts = [];
   const items = [];
@@ -36,10 +36,12 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, subWidth = 
   if (kicker) add('kicker', kicker, 32);
   add('title', title, titleSize, 'max-width:1500px;margin-bottom:6px');
   if (sub) add('note', sub, subSize, `max-width:${subWidth}px`, underline ? underlined(S, sub, underline) : sub);
+  // A second line that arrives later, for a card the narration holds longer.
+  if (sub2) add('note', sub2.text, subSize, `max-width:${subWidth}px;font-weight:600`, sub2.underline ? underlined(S, sub2.text, sub2.underline) : sub2.text);
   // Centred in the area above the caption band; the opening card (with its image) is centred in
   // the whole frame, sized so that it still ends above the caption band.
   S.raw(`<div id="${id}" data-hold style="position:absolute;left:0;top:0;width:1920px;height:${image ? 1080 : 880}px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px">${parts.join('')}</div>`);
-  const times = immediate ? [null, null, 0.9] : kicker ? [0.3, 0.5, 1.3] : [0.4, 0.8];
+  const times = beats || (immediate ? [null, null, 0.9] : kicker ? [0.3, 0.5, 1.3] : [0.4, 0.8]);
   items.forEach((pid, i) => {
     if (times[i] == null) return; // already on screen at frame 0
     const blur = pid.endsWith('-0') && !kicker || (kicker && pid.endsWith('-1'));
@@ -52,7 +54,7 @@ function card(S, { kicker, title, sub, titleSize = 72, subSize = 36, subWidth = 
 // A hand-drawn underline under one word: a thin, gently curved ink stroke of even width with
 // slightly rough edges, drawn from left to right by widening a clip rectangle.
 function underlined(S, text, { word, at = 1.7 }) {
-  const u = `${S.id}-ul`;
+  const u = S.uid('ul');
   const ink = C.black;
   const svg = `<svg aria-hidden="true" viewBox="0 0 120 22" preserveAspectRatio="none" style="position:absolute;left:-0.18em;top:calc(100% - 0.31em);width:calc(100% + 0.36em);height:0.5em;overflow:visible">
     <defs>
@@ -125,15 +127,25 @@ export const scenes = {
     },
   },
 
+  // Designed at its narrated length: beats follow the words of its line in narration.json.
   'questions-intro': {
-    base: 4.5,
+    base: 16,
     build(S) {
       const w = S.window({ ...WIN, y: 236, h: 420 });
       const p = w.img('questions-intro');
       w.cam(0, full(p), { dur: 0, pad: 24 });
-      w.box(w.r(p, 'intro'), { label: 'How the questions work', at: 1.4, pos: 'right' });
-      S.column({ ...COL, kicker: 'Ten questions', title: 'Q1 to Q6 always use the full dataset.', notes: [{ text: 'Q7 to Q10 update when a visitor changes a setting.', at: 1.6 }] });
-      w.drift(2.0, { factor: 1.05, toward: w.r(p, 'intro') });
+      w.box(w.r(p, 'intro'), { label: 'How the questions work', at: 1.2, pos: 'right', until: 8.6 });
+      S.column({
+        ...COL,
+        kicker: 'Ten questions',
+        title: 'Q1 to Q6 always use the full dataset.',
+        notes: [
+          { text: 'Q7 to Q10 update when a visitor changes a setting.', at: 4.4 },
+          { text: 'Every chart here is one example.', at: 9.1 },
+          { text: 'Yours can use other charts, colors and layouts.', at: 11.6 },
+        ],
+      });
+      w.drift(7.4, { factor: 1.06, toward: w.r(p, 'intro') });
     },
   },
 
@@ -437,15 +449,18 @@ export const scenes = {
 
   design: { base: 21, build: designScene },
 
+  // Designed at its narrated length: beats follow the words of its line in narration.json.
   closing: {
-    base: 7,
+    base: 16,
     build(S) {
       S.fadeOut = 0;
       card(S, {
-        image: { src: 'assets/images/design-tools-riso.webp', w: 520, space: 36 },
+        image: { src: 'assets/images/design-tools-riso.webp', w: 440, space: 30 },
         kicker: 'One sample site, not the answer key.',
         title: 'Your site will look different, and that is expected.',
         sub: 'Check your numbers against the rules in the case, not against this video.',
+        sub2: { text: 'Beyond that, be as creative as you like. Make the site your own.', underline: { word: 'creative', at: 8.6 } },
+        times: [0.3, 0.5, 3.5, 7.2],
         subWidth: 1400,
         titleSize: 64,
       });

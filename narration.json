@@ -4,16 +4,16 @@
   "lines": {
     "title": "Here's one sample site for the College-Town Home Sales case. It isn't the answer key, and it isn't the only way to build it.",
     "first-look": "The whole site is one long page. Ten questions come first, then a section to explore the data, two short insights, and the data and methods.",
-    "questions-intro": "Questions one to six always use the full dataset. Seven to ten change with the visitor's own settings.",
-    "q1": "Question one asks which city has the highest median sale price. The site writes the answer out, Davis, California, at eight hundred eighty-nine thousand dollars, and then shows it in a bar chart.",
+    "questions-intro": "Questions one to six always use the full dataset. Seven to ten change with the visitor's own settings. As we go, keep in mind that every chart here is just one example. Your site can use different charts, colors and layouts.",
+    "q1": "Question one asks which city has the highest median sale price. The site writes the answer out, Davis, California, at eight hundred eighty-nine thousand dollars, and then shows it in a bar chart. A dot plot, or a different color scheme, would work just as well.",
     "q2": "Question two compares each city's mean and median price. Athens, Georgia has the widest gap, thirty-two point eight percent, and the site explains what causes it.",
     "q3": "For question three, a slope chart shows which cities change rank once the price rule is applied.",
-    "q4": "Question four uses a bar chart for the change in median price from 2024 to 2025.",
+    "q4": "Question four uses a bar chart for the change in median price from 2024 to 2025. The bars run sideways here, but up and down is fine too.",
     "q5": "Question five uses a box plot, so you see the spread of days on market, not only the median.",
-    "q6": "And question six compares the property tax burden with a dot chart.",
+    "q6": "And question six compares the property tax burden with a dot chart. Again, these chart types are only examples. Pick the chart and the style that you think tell the story best.",
     "q7": "From question seven on, the visitor picks the settings. Change the number of bedrooms, and the answer and the chart update.",
     "q8": "Question eight takes any price range you type in.",
-    "q9": "Question nine counts the sales in each month, for a city and year you choose.",
+    "q9": "Question nine counts the sales in each month, for a city and year you choose. This site uses columns, but a line chart would work too.",
     "q10": "And question ten finds how far from campus the homes are, for a campus area, a budget and a number of bedrooms.",
     "insights": "The insights section has two short notes. One on data quality, and one on what it was like to work with a coding agent.",
     "features-intro": "Next, the ten required features.",
@@ -27,7 +27,7 @@
     "feature-08": "A layout that works on a desktop and on a phone, with no sideways scrolling.",
     "feature-09": "A light and a dark mode, where the charts, the map and the controls follow the theme.",
     "feature-10": "And a data and methods section with the rules behind every number. Across the ten questions, the site uses seven chart types.",
-    "design": "Finally, the design. A serif for headings and a sans serif for text. A small color palette, with the answer in the accent color. Even spacing, styled controls, finished charts, and small touches like a loading message and a real page title.",
-    "closing": "Your site will look different, and that's expected. Check your numbers against the rules in the case, not against this video."
+    "design": "Finally, the design. A serif for headings and a sans serif for text. A small color palette, with the answer in the accent color. Even spacing, styled controls, finished charts, and small touches like a loading message and a real page title. These are this site's choices, not rules. Your fonts, colors and layout can look completely different.",
+    "closing": "Your site will look different, and that's expected. Check your numbers against the rules in the case, not against this video. Beyond that, be as creative as you'd like. Try your own charts, colors and layout, and make the site your own."
   }
 }

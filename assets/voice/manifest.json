@@ -12,13 +12,13 @@
   },
   "questions-intro": {
    "file": "assets/voice/questions-intro.mp3",
-   "duration": 7.001,
-   "hash": "d68b9f7911775127"
+   "duration": 14.446,
+   "hash": "00a0b2653bf93c53"
   },
   "q1": {
    "file": "assets/voice/q1.mp3",
-   "duration": 13.035,
-   "hash": "c8ad3732a529da0b"
+   "duration": 17.554,
+   "hash": "b9e69bfff6f7fbcd"
   },
   "q2": {
    "file": "assets/voice/q2.mp3",
@@ -32,8 +32,8 @@
   },
   "q4": {
    "file": "assets/voice/q4.mp3",
-   "duration": 7.131,
-   "hash": "1321d50a75251358"
+   "duration": 10.945,
+   "hash": "39e46bb32726e76d"
   },
   "q5": {
    "file": "assets/voice/q5.mp3",
@@ -42,8 +42,8 @@
   },
   "q6": {
    "file": "assets/voice/q6.mp3",
-   "duration": 4.18,
-   "hash": "1164b16caaaffc4e"
+   "duration": 10.815,
+   "hash": "83f85d3da6d745e9"
   },
   "q7": {
    "file": "assets/voice/q7.mp3",
@@ -57,8 +57,8 @@
   },
   "q9": {
    "file": "assets/voice/q9.mp3",
-   "duration": 5.747,
-   "hash": "5024d0915a0f7384"
+   "duration": 9.43,
+   "hash": "93624d89e98ac63d"
   },
   "q10": {
    "file": "assets/voice/q10.mp3",
@@ -127,13 +127,13 @@
   },
   "design": {
    "file": "assets/voice/design.mp3",
-   "duration": 16.379,
-   "hash": "94b4d6caa2fe7e86"
+   "duration": 22.57,
+   "hash": "4b5f2220a24cbea9"
   },
   "closing": {
    "file": "assets/voice/closing.mp3",
-   "duration": 6.348,
-   "hash": "67853a4fbefb1ac0"
+   "duration": 14.341,
+   "hash": "a49b13b0031210c7"
   }
  },
  "voice": {

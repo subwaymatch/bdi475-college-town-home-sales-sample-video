@@ -1,8 +1,8 @@
 # College-Town Home Sales: one sample site (demo video)
 
-This repository holds the source of a short narrated video (just under 4 minutes) that walks through one sample website for the College-Town Home Sales data analytics case. The case asks learners to build, with a coding agent, a website that analyzes home sales in U.S. college towns.
+This repository holds the source of a short narrated video (4 minutes 36 seconds) that walks through one sample website for the College-Town Home Sales data analytics case. The case asks learners to build, with a coding agent, a website that analyzes home sales in U.S. college towns.
 
-The video shows one possible finished site: how it answers the case's questions, and how it meets the required features and the design items. It is not the answer key and not the only right design. The video says this at the start and at the end.
+The video shows one possible finished site: how it answers the case's questions, and how it meets the required features and the design items. It is not the answer key and not the only right design. The video says this at the start and at the end, and the narration repeats through the questions and the design section that other charts, colors and layouts work just as well.
 
 The video is made with [HyperFrames](https://github.com/heygen-com/hyperframes), which renders HTML to video. Every scene is built from screenshots of the real site, taken with headless Chrome.
 
